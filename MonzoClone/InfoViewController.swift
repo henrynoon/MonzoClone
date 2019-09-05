@@ -22,7 +22,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let header4ID = "header4ID"
     let header5ID = "header5ID"
     let header6ID = "header6ID"
-//    let footerID = "footerID"
+    let footerID = "footerID"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header5ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header6ID)
         
-//        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
+        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
     }
     
     //setting number of sections
@@ -96,9 +97,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
             cell6.backgroundColor = .cyan
             return cell6
         }
-        
-        //NB, I could definitely simply this with a loop
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -114,11 +112,9 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if section == 3 {
             return 3
         }
-        
         if section == 4 {
             return 1
         }
-        
         else {
             return 2
         }
@@ -139,66 +135,57 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if indexPath.section == 3 {
             return CGSize(width: view.frame.width, height: 50)
         }
-        
         if indexPath.section == 4 {
             return CGSize(width: view.frame.width, height: 50)
         }
-        
-        else {
+        else { //for indexPath.section ==5
             return CGSize(width: view.frame.width, height: 50)
         }
     }
     
     //create the header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let header1 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header1ID, for: indexPath)
-        let header2 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header2ID, for: indexPath)
-        let header3 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header3ID, for: indexPath)
-        let header4 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header4ID, for: indexPath)
-        let header5 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header5ID, for: indexPath)
-        let header6 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header6ID, for: indexPath)
-        
-//        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
 
-        
-        
-//        if kind == UICollectionView.elementKindSectionHeader { // it's the header
+        if kind == UICollectionView.elementKindSectionHeader {
+
             if indexPath.section == 0 {
+                let header1 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header1ID, for: indexPath)
                 header1.backgroundColor = UIColor(red: 0.9686, green: 0.8314, blue: 0.3765, alpha: 1.0)
                 return header1
             }
             if indexPath.section == 1 {
+                let header2 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header2ID, for: indexPath)
                 header2.backgroundColor = UIColor(red: 0.5059, green: 0.9373, blue: 0.451, alpha: 1.0)
                 return header2
             }
             if indexPath.section == 2 {
+                let header3 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header3ID, for: indexPath)
                 header3.backgroundColor = UIColor(red: 0.9569, green: 0.9176, blue: 0.4588, alpha: 1.0)
                 return header3
             }
             if indexPath.section == 3 {
+                let header4 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header4ID, for: indexPath)
                 header4.backgroundColor = UIColor(red: 0.949, green: 0.4863, blue: 0.4549, alpha: 1.0)
                 return header4
             }
             if indexPath.section == 4 {
+                let header5 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header5ID, for: indexPath)
                 header5.backgroundColor = UIColor(red: 0.8667, green: 0.4314, blue: 0.898, alpha: 1.0)
                 return header5
             }
-            else {
+            else { //for indexPath.section == 5
+                let header6 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header6ID, for: indexPath)
                 header6.backgroundColor = UIColor(red: 0.3765, green: 0.6941, blue: 0.7569, alpha: 1.0)
                 return header6
             }
-//        } else {
-//            return footer
-//        }
+        } else { //if kind == UICollectionView.elementKindSectionHeader
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
+            footer.backgroundColor = .black
+            return footer
+        }
+        
+        //NB - I might simplify with a 'switch' statement
     }
-
-//if indexPath.section == 5 {
-//    footer.backgroundColor = UIColor(red: 0.1686, green: 0.298, blue: 0.149, alpha: 1.0)
-//    return footer
-//} else {
-    //                return
-
 
 
     //setting size of header
@@ -224,11 +211,29 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
     
-    
+
     //setting size of footer
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-//
-//        return CGSize(width: view.frame.width, height: 20)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        if section == 0 {
+            return .zero
+        }
+        if section == 1 {
+            return .zero
+        }
+        if section == 2 {
+            return .zero
+        }
+        if section == 3 {
+            return .zero
+        }
+        if section == 4 {
+            return .zero
+            
+        } else { //for section == 5
+            return CGSize(width: view.frame.width, height: 50)
+        }
+    }
 }
+
 
