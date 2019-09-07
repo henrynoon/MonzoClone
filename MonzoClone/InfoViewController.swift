@@ -47,7 +47,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
-        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header1ID)
+        collectionView?.register(Header1Cell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header1ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header2ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header3ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header4ID)
@@ -150,7 +150,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
 
             if indexPath.section == 0 {
                 let header1 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header1ID, for: indexPath)
-                header1.backgroundColor = UIColor(red: 0.9686, green: 0.8314, blue: 0.3765, alpha: 1.0)
+//                header1.backgroundColor = UIColor(red: 0.9686, green: 0.8314, blue: 0.3765, alpha: 1.0)
                 return header1
             }
             if indexPath.section == 1 {

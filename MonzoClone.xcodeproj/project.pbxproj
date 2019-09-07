@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E1350532323CF5700E84F8D /* Header1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* Header1Cell.swift */; };
+		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
 		5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1AF232001A6004A4293 /* AppDelegate.swift */; };
 		5E65B1B5232001A6004A4293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B3232001A6004A4293 /* Main.storyboard */; };
 		5E65B1B7232001A7004A4293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B6232001A7004A4293 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E1350522323CF5700E84F8D /* Header1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header1Cell.swift; sourceTree = "<group>"; };
+		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E65B1AC232001A6004A4293 /* MonzoClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonzoClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E65B1AF232001A6004A4293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E65B1B4232001A6004A4293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E1350512323CF4300E84F8D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5E1350522323CF5700E84F8D /* Header1Cell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5E1350542323CF6400E84F8D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5E1350552323CF9800E84F8D /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		5E65B1A3232001A6004A4293 = {
 			isa = PBXGroup;
 			children = (
@@ -56,24 +76,18 @@
 		5E65B1AE232001A6004A4293 /* MonzoClone */ = {
 			isa = PBXGroup;
 			children = (
+				5E65B1AF232001A6004A4293 /* AppDelegate.swift */,
 				5E65B1C523200654004A4293 /* HomeViewController.swift */,
 				5E65B1C3232004AD004A4293 /* InfoViewController.swift */,
 				5E65B1C22320048B004A4293 /* Layouts */,
-				5E65B1C123200461004A4293 /* Cells */,
-				5E65B1AF232001A6004A4293 /* AppDelegate.swift */,
-				5E65B1B3232001A6004A4293 /* Main.storyboard */,
+				5E1350512323CF4300E84F8D /* Cells */,
+				5E1350542323CF6400E84F8D /* Utilities */,
 				5E65B1B6232001A7004A4293 /* Assets.xcassets */,
+				5E65B1B3232001A6004A4293 /* Main.storyboard */,
 				5E65B1B8232001A7004A4293 /* LaunchScreen.storyboard */,
 				5E65B1BB232001A7004A4293 /* Info.plist */,
 			);
 			path = MonzoClone;
-			sourceTree = "<group>";
-		};
-		5E65B1C123200461004A4293 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		5E65B1C22320048B004A4293 /* Layouts */ = {
@@ -156,6 +170,8 @@
 			files = (
 				5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */,
 				5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */,
+				5E1350532323CF5700E84F8D /* Header1Cell.swift in Sources */,
+				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
 				5E65B1C623200654004A4293 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
