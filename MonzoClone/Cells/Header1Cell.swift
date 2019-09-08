@@ -11,8 +11,6 @@ import MapKit
 
 class Header1Cell: UICollectionReusableView {
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(mapView)
@@ -23,7 +21,6 @@ class Header1Cell: UICollectionReusableView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
     let mapView: MKMapView = {
         let map = MKMapView()
@@ -93,9 +90,4 @@ class Header1Cell: UICollectionReusableView {
         addSubview(verticalStackView)
         verticalStackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
     }
-  
-    
-    
-    
-    
 }
