@@ -29,15 +29,11 @@ class Header1Cell: UICollectionReusableView {
     
     let shopLogo: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "Sainsbury's Logo"))
-        
         let logoSize = CGSize(width: 50, height: 50)
-        
         logo.widthAnchor.constraint(equalToConstant: logoSize.width).isActive = true
         logo.heightAnchor.constraint(equalToConstant: logoSize.height).isActive = true
-        
         logo.layer.cornerRadius = 8
         logo.clipsToBounds = true
-        
         return logo
     }()
     
