@@ -192,7 +192,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
         if section == 0 {
-            return CGSize(width: view.frame.width, height: 300)
+            return CGSize(width: view.frame.width, height: 250)
         }
         if section == 1 {
             return CGSize(width: view.frame.width, height: 50)

@@ -15,6 +15,7 @@ class Header1Cell: UICollectionReusableView {
         super.init(frame: frame)
         addSubview(mapView)
         mapView.fillSuperview()
+        setUpGradientLayer()
         setUpStackViews()
     }
     
@@ -85,5 +86,21 @@ class Header1Cell: UICollectionReusableView {
         verticalStackView.spacing = 5
         addSubview(verticalStackView)
         verticalStackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+    }
+    
+    
+    fileprivate func setUpGradientLayer() {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
+        gradientLayer.locations = [0.3, 0.8, 1]
+        
+        let gradientContainerView = UIView()
+        addSubview(gradientContainerView)
+        gradientContainerView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        gradientContainerView.layer.addSublayer(gradientLayer)
+
+        gradientLayer.frame = self.bounds
+        gradientLayer.frame.origin.y -= bounds.height
     }
 }
