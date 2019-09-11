@@ -15,6 +15,7 @@ class Header1Cell: UICollectionReusableView {
         super.init(frame: frame)
         addSubview(mapView)
         mapView.fillSuperview()
+        setUpMap()
         setUpGradientLayer()
         setUpStackViews()
     }
@@ -102,5 +103,13 @@ class Header1Cell: UICollectionReusableView {
 
         gradientLayer.frame = self.bounds
         gradientLayer.frame.origin.y -= bounds.height
+    }
+    
+    fileprivate func setUpMap() {
+        
+        let location = CLLocationCoordinate2D(latitude: 51.420713, longitude: -0.209699)
+        let zoom = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let region = MKCoordinateRegion(center: location, span: zoom)
+        mapView.setRegion(region, animated: true)
     }
 }
