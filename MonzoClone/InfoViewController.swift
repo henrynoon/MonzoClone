@@ -40,7 +40,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //registering the cells, headers, footers
     fileprivate func setUpCollectionView() {
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell1ID)
+        collectionView?.register(SectionZeroCell.self, forCellWithReuseIdentifier: cell1ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell2ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
@@ -72,7 +72,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
   
         if indexPath.section == 0 {
-            cell1.backgroundColor = .orange
             return cell1
         }
         if indexPath.section == 1 {

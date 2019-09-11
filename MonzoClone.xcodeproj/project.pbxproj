@@ -16,6 +16,7 @@
 		5E65B1BA232001A7004A4293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B8232001A7004A4293 /* LaunchScreen.storyboard */; };
 		5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1C3232004AD004A4293 /* InfoViewController.swift */; };
 		5E65B1C623200654004A4293 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1C523200654004A4293 /* HomeViewController.swift */; };
+		5EC2AA6B23297B2E00FE5EB5 /* SectionZeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* SectionZeroCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5E65B1BB232001A7004A4293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E65B1C3232004AD004A4293 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		5E65B1C523200654004A4293 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5EC2AA6A23297B2E00FE5EB5 /* SectionZeroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionZeroCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				5E1350522323CF5700E84F8D /* Header1Cell.swift */,
+				5EC2AA6A23297B2E00FE5EB5 /* SectionZeroCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC2AA6B23297B2E00FE5EB5 /* SectionZeroCell.swift in Sources */,
 				5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */,
 				5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */,
 				5E1350532323CF5700E84F8D /* Header1Cell.swift in Sources */,
