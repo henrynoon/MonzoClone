@@ -150,7 +150,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
 
             if indexPath.section == 0 {
                 let header1 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header1ID, for: indexPath)
-//                header1.backgroundColor = UIColor(red: 0.9686, green: 0.8314, blue: 0.3765, alpha: 1.0)
                 return header1
             }
             if indexPath.section == 1 {
