@@ -111,5 +111,16 @@ class Header1Cell: UICollectionReusableView {
         let zoom = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: location, span: zoom)
         mapView.setRegion(region, animated: true)
+        
+        let pin = CustomPin(pinLocation: location)
+        mapView.addAnnotation(pin)
+    }
+}
+
+class CustomPin: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    
+    init(pinLocation: CLLocationCoordinate2D) {
+        coordinate = pinLocation
     }
 }
