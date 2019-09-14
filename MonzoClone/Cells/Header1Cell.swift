@@ -114,6 +114,10 @@ class Header1Cell: UICollectionReusableView {
         
         let pin = CustomPin(pinLocation: location)
         mapView.addAnnotation(pin)
+
+        mapView.isZoomEnabled = false
+        mapView.isScrollEnabled = false
+        mapView.isUserInteractionEnabled = false
     }
 }
 
