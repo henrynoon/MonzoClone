@@ -21,12 +21,11 @@ class PaymentInfoCell: UICollectionViewCell {
     
     let infoLabel: UILabel = {
         let label = UILabel()
-        label.text = "Groceries"
         return label
     }()
     
     let iconImageView: UIImageView = {
-        let icon = UIImageView(image: #imageLiteral(resourceName: "Sainsbury's Logo"))
+        let icon = UIImageView()
         let iconSize = CGSize(width: 30, height: 30)
         icon.widthAnchor.constraint(equalToConstant: iconSize.width).isActive = true
         icon.heightAnchor.constraint(equalToConstant: iconSize.height).isActive = true
