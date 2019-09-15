@@ -10,7 +10,7 @@ import UIKit
 
 class InfoViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let cell1ID = "cell1ID"
+    let paymentInfoCellID = "paymentInfoCellID"
     let cell2ID = "cell2ID"
     let cell3ID = "cell3ID"
     let cell4ID = "cell4ID"
@@ -40,7 +40,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //registering the cells, headers, footers
     fileprivate func setUpCollectionView() {
-        collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: cell1ID)
+        collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: paymentInfoCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell2ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
@@ -64,7 +64,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //creating cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: cell1ID, for: indexPath)
         let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: cell2ID, for: indexPath)
         let cell3 = collectionView.dequeueReusableCell(withReuseIdentifier: cell3ID, for: indexPath)
         let cell4 = collectionView.dequeueReusableCell(withReuseIdentifier: cell4ID, for: indexPath)
@@ -72,7 +71,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
   
         if indexPath.section == 0 {
-            return cell1
+            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath)
+            return paymentInfoCell
         }
         if indexPath.section == 1 {
             cell2.backgroundColor = .green
