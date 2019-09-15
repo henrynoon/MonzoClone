@@ -11,6 +11,6 @@ import UIKit
 class PaymentInfo: NSObject {
 
     var usefulIcon: String?
-    var titleText: String?
+    var title: String?
     
 }

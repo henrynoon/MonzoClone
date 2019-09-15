@@ -23,6 +23,22 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let header5ID = "header5ID"
     let header6ID = "header6ID"
     let footerID = "footerID"
+    
+    var paymentInfo: [PaymentInfo] = {
+        var category = PaymentInfo()
+        category.title = "Groceries"
+        category.usefulIcon = "Category Icon"
+        
+        var notes = PaymentInfo()
+        notes.title = "Add notes and #tags"
+        notes.usefulIcon = "Notes Icon"
+        
+        var receipt = PaymentInfo()
+        receipt.title = "Add receipt"
+        receipt.usefulIcon = "Receipt Icon"
+        
+        return [category, notes, receipt]
+    }()
 
     
     override func viewDidLoad() {
