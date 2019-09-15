@@ -16,7 +16,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let cell4ID = "cell4ID"
     let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
-    let header1ID = "header1ID"
+    let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
     let header2ID = "header2ID"
     let header3ID = "header3ID"
     let header4ID = "header4ID"
@@ -47,7 +47,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
-        collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header1ID)
+        collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: paymentInfoHeaderCellID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header2ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header3ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header4ID)
@@ -148,8 +148,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if kind == UICollectionView.elementKindSectionHeader {
 
             if indexPath.section == 0 {
-                let header1 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header1ID, for: indexPath)
-                return header1
+                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: paymentInfoHeaderCellID, for: indexPath)
+                return paymentInfoHeaderCell
             }
             if indexPath.section == 1 {
                 let header2 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header2ID, for: indexPath)
