@@ -24,7 +24,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let header6ID = "header6ID"
     let footerID = "footerID"
     
-    var paymentInfo: [PaymentInfo] = {
+    var paymentInfoArray: [PaymentInfo] = {
         var category = PaymentInfo()
         category.title = "Groceries"
         category.usefulIcon = "Category Icon"
@@ -87,7 +87,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
   
         if indexPath.section == 0 {
-            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath)
+            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath) as! PaymentInfoCell
+            paymentInfoCell.paymentInfo = paymentInfoArray[indexPath.item]
             return paymentInfoCell
         }
         if indexPath.section == 1 {
@@ -102,12 +103,10 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
             cell4.backgroundColor = .red
             return cell4
         }
-        
         if indexPath.section == 4 {
             cell5.backgroundColor = .purple
             return cell5
         }
-        
         else {
             cell6.backgroundColor = .cyan
             return cell6
@@ -116,7 +115,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 3
+            return paymentInfoArray.count
         }
         if section == 1 {
             return 2

@@ -39,4 +39,11 @@ class PaymentInfoCell: UICollectionViewCell {
         addSubview(stackView)
         stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 10))
     }
+    
+    var paymentInfo: PaymentInfo? {
+        didSet {
+            iconImageView.image = UIImage(named: (paymentInfo?.usefulIcon)!)
+            infoLabel.text = paymentInfo?.title
+        }
+    }
 }
