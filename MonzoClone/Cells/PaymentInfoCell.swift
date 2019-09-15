@@ -25,7 +25,7 @@ class PaymentInfoCell: UICollectionViewCell {
         return label
     }()
     
-    let usefulIcon: UIImageView = {
+    let iconImageView: UIImageView = {
         let icon = UIImageView(image: #imageLiteral(resourceName: "Sainsbury's Logo"))
         let iconSize = CGSize(width: 30, height: 30)
         icon.widthAnchor.constraint(equalToConstant: iconSize.width).isActive = true
@@ -34,7 +34,7 @@ class PaymentInfoCell: UICollectionViewCell {
     }()
     
     fileprivate func setUpStackView() {
-        let stackView = UIStackView(arrangedSubviews: [usefulIcon, infoLabel])
+        let stackView = UIStackView(arrangedSubviews: [iconImageView, infoLabel])
         stackView.axis = .horizontal
         stackView.spacing = 16
         addSubview(stackView)
