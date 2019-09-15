@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E1350532323CF5700E84F8D /* Header1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* Header1Cell.swift */; };
+		5E1350532323CF5700E84F8D /* PaymentInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* PaymentInfoHeaderCell.swift */; };
 		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
 		5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */; };
 		5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1AF232001A6004A4293 /* AppDelegate.swift */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5E1350522323CF5700E84F8D /* Header1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header1Cell.swift; sourceTree = "<group>"; };
+		5E1350522323CF5700E84F8D /* PaymentInfoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFlowLayout.swift; sourceTree = "<group>"; };
 		5E65B1AC232001A6004A4293 /* MonzoClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonzoClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +48,7 @@
 		5E1350512323CF4300E84F8D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5E1350522323CF5700E84F8D /* Header1Cell.swift */,
+				5E1350522323CF5700E84F8D /* PaymentInfoHeaderCell.swift */,
 				5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */,
 			);
 			path = Cells;
@@ -177,7 +177,7 @@
 				5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */,
 				5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */,
 				5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */,
-				5E1350532323CF5700E84F8D /* Header1Cell.swift in Sources */,
+				5E1350532323CF5700E84F8D /* PaymentInfoHeaderCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
 				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
 				5E65B1C623200654004A4293 /* HomeViewController.swift in Sources */,

@@ -47,7 +47,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
-        collectionView?.register(Header1Cell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header1ID)
+        collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header1ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header2ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header3ID)
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header4ID)
