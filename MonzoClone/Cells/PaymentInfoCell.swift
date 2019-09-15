@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectionZeroCell: UICollectionViewCell {
+class PaymentInfoCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

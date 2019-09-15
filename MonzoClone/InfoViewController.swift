@@ -40,7 +40,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //registering the cells, headers, footers
     fileprivate func setUpCollectionView() {
-        collectionView?.register(SectionZeroCell.self, forCellWithReuseIdentifier: cell1ID)
+        collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: cell1ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell2ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
