@@ -30,7 +30,7 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     }()
     
     let shopLogo: UIImageView = {
-        let logo = UIImageView(image: #imageLiteral(resourceName: "Sainsbury's Logo"))
+        let logo = UIImageView()
         let logoSize = CGSize(width: 50, height: 50)
         logo.widthAnchor.constraint(equalToConstant: logoSize.width).isActive = true
         logo.heightAnchor.constraint(equalToConstant: logoSize.height).isActive = true
@@ -46,7 +46,6 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     let shopNameLabel: UILabel = {
         let shop = UILabel()
-        shop.text = "Sainsbury's"
         shop.font = .systemFont(ofSize: 20, weight: .regular)
         shop.textColor = .black
         return shop
@@ -54,7 +53,6 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     let addressLabel: UILabel = {
        let address = UILabel()
-        address.text = "8-12 Worple Rd, Wimbledon SW19 4DD"
         address.font = .systemFont(ofSize: 12, weight: .light)
         address.textColor = .gray
         return address
@@ -62,10 +60,19 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     let priceLabel: UILabel = {
         let price = UILabel()
-        price.text = "£5.45"
         price.font = .systemFont(ofSize: 24, weight: .regular)
         price.textColor = .black
         return price
+    }()
+    
+    let mapLatitude: CLLocationDegrees = {
+        let lat = CLLocationDegrees()
+        return lat
+    }()
+    
+    let mapLongitude: CLLocationDegrees = {
+        let long = CLLocationDegrees()
+        return long
     }()
     
     fileprivate func setUpStackViews() {
@@ -107,7 +114,7 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     fileprivate func setUpMap() {
         
-        let location = CLLocationCoordinate2D(latitude: 51.420713, longitude: -0.209699)
+        let location = CLLocationCoordinate2D(latitude: mapLatitude, longitude: mapLongitude)
         let zoom = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: location, span: zoom)
         mapView.setRegion(region, animated: true)
