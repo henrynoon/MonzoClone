@@ -27,12 +27,18 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     var paymentInfoHeaderArray: [PaymentInfoHeader] = {
        //getMonzoData()...which I'll do later
         var shop = PaymentInfoHeader()
-        shop.name = "Sainsbury's"
-        shop.address = "8-12 Worple Rd, Wimbledon SW19 4DD"
-        shop.logo = "Sainsbury's Logo"
-        shop.price = "£5.45"
+        shop.amount = "£5.45"
+        shop.created = "2019-03-15T20:26:18Z"
+        shop.address = "8-12 Worple Rd, Wimbledon"
+        shop.city = "London"
+        shop.country = "GB"
         shop.latitude = 51.420713
         shop.longitude = -0.209699
+        shop.postcode = "SW19 4DD"
+        shop.region = "Greater London"
+        shop.logo = "Sainsbury's Logo"
+        shop.name = "Sainsbury's"
+        
         return [shop]
     }()
 

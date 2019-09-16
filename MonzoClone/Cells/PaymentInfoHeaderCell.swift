@@ -128,12 +128,13 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     var paymentInfoHeader: PaymentInfoHeader? {
         didSet {
-            shopLogo.image = UIImage(named: (paymentInfoHeader?.logo)!)
-            shopNameLabel.text = paymentInfoHeader?.name
+            priceLabel.text = paymentInfoHeader?.amount
             addressLabel.text = paymentInfoHeader?.address
-            priceLabel.text = paymentInfoHeader?.price
             mapLatitude = (paymentInfoHeader?.latitude!)!
             mapLongitude = (paymentInfoHeader?.longitude!)!
+            shopLogo.image = UIImage(named: (paymentInfoHeader?.logo)!)
+            shopNameLabel.text = paymentInfoHeader?.name
+            
             setUpMap()
         }
     }
