@@ -64,13 +64,13 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
         return price
     }()
     
-    var mapLatitude: Double = {
-        let lat = Double()
+    var mapLatitude: CLLocationDegrees = {
+        let lat = CLLocationDegrees()
         return lat
     }()
     
-    var mapLongitude: Double = {
-        let long = Double()
+    var mapLongitude: CLLocationDegrees = {
+        let long = CLLocationDegrees()
         return long
     }()
     
@@ -113,7 +113,7 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     fileprivate func setUpMap() {
         
-        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(mapLatitude), longitude: CLLocationDegrees(mapLongitude))
+        let location = CLLocationCoordinate2D(latitude: mapLatitude, longitude: mapLongitude)
         let zoom = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: location, span: zoom)
         mapView.setRegion(region, animated: true)

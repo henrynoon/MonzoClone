@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
 class PaymentInfoHeader: NSObject {
 
-    var latitude: Double?
-    var longitude: Double?
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
     var logo: String?
     var name: String?
     var address: String?
