@@ -15,7 +15,6 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
         super.init(frame: frame)
         addSubview(mapView)
         mapView.fillSuperview()
-        setUpMap()
         setUpGradientLayer()
         setUpStackViews()
     }
@@ -65,13 +64,13 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
         return price
     }()
     
-    let mapLatitude: CLLocationDegrees = {
-        let lat = CLLocationDegrees()
+    var mapLatitude: Double = {
+        let lat = Double()
         return lat
     }()
     
-    let mapLongitude: CLLocationDegrees = {
-        let long = CLLocationDegrees()
+    var mapLongitude: Double = {
+        let long = Double()
         return long
     }()
     
@@ -114,7 +113,7 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     
     fileprivate func setUpMap() {
         
-        let location = CLLocationCoordinate2D(latitude: mapLatitude, longitude: mapLongitude)
+        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(mapLatitude), longitude: CLLocationDegrees(mapLongitude))
         let zoom = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: location, span: zoom)
         mapView.setRegion(region, animated: true)
@@ -125,6 +124,18 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
         mapView.isZoomEnabled = false
         mapView.isScrollEnabled = false
         mapView.isUserInteractionEnabled = false
+    }
+    
+    var paymentInfoHeader: PaymentInfoHeader? {
+        didSet {
+            shopLogo.image = UIImage(named: (paymentInfoHeader?.logo)!)
+            shopNameLabel.text = paymentInfoHeader?.name
+            addressLabel.text = paymentInfoHeader?.address
+            priceLabel.text = paymentInfoHeader?.price
+            mapLatitude = (paymentInfoHeader?.latitude!)!
+            mapLongitude = (paymentInfoHeader?.longitude!)!
+            setUpMap()
+        }
     }
 }
 

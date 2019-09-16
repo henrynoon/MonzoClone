@@ -10,8 +10,8 @@ import UIKit
 
 class PaymentInfoHeader: NSObject {
 
-    var latitude: String?
-    var longitude: String?
+    var latitude: Double?
+    var longitude: Double?
     var logo: String?
     var name: String?
     var address: String?

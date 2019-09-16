@@ -24,8 +24,18 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let header6ID = "header6ID"
     let footerID = "footerID"
     
-    var paymentInfoHeaderArray: [PaymentInfoHeader]?
-    
+    var paymentInfoHeaderArray: [PaymentInfoHeader] = {
+       //getMonzoData()...which I'll do later
+        var shop = PaymentInfoHeader()
+        shop.name = "Sainsbury's"
+        shop.address = "8-12 Worple Rd, Wimbledon SW19 4DD"
+        shop.logo = "Sainsbury's Logo"
+        shop.price = "£5.45"
+        shop.latitude = 51.420713
+        shop.longitude = -0.209699
+        return [shop]
+    }()
+
     var paymentInfoArray: [PaymentInfo] = {
         var category = PaymentInfo()
         category.title = "Groceries"
@@ -44,14 +54,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
 
     fileprivate func getMonzoData() {
         //I'll update this later to pull the info from Monzo..just using example data for now
-        var shop = PaymentInfoHeader()
-        shop.name = "Sains"
-        shop.address = "8-12 Worreodoep"
-        shop.logo = "Sainsbury's Logo"
-        shop.price = "£100"
-        shop.latitude = "51.420713"
-        shop.longitude = "-0.209699"
-        paymentInfoHeaderArray?.append(shop)
     }
     
     override func viewDidLoad() {
@@ -177,7 +179,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if kind == UICollectionView.elementKindSectionHeader {
 
             if indexPath.section == 0 {
-                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: paymentInfoHeaderCellID, for: indexPath)
+                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: paymentInfoHeaderCellID, for: indexPath) as! PaymentInfoHeaderCell
+                paymentInfoHeaderCell.paymentInfoHeader = paymentInfoHeaderArray[indexPath.item]
                 return paymentInfoHeaderCell
             }
             if indexPath.section == 1 {
