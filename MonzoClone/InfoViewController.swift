@@ -24,6 +24,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let header6ID = "header6ID"
     let footerID = "footerID"
     
+    var paymentInfoHeaderArray: [PaymentInfoHeader]?
+    
     var paymentInfoArray: [PaymentInfo] = {
         var category = PaymentInfo()
         category.title = "Groceries"
@@ -40,9 +42,21 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [category, notes, receipt]
     }()
 
+    fileprivate func getMonzoData() {
+        //I'll update this later to pull the info from Monzo..just using example data for now
+        var shop = PaymentInfoHeader()
+        shop.name = "Sains"
+        shop.address = "8-12 Worreodoep"
+        shop.logo = "Sainsbury's Logo"
+        shop.price = "£100"
+        shop.latitude = "51.420713"
+        shop.longitude = "-0.209699"
+        paymentInfoHeaderArray?.append(shop)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getMonzoData()
         collectionView.backgroundColor = .white
         setUpCollectionView()
         setUpCollectionViewLayout()
