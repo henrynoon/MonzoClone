@@ -61,6 +61,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         header.title = "SHARE THE COST"
         return [header]
     }()
+    
+    var subscriptionsHeaderArray: [ReuseSectionHeader] = {
+        var header = ReuseSectionHeader()
+        header.title = "SUBSCRIPTIONS"
+        return [header]
+    }()
 
     fileprivate func getMonzoData() {
         //I'll update this later to pull the info from Monzo..just using example data for now
@@ -196,9 +202,9 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return shareCostHeader
             }
             if indexPath.section == 2 {
-                let subscriptionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
-                subscriptionHeader.backgroundColor = UIColor(red: 0.9569, green: 0.9176, blue: 0.4588, alpha: 1.0)
-                return subscriptionHeader
+                let subscriptionsHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
+                subscriptionsHeader.reuseSectionHeader = subscriptionsHeaderArray[indexPath.item]
+                return subscriptionsHeader
             }
             if indexPath.section == 3 {
                 let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
