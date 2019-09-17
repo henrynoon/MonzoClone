@@ -21,6 +21,7 @@
 		5E8C292A2330E373004C8FAF /* ReuseSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C29292330E373004C8FAF /* ReuseSectionHeaderCell.swift */; };
 		5E8C292C2330FB5F004C8FAF /* ReuseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292B2330FB5F004C8FAF /* ReuseSectionHeader.swift */; };
 		5E8C292E23313EAB004C8FAF /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292D23313EAB004C8FAF /* FooterCell.swift */; };
+		5E8C293023314CD0004C8FAF /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292F23314CD0004C8FAF /* Footer.swift */; };
 		5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		5E8C29292330E373004C8FAF /* ReuseSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseSectionHeaderCell.swift; sourceTree = "<group>"; };
 		5E8C292B2330FB5F004C8FAF /* ReuseSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseSectionHeader.swift; sourceTree = "<group>"; };
 		5E8C292D23313EAB004C8FAF /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
+		5E8C292F23314CD0004C8FAF /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				5E65B379232EA67C00DA6C47 /* PaymentInfoHeader.swift */,
 				5E65B377232E8C2900DA6C47 /* PaymentInfo.swift */,
 				5E8C292B2330FB5F004C8FAF /* ReuseSectionHeader.swift */,
+				5E8C292F23314CD0004C8FAF /* Footer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				5E65B37A232EA67C00DA6C47 /* PaymentInfoHeader.swift in Sources */,
 				5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */,
 				5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */,
+				5E8C293023314CD0004C8FAF /* Footer.swift in Sources */,
 				5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */,
 				5E8C292C2330FB5F004C8FAF /* ReuseSectionHeader.swift in Sources */,
 				5E1350532323CF5700E84F8D /* PaymentInfoHeaderCell.swift in Sources */,
