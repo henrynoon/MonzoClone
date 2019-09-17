@@ -18,6 +18,7 @@
 		5E65B1C623200654004A4293 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1C523200654004A4293 /* HomeViewController.swift */; };
 		5E65B378232E8C2900DA6C47 /* PaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B377232E8C2900DA6C47 /* PaymentInfo.swift */; };
 		5E65B37A232EA67C00DA6C47 /* PaymentInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B379232EA67C00DA6C47 /* PaymentInfoHeader.swift */; };
+		5E8C292A2330E373004C8FAF /* ShareCostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C29292330E373004C8FAF /* ShareCostHeaderCell.swift */; };
 		5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		5E65B1C523200654004A4293 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E65B377232E8C2900DA6C47 /* PaymentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfo.swift; sourceTree = "<group>"; };
 		5E65B379232EA67C00DA6C47 /* PaymentInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoHeader.swift; sourceTree = "<group>"; };
+		5E8C29292330E373004C8FAF /* ShareCostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCostHeaderCell.swift; sourceTree = "<group>"; };
 		5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 			children = (
 				5E1350522323CF5700E84F8D /* PaymentInfoHeaderCell.swift */,
 				5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */,
+				5E8C29292330E373004C8FAF /* ShareCostHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */,
 				5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */,
 				5E1350532323CF5700E84F8D /* PaymentInfoHeaderCell.swift in Sources */,
+				5E8C292A2330E373004C8FAF /* ShareCostHeaderCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
 				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* PaymentInfo.swift in Sources */,

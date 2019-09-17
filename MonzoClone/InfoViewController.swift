@@ -17,7 +17,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
     let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
-    let header2ID = "header2ID"
+    let shareCostHeaderCellID = "shareCostHeaderCellID"
     let header3ID = "header3ID"
     let header4ID = "header4ID"
     let header5ID = "header5ID"
@@ -86,10 +86,15 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
         collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: paymentInfoHeaderCellID)
-         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header2ID)
+        
+         collectionView?.register(ShareCostHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: shareCostHeaderCellID)
+        
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header3ID)
+        
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header4ID)
+        
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header5ID)
+        
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header6ID)
         
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
@@ -190,9 +195,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return paymentInfoHeaderCell
             }
             if indexPath.section == 1 {
-                let header2 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header2ID, for: indexPath)
-                header2.backgroundColor = UIColor(red: 0.5059, green: 0.9373, blue: 0.451, alpha: 1.0)
-                return header2
+                let shareCostHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: shareCostHeaderCellID, for: indexPath)
+                return shareCostHeaderCell
             }
             if indexPath.section == 2 {
                 let header3 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header3ID, for: indexPath)
