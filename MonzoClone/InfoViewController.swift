@@ -23,7 +23,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let footerID = "footerID"
     
     var paymentInfoHeaderArray: [PaymentInfoHeader] = {
-       //getMonzoData()...which I'll do later
+        
         var shop = PaymentInfoHeader()
         shop.amount = "£5.45"
         shop.created = "2019-03-15T20:26:18Z"
@@ -68,13 +68,15 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [header]
     }()
 
-    fileprivate func getMonzoData() {
-        //I'll update this later to pull the info from Monzo..just using example data for now
-    }
+    var historyHeaderArray: [ReuseSectionHeader] = {
+        var header = ReuseSectionHeader()
+        header.title = "SAINSBURY'S HISTORY"
+        return [header]
+    }()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMonzoData()
         collectionView.backgroundColor = .white
         setUpCollectionView()
         setUpCollectionViewLayout()
@@ -207,8 +209,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return subscriptionsHeader
             }
             if indexPath.section == 3 {
-                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
-                historyHeader.backgroundColor = UIColor(red: 0.949, green: 0.4863, blue: 0.4549, alpha: 1.0)
+                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
+                historyHeader.reuseSectionHeader = historyHeaderArray[indexPath.item]
                 return historyHeader
             }
             if indexPath.section == 4 {
