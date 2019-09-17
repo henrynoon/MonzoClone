@@ -17,7 +17,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
     let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
-    let shareCostHeaderCellID = "shareCostHeaderCellID"
+    let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
     let header3ID = "header3ID"
     let header4ID = "header4ID"
     let header5ID = "header5ID"
@@ -87,7 +87,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: paymentInfoHeaderCellID)
         
-         collectionView?.register(ShareCostHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: shareCostHeaderCellID)
+         collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
         
          collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header3ID)
         
@@ -195,8 +195,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return paymentInfoHeaderCell
             }
             if indexPath.section == 1 {
-                let shareCostHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: shareCostHeaderCellID, for: indexPath)
-                return shareCostHeaderCell
+                let reuseSectionHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                return reuseSectionHeaderCell
             }
             if indexPath.section == 2 {
                 let header3 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header3ID, for: indexPath)
