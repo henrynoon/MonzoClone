@@ -73,7 +73,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         header.title = "SAINSBURY'S HISTORY"
         return [header]
     }()
-  
+    
+    var optionHeaderArray: [ReuseSectionHeader] = {
+        var header = ReuseSectionHeader()
+        header.title = "TRANSACTION OPTIONS"
+        return [header]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,8 +219,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return historyHeader
             }
             if indexPath.section == 4 {
-                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
-                optionHeader.backgroundColor = UIColor(red: 0.8667, green: 0.4314, blue: 0.898, alpha: 1.0)
+                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
+                optionHeader.reuseSectionHeader = optionHeaderArray[indexPath.item]
                 return optionHeader
             }
             else { //for indexPath.section == 5
