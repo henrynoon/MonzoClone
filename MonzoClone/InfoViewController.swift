@@ -16,12 +16,10 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let cell4ID = "cell4ID"
     let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
+    
     let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
     let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
-    let header3ID = "header3ID"
-    let header4ID = "header4ID"
-    let header5ID = "header5ID"
-    let header6ID = "header6ID"
+    
     let footerID = "footerID"
     
     var paymentInfoHeaderArray: [PaymentInfoHeader] = {
@@ -88,14 +86,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: paymentInfoHeaderCellID)
         
          collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
-        
-         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header3ID)
-        
-         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header4ID)
-        
-         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header5ID)
-        
-         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: header6ID)
         
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
     }
@@ -195,33 +185,33 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return paymentInfoHeaderCell
             }
             if indexPath.section == 1 {
-                let reuseSectionHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
-                return reuseSectionHeaderCell
+                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                return shareCostHeader
             }
             if indexPath.section == 2 {
-                let header3 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header3ID, for: indexPath)
-                header3.backgroundColor = UIColor(red: 0.9569, green: 0.9176, blue: 0.4588, alpha: 1.0)
-                return header3
+                let subscriptionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                subscriptionHeader.backgroundColor = UIColor(red: 0.9569, green: 0.9176, blue: 0.4588, alpha: 1.0)
+                return subscriptionHeader
             }
             if indexPath.section == 3 {
-                let header4 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header4ID, for: indexPath)
-                header4.backgroundColor = UIColor(red: 0.949, green: 0.4863, blue: 0.4549, alpha: 1.0)
-                return header4
+                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                historyHeader.backgroundColor = UIColor(red: 0.949, green: 0.4863, blue: 0.4549, alpha: 1.0)
+                return historyHeader
             }
             if indexPath.section == 4 {
-                let header5 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header5ID, for: indexPath)
-                header5.backgroundColor = UIColor(red: 0.8667, green: 0.4314, blue: 0.898, alpha: 1.0)
-                return header5
+                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                optionHeader.backgroundColor = UIColor(red: 0.8667, green: 0.4314, blue: 0.898, alpha: 1.0)
+                return optionHeader
             }
             else { //for indexPath.section == 5
-                let header6 = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header6ID, for: indexPath)
-                header6.backgroundColor = UIColor(red: 0.3765, green: 0.6941, blue: 0.7569, alpha: 1.0)
-                return header6
+                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                feedbackHeader.backgroundColor = UIColor(red: 0.3765, green: 0.6941, blue: 0.7569, alpha: 1.0)
+                return feedbackHeader
             }
         } else { //if kind == UICollectionView.elementKindSectionHeader
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
-            footer.backgroundColor = .black
-            return footer
+            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
+            feedbackFooter.backgroundColor = .black
+            return feedbackFooter
         }
         
         //NB - I might simplify with a 'switch' statement
