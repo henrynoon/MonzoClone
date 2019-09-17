@@ -27,4 +27,10 @@ class ReuseSectionHeaderCell: UICollectionReusableView {
         label.textColor = UIColor(displayP3Red: 0.44, green: 0.48, blue: 0.55, alpha: 1)
         return label
     }()
+    
+    var reuseSectionHeader: ReuseSectionHeader? {
+        didSet {
+            sectionLabel.text = reuseSectionHeader?.title
+        }
+    }
 }

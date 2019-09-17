@@ -55,6 +55,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         return [category, notes, receipt]
     }()
+    
+    var shareCostHeaderArray: [ReuseSectionHeader] = {
+        var header = ReuseSectionHeader()
+        header.title = "SHARE THE COST"
+        return [header]
+    }()
 
     fileprivate func getMonzoData() {
         //I'll update this later to pull the info from Monzo..just using example data for now
@@ -185,7 +191,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
                 return paymentInfoHeaderCell
             }
             if indexPath.section == 1 {
-                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
+                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
+                shareCostHeader.reuseSectionHeader = shareCostHeaderArray[indexPath.item]
                 return shareCostHeader
             }
             if indexPath.section == 2 {
