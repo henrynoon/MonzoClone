@@ -20,7 +20,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
     let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
     
-    let footerID = "footerID"
+    let footerCellID = "footerID"
     
     var paymentInfoHeaderArray: [PaymentInfoHeader] = {
         
@@ -106,7 +106,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         
          collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
         
-        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
+        collectionView?.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
     }
     
     //setting number of sections
@@ -197,44 +197,46 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         if kind == UICollectionView.elementKindSectionHeader {
-
+            
             if indexPath.section == 0 {
                 let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: paymentInfoHeaderCellID, for: indexPath) as! PaymentInfoHeaderCell
                 paymentInfoHeaderCell.paymentInfoHeader = paymentInfoHeaderArray[indexPath.item]
                 return paymentInfoHeaderCell
             }
+            
             if indexPath.section == 1 {
                 let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
                 shareCostHeader.reuseSectionHeader = shareCostHeaderArray[indexPath.item]
                 return shareCostHeader
             }
+            
             if indexPath.section == 2 {
                 let subscriptionsHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
                 subscriptionsHeader.reuseSectionHeader = subscriptionsHeaderArray[indexPath.item]
                 return subscriptionsHeader
             }
+            
             if indexPath.section == 3 {
                 let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
                 historyHeader.reuseSectionHeader = historyHeaderArray[indexPath.item]
                 return historyHeader
             }
+            
             if indexPath.section == 4 {
                 let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
                 optionHeader.reuseSectionHeader = optionHeaderArray[indexPath.item]
                 return optionHeader
             }
+                
             else { //for indexPath.section == 5
-                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath)
-                feedbackHeader.backgroundColor = UIColor(red: 0.3765, green: 0.6941, blue: 0.7569, alpha: 1.0)
+                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
                 return feedbackHeader
             }
-        } else { //if kind == UICollectionView.elementKindSectionHeader
-            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
-            feedbackFooter.backgroundColor = .black
+            
+        } else { //It's a footer
+            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath)
             return feedbackFooter
         }
-        
-        //NB - I might simplify with a 'switch' statement
     }
 
 
