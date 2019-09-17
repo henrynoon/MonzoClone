@@ -129,7 +129,7 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
     var paymentInfoHeader: PaymentInfoHeader? {
         didSet {
             priceLabel.text = paymentInfoHeader?.amount
-            addressLabel.text = paymentInfoHeader?.address
+            addressLabel.text = [(paymentInfoHeader?.address)!, (paymentInfoHeader?.postcode)!].compactMap{$0}.joined(separator: " ")
             mapLatitude = (paymentInfoHeader?.latitude!)!
             mapLongitude = (paymentInfoHeader?.longitude!)!
             shopLogo.image = UIImage(named: (paymentInfoHeader?.logo)!)
