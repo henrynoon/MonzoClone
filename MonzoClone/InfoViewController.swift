@@ -23,7 +23,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let footerCellID = "footerID"
     
     var paymentInfoHeaderArray: [PaymentInfoHeader] = {
-        
         var shop = PaymentInfoHeader()
         shop.amount = "£5.45"
         shop.created = "2019-03-15T20:26:18Z"
@@ -36,7 +35,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         shop.region = "Greater London"
         shop.logo = "Sainsbury's Logo"
         shop.name = "Sainsbury's"
-        
         return [shop]
     }()
 
@@ -78,6 +76,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         var header = ReuseSectionHeader()
         header.title = "TRANSACTION OPTIONS"
         return [header]
+    }()
+    
+    var footerArray: [Footer] = {
+        let foot = Footer()
+        foot.title = "SAINSBURYS SACAT 0016 WIMBLEDON GBR"
+        return [foot]
     }()
     
     override func viewDidLoad() {
@@ -234,7 +238,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
             }
             
         } else { //It's a footer
-            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath)
+            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath) as! FooterCell
+            feedbackFooter.footer = footerArray[indexPath.item]
             return feedbackFooter
         }
     }

@@ -29,4 +29,10 @@ class FooterCell: UICollectionReusableView {
         label.textColor = UIColor(displayP3Red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         return label
     }()
+    
+    var footer: Footer? {
+        didSet {
+            descriptionLabel.text = footer?.title
+        }
+    }
 }
