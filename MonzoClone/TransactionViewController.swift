@@ -53,26 +53,26 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return [category, notes, receipt]
     }()
     
-    var shareCostHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var shareCostHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "SHARE THE COST"
         return [header]
     }()
     
-    var subscriptionsHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var subscriptionsHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "SUBSCRIPTIONS"
         return [header]
     }()
 
-    var historyHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var historyHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "SAINSBURY'S HISTORY"
         return [header]
     }()
     
-    var optionHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var optionHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "TRANSACTION OPTIONS"
         return [header]
     }()

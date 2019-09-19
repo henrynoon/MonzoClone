@@ -28,7 +28,7 @@ class LabelHeaderCell: UICollectionReusableView {
         return label
     }()
     
-    var labelHeader: ReuseSectionHeader? {
+    var labelHeader: LabelHeader? {
         didSet {
             sectionLabel.text = labelHeader?.title
         }

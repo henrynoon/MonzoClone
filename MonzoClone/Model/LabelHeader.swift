@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReuseSectionHeader: NSObject {
+class LabelHeader: NSObject {
     
     var title: String?
     
