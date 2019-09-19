@@ -39,15 +39,15 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     var transactionInfoArray: [LabelWithIcon] = {
         var category = LabelWithIcon()
         category.title = "Groceries"
-        category.usefulIcon = "Category Icon"
+        category.icon = "Category Icon"
         
         var notes = LabelWithIcon()
         notes.title = "Add notes and #tags"
-        notes.usefulIcon = "Notes Icon"
+        notes.icon = "Notes Icon"
         
         var receipt = LabelWithIcon()
         receipt.title = "Add receipt"
-        receipt.usefulIcon = "Receipt Icon"
+        receipt.icon = "Receipt Icon"
         
         return [category, notes, receipt]
     }()
@@ -56,6 +56,20 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         var header = LabelHeader()
         header.title = "SHARE THE COST"
         return [header]
+    }()
+    
+    var shareCostArray: [LabelWithIcon] = {
+        var sharedTab = LabelWithIcon()
+        sharedTab.title = "Add to Shared Tab"
+        sharedTab.subtitle = "A simple way to manage shared expenses"
+        sharedTab.icon = "Tab Icon"
+        
+        var splitBill = LabelWithIcon()
+        splitBill.icon = "Bill Icon"
+        splitBill.title = "Split this Bill"
+        splitBill.subtitle = "Instantly get paid back by your friends"
+        
+        return [sharedTab, splitBill]
     }()
     
     var subscriptionsHeaderArray: [LabelHeader] = {
@@ -127,7 +141,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return transactionInfoCell
         }
         if indexPath.section == 1 {
-            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath)
+            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
+            shareCostCell.labelWithIcon = shareCostArray[indexPath.item]
             return shareCostCell
         }
         if indexPath.section == 2 {
@@ -153,7 +168,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return transactionInfoArray.count
         }
         if section == 1 {
-            return 2
+            return shareCostArray.count
         }
         if section == 2 {
             return 1

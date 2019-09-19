@@ -27,15 +27,13 @@ class LabelWithIconCell: UICollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Main label"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
     let subLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Sub-Label Sub-Label Sub-Label Sub-Label"
-        label.font = .systemFont(ofSize: 8, weight: .light)
+        label.font = .systemFont(ofSize: 9, weight: .light)
         return label
     }()
     
@@ -65,7 +63,7 @@ class LabelWithIconCell: UICollectionViewCell {
     
     var labelWithIcon: LabelWithIcon? {
         didSet {
-            iconImageView.image = UIImage(named: (labelWithIcon?.usefulIcon)!)
+            iconImageView.image = UIImage(named: (labelWithIcon?.icon)!)
             mainLabel.text = labelWithIcon?.title
             subLabel.text = labelWithIcon?.subtitle
         }
