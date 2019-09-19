@@ -20,7 +20,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
     let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
     
-    let footerCellID = "footerID"
+    let labelFooterCellID = "labelFooterCellID"
     
     var paymentInfoHeaderArray: [PaymentInfoHeader] = {
         var shop = PaymentInfoHeader()
@@ -110,7 +110,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         
          collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
         
-        collectionView?.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
+        collectionView?.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: labelFooterCellID)
     }
     
     //setting number of sections
@@ -237,7 +237,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
             }
             
         } else { //It's a footer
-            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath) as! FooterCell
+            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelFooterCellID, for: indexPath) as! LabelFooterCell
             feedbackFooter.footer = footerArray[indexPath.item]
             return feedbackFooter
         }

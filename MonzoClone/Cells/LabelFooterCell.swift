@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FooterCell: UICollectionReusableView {
+class LabelFooterCell: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
