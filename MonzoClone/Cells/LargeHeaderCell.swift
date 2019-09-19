@@ -41,7 +41,7 @@ class LargeHeaderCell: UICollectionReusableView {
     }()
     
     let paddingView: UIView = {
-       let padding = UIView()
+        let padding = UIView()
         return padding
     }()
     
@@ -81,14 +81,10 @@ class LargeHeaderCell: UICollectionReusableView {
         let topHorizontalStackView = UIStackView(arrangedSubviews: [shopLogo, paddingView])
         topHorizontalStackView.axis = .horizontal
         topHorizontalStackView.spacing = 100
-        addSubview(topHorizontalStackView)
-        topHorizontalStackView.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 16))
         
         let middleHorizontalStackView = UIStackView(arrangedSubviews: [shopNameLabel, priceLabel])
         middleHorizontalStackView.axis = .horizontal
         middleHorizontalStackView.spacing = 100
-        addSubview(middleHorizontalStackView)
-        middleHorizontalStackView.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 16))
         
         let verticalStackView = UIStackView(arrangedSubviews: [topHorizontalStackView, middleHorizontalStackView, addressLabel])
         verticalStackView.axis = .vertical
@@ -136,7 +132,6 @@ class LargeHeaderCell: UICollectionReusableView {
             mapLongitude = (largeHeader?.longitude!)!
             shopLogo.image = UIImage(named: (largeHeader?.logo)!)
             shopNameLabel.text = largeHeader?.name
-            
             setUpMap()
         }
     }
