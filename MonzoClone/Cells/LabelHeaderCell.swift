@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReuseSectionHeaderCell: UICollectionReusableView {
+class LabelHeaderCell: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,9 +28,9 @@ class ReuseSectionHeaderCell: UICollectionReusableView {
         return label
     }()
     
-    var reuseSectionHeader: ReuseSectionHeader? {
+    var labelHeader: ReuseSectionHeader? {
         didSet {
-            sectionLabel.text = reuseSectionHeader?.title
+            sectionLabel.text = labelHeader?.title
         }
     }
 }

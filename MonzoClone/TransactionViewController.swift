@@ -17,7 +17,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let cell6ID = "cell6ID"
     
     let largeHeaderCellID = "largeHeaderCellID"
-    let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
+    let labelHeaderCellID = "labelHeaderCellID"
     
     let labelFooterCellID = "labelFooterCellID"
     
@@ -106,7 +106,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         
         collectionView?.register(LargeHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: largeHeaderCellID)
         
-         collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
+         collectionView?.register(LabelHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: labelHeaderCellID)
         
         collectionView?.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: labelFooterCellID)
     }
@@ -206,31 +206,31 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             }
             
             if indexPath.section == 1 {
-                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                shareCostHeader.reuseSectionHeader = shareCostHeaderArray[indexPath.item]
+                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                shareCostHeader.labelHeader = shareCostHeaderArray[indexPath.item]
                 return shareCostHeader
             }
             
             if indexPath.section == 2 {
-                let subscriptionsHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                subscriptionsHeader.reuseSectionHeader = subscriptionsHeaderArray[indexPath.item]
+                let subscriptionsHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                subscriptionsHeader.labelHeader = subscriptionsHeaderArray[indexPath.item]
                 return subscriptionsHeader
             }
             
             if indexPath.section == 3 {
-                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                historyHeader.reuseSectionHeader = historyHeaderArray[indexPath.item]
+                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                historyHeader.labelHeader = historyHeaderArray[indexPath.item]
                 return historyHeader
             }
             
             if indexPath.section == 4 {
-                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                optionHeader.reuseSectionHeader = optionHeaderArray[indexPath.item]
+                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                optionHeader.labelHeader = optionHeaderArray[indexPath.item]
                 return optionHeader
             }
                 
             else { //for indexPath.section == 5
-                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
+                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
                 return feedbackHeader
             }
             
