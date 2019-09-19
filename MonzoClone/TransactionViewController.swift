@@ -1,5 +1,5 @@
 //
-//  InfoViewController.swift
+//  TransactionViewController.swift
 //  MonzoClone
 //
 //  Created by Henry Noon on 04/09/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class TransactionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let labelWithIconCellID = "labelWithIconCellID"
     let cell3ID = "cell3ID"
