@@ -15,7 +15,6 @@ class LabelWithIconCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1).cgColor
         self.layer.borderWidth = 0.5
         setUpStackViews()

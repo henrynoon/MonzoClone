@@ -66,7 +66,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         
         var splitBill = LabelWithIcon()
         splitBill.icon = "Bill Icon"
-        splitBill.title = "Split this Bill"
+        splitBill.title = "Split this bill"
         splitBill.subtitle = "Instantly get paid back by your friends"
         
         return [sharedTab, splitBill]
@@ -106,6 +106,12 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     fileprivate func setUpCollectionViewLayout() {
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = 0.5
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionHeader {
+            view.layer.zPosition = 0
         }
     }
     
