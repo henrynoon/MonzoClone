@@ -1,5 +1,6 @@
 //
-//  PaymentInfo.swift
+//  LabelWithIcon.swift
+//  (Previously PaymentInfo.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 15/09/2019.
@@ -8,9 +9,10 @@
 
 import UIKit
 
-class PaymentInfo: NSObject {
+class LabelWithIcon: NSObject {
 
     var usefulIcon: String?
     var title: String?
+    var subtitle: String?
     
 }

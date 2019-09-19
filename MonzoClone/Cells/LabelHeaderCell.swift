@@ -1,5 +1,7 @@
 //
-//  ShareCostHeaderCell.swift
+//  LabelHeaderCell.swift
+//  (Previously ReuseSectionHeaderCell.swift)
+//  (Previously ShareCostHeaderCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.
@@ -8,7 +10,7 @@
 
 import UIKit
 
-class ReuseSectionHeaderCell: UICollectionReusableView {
+class LabelHeaderCell: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,9 +30,9 @@ class ReuseSectionHeaderCell: UICollectionReusableView {
         return label
     }()
     
-    var reuseSectionHeader: ReuseSectionHeader? {
+    var labelHeader: LabelHeader? {
         didSet {
-            sectionLabel.text = reuseSectionHeader?.title
+            sectionLabel.text = labelHeader?.title
         }
     }
 }

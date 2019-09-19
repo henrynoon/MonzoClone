@@ -1,21 +1,24 @@
 //
-//  ShareCostCell.swift
+//  LabelWithIconCell.swift
+//  (Previously PaymentInfoCell.swift)
+//  (Previously SectionZeroCell.swift)
 //  MonzoClone
 //
-//  Created by Henry Noon on 19/09/2019.
+//  Created by Henry Noon on 11/09/2019.
 //  Copyright © 2019 Henry Noon. All rights reserved.
 //
 
 import UIKit
 
-class ShareCostCell: UICollectionViewCell {
+class LabelWithIconCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpStackViews()
+        self.backgroundColor = .white
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1).cgColor
         self.layer.borderWidth = 0.5
+        setUpStackViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,7 +27,7 @@ class ShareCostCell: UICollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "Main label"
+//        label.text = "Main label"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -32,7 +35,7 @@ class ShareCostCell: UICollectionViewCell {
     let subLabel: UILabel = {
         let label = UILabel()
 //        label.text = "Sub-Label Sub-Label Sub-Label Sub-Label"
-        label.font = .systemFont(ofSize: 9, weight: .light)
+        label.font = .systemFont(ofSize: 8, weight: .light)
         return label
     }()
     
@@ -44,7 +47,6 @@ class ShareCostCell: UICollectionViewCell {
         return icon
     }()
     
-    
     fileprivate func setUpStackViews() {
         
         let verticalStackView = UIStackView(arrangedSubviews: [mainLabel,subLabel])
@@ -54,9 +56,18 @@ class ShareCostCell: UICollectionViewCell {
         let horizontalStackView = UIStackView(arrangedSubviews: [iconImageView, verticalStackView])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 16
-    
+        
         addSubview(horizontalStackView)
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 10))
         
+    }
+
+    
+    var labelWithIcon: LabelWithIcon? {
+        didSet {
+            iconImageView.image = UIImage(named: (labelWithIcon?.usefulIcon)!)
+            mainLabel.text = labelWithIcon?.title
+            subLabel.text = labelWithIcon?.subtitle
+        }
     }
 }

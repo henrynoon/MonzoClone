@@ -1,5 +1,7 @@
 //
-//  Header1Cell.swift
+//  LargeHeaderCell.swift
+//  (Previously PaymentInfoHeaderCell.swift)
+//  (Previously Header1Cell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 07/09/2019.
@@ -9,7 +11,7 @@
 import UIKit
 import MapKit
 
-class PaymentInfoHeaderCell: UICollectionReusableView {
+class LargeHeaderCell: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -126,14 +128,14 @@ class PaymentInfoHeaderCell: UICollectionReusableView {
         mapView.isUserInteractionEnabled = false
     }
     
-    var paymentInfoHeader: PaymentInfoHeader? {
+    var largeHeader: LargeHeader? {
         didSet {
-            priceLabel.text = paymentInfoHeader?.amount
-            addressLabel.text = [(paymentInfoHeader?.address)!, (paymentInfoHeader?.postcode)!].compactMap{$0}.joined(separator: " ")
-            mapLatitude = (paymentInfoHeader?.latitude!)!
-            mapLongitude = (paymentInfoHeader?.longitude!)!
-            shopLogo.image = UIImage(named: (paymentInfoHeader?.logo)!)
-            shopNameLabel.text = paymentInfoHeader?.name
+            priceLabel.text = largeHeader?.amount
+            addressLabel.text = [(largeHeader?.address)!, (largeHeader?.postcode)!].compactMap{$0}.joined(separator: " ")
+            mapLatitude = (largeHeader?.latitude!)!
+            mapLongitude = (largeHeader?.longitude!)!
+            shopLogo.image = UIImage(named: (largeHeader?.logo)!)
+            shopNameLabel.text = largeHeader?.name
             
             setUpMap()
         }

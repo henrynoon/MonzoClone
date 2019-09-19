@@ -1,5 +1,6 @@
 //
-//  ReuseSectionHeader.swift
+//  LabelHeader.swift
+//  (Previously ReuseSectionHeader.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.
@@ -8,7 +9,7 @@
 
 import UIKit
 
-class ReuseSectionHeader: NSObject {
+class LabelHeader: NSObject {
     
     var title: String?
     

@@ -1,5 +1,6 @@
 //
-//  FooterCell.swift
+//  LabelFooterCell.swift
+//  (Previously FooterCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.
@@ -8,7 +9,7 @@
 
 import UIKit
 
-class FooterCell: UICollectionReusableView {
+class LabelFooterCell: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,9 +31,9 @@ class FooterCell: UICollectionReusableView {
         return label
     }()
     
-    var footer: Footer? {
+    var labelFooter: LabelFooter? {
         didSet {
-            descriptionLabel.text = footer?.title
+            descriptionLabel.text = labelFooter?.title
         }
     }
 }

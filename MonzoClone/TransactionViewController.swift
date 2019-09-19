@@ -1,5 +1,6 @@
 //
-//  InfoViewController.swift
+//  TransactionViewController.swift
+//  (Previously InfoViewController.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 04/09/2019.
@@ -8,22 +9,19 @@
 
 import UIKit
 
-class InfoViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class TransactionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let paymentInfoCellID = "paymentInfoCellID"
-    let shareCostCellID = "shareCostCellID"
+    let labelWithIconCellID = "labelWithIconCellID"
     let cell3ID = "cell3ID"
     let cell4ID = "cell4ID"
     let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
+    let largeHeaderCellID = "largeHeaderCellID"
+    let labelHeaderCellID = "labelHeaderCellID"
+    let labelFooterCellID = "labelFooterCellID"
     
-    let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
-    let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
-    
-    let footerCellID = "footerID"
-    
-    var paymentInfoHeaderArray: [PaymentInfoHeader] = {
-        var shop = PaymentInfoHeader()
+    var transactionInfoHeaderArray: [LargeHeader] = {
+        var shop = LargeHeader()
         shop.amount = "£5.45"
         shop.created = "2019-03-15T20:26:18Z"
         shop.address = "8-12 Worple Rd, Wimbledon"
@@ -38,48 +36,48 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [shop]
     }()
 
-    var paymentInfoArray: [PaymentInfo] = {
-        var category = PaymentInfo()
+    var transactionInfoArray: [LabelWithIcon] = {
+        var category = LabelWithIcon()
         category.title = "Groceries"
         category.usefulIcon = "Category Icon"
         
-        var notes = PaymentInfo()
+        var notes = LabelWithIcon()
         notes.title = "Add notes and #tags"
         notes.usefulIcon = "Notes Icon"
         
-        var receipt = PaymentInfo()
+        var receipt = LabelWithIcon()
         receipt.title = "Add receipt"
         receipt.usefulIcon = "Receipt Icon"
         
         return [category, notes, receipt]
     }()
     
-    var shareCostHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var shareCostHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "SHARE THE COST"
         return [header]
     }()
     
-    var subscriptionsHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var subscriptionsHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "SUBSCRIPTIONS"
         return [header]
     }()
 
-    var historyHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var historyHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "SAINSBURY'S HISTORY"
         return [header]
     }()
     
-    var optionHeaderArray: [ReuseSectionHeader] = {
-        var header = ReuseSectionHeader()
+    var optionHeaderArray: [LabelHeader] = {
+        var header = LabelHeader()
         header.title = "TRANSACTION OPTIONS"
         return [header]
     }()
     
-    var footerArray: [Footer] = {
-        let foot = Footer()
+    var footerArray: [LabelFooter] = {
+        let foot = LabelFooter()
         foot.title = "SAINSBURYS SACAT 0016 WIMBLEDON GBR"
         return [foot]
     }()
@@ -97,28 +95,26 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
     
-    //registering the cells, headers, footers
+    //MARK: - Registration
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 6
+    }
+    
     fileprivate func setUpCollectionView() {
-        collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: paymentInfoCellID)
-        collectionView?.register(ShareCostCell.self, forCellWithReuseIdentifier: shareCostCellID)
+        collectionView?.register(LabelWithIconCell.self, forCellWithReuseIdentifier: labelWithIconCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
-        collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: paymentInfoHeaderCellID)
+        collectionView?.register(LargeHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: largeHeaderCellID)
         
-         collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
+         collectionView?.register(LabelHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: labelHeaderCellID)
         
-        collectionView?.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
+        collectionView?.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: labelFooterCellID)
     }
     
-    //setting number of sections
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
-    }
-    
-    //creating cells
+    //MARK: - Creating cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell3 = collectionView.dequeueReusableCell(withReuseIdentifier: cell3ID, for: indexPath)
         let cell4 = collectionView.dequeueReusableCell(withReuseIdentifier: cell4ID, for: indexPath)
@@ -126,12 +122,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
   
         if indexPath.section == 0 {
-            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath) as! PaymentInfoCell
-            paymentInfoCell.paymentInfo = paymentInfoArray[indexPath.item]
-            return paymentInfoCell
+            let transactionInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
+            transactionInfoCell.labelWithIcon = transactionInfoArray[indexPath.item]
+            return transactionInfoCell
         }
         if indexPath.section == 1 {
-            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: shareCostCellID, for: indexPath)
+            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath)
             return shareCostCell
         }
         if indexPath.section == 2 {
@@ -154,7 +150,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return paymentInfoArray.count
+            return transactionInfoArray.count
         }
         if section == 1 {
             return 2
@@ -168,12 +164,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if section == 4 {
             return 1
         }
-        else {
+        else { //section == 5
             return 2
         }
     }
     
-    //setting size of cells
+    //MARK: - Setting size of Cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if indexPath.section == 0 {
@@ -191,60 +187,60 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if indexPath.section == 4 {
             return CGSize(width: view.frame.width, height: 50)
         }
-        else { //for indexPath.section ==5
+        else { // indexPath.section == 5
             return CGSize(width: view.frame.width, height: 50)
         }
     }
     
-    //create the header
+    //MARK: - Creating Headers
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         if kind == UICollectionView.elementKindSectionHeader {
             
             if indexPath.section == 0 {
-                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: paymentInfoHeaderCellID, for: indexPath) as! PaymentInfoHeaderCell
-                paymentInfoHeaderCell.paymentInfoHeader = paymentInfoHeaderArray[indexPath.item]
-                return paymentInfoHeaderCell
+                let transactionInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: largeHeaderCellID, for: indexPath) as! LargeHeaderCell
+                transactionInfoHeaderCell.largeHeader = transactionInfoHeaderArray[indexPath.item]
+                return transactionInfoHeaderCell
             }
             
             if indexPath.section == 1 {
-                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                shareCostHeader.reuseSectionHeader = shareCostHeaderArray[indexPath.item]
+                let shareCostHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                shareCostHeader.labelHeader = shareCostHeaderArray[indexPath.item]
                 return shareCostHeader
             }
             
             if indexPath.section == 2 {
-                let subscriptionsHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                subscriptionsHeader.reuseSectionHeader = subscriptionsHeaderArray[indexPath.item]
+                let subscriptionsHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                subscriptionsHeader.labelHeader = subscriptionsHeaderArray[indexPath.item]
                 return subscriptionsHeader
             }
             
             if indexPath.section == 3 {
-                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                historyHeader.reuseSectionHeader = historyHeaderArray[indexPath.item]
+                let historyHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                historyHeader.labelHeader = historyHeaderArray[indexPath.item]
                 return historyHeader
             }
             
             if indexPath.section == 4 {
-                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
-                optionHeader.reuseSectionHeader = optionHeaderArray[indexPath.item]
+                let optionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
+                optionHeader.labelHeader = optionHeaderArray[indexPath.item]
                 return optionHeader
             }
                 
-            else { //for indexPath.section == 5
-                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseSectionHeaderCellID, for: indexPath) as! ReuseSectionHeaderCell
+            else { // indexPath.section == 5
+                let feedbackHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelHeaderCellID, for: indexPath) as! LabelHeaderCell
                 return feedbackHeader
             }
             
         } else { //It's a footer
-            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath) as! FooterCell
-            feedbackFooter.footer = footerArray[indexPath.item]
+            let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelFooterCellID, for: indexPath) as! LabelFooterCell
+            feedbackFooter.labelFooter = footerArray[indexPath.item]
             return feedbackFooter
         }
     }
 
 
-    //setting size of header
+    //MARK: - Setting size of Headers
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
         if section == 0 {
@@ -262,32 +258,19 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         if section == 4 {
             return CGSize(width: view.frame.width, height: 50)
-        } else { // this is for section == 5
+        } else { // section == 5
             return CGSize(width: view.frame.width, height: 50)
         }
     }
     
 
-    //setting size of footer
+    //MARK: - Setting size of Footers
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         
-        if section == 0 {
-            return .zero
-        }
-        if section == 1 {
-            return .zero
-        }
-        if section == 2 {
-            return .zero
-        }
-        if section == 3 {
-            return .zero
-        }
-        if section == 4 {
-            return .zero
-            
-        } else { //for section == 5
+        if section == 5 {
             return CGSize(width: view.frame.width, height: 50)
+        } else {
+            return .zero
         }
     }
 }

@@ -21,7 +21,7 @@ class HeaderFlowLayout: UICollectionViewFlowLayout {
                 guard let collectionView = collectionView else { return }
                 
                 let contentOffsetY = collectionView.contentOffset.y
-                print(contentOffsetY)
+//                print(contentOffsetY)
                 
                 if contentOffsetY > 0 { //ie pushing the content up
                     return
