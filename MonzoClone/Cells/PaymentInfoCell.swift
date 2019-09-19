@@ -21,6 +21,7 @@ class PaymentInfoCell: UICollectionViewCell {
     
     let infoLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
