@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaymentInfo: NSObject {
+class LabelWithIcon: NSObject {
 
     var usefulIcon: String?
     var title: String?

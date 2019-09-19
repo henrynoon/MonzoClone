@@ -61,7 +61,7 @@ class LabelWithIconCell: UICollectionViewCell {
     }
 
     
-    var paymentInfo: PaymentInfo? {
+    var paymentInfo: LabelWithIcon? {
         didSet {
             iconImageView.image = UIImage(named: (paymentInfo?.usefulIcon)!)
             mainLabel.text = paymentInfo?.title

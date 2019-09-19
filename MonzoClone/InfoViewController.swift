@@ -37,16 +37,16 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [shop]
     }()
 
-    var paymentInfoArray: [PaymentInfo] = {
-        var category = PaymentInfo()
+    var paymentInfoArray: [LabelWithIcon] = {
+        var category = LabelWithIcon()
         category.title = "Groceries"
         category.usefulIcon = "Category Icon"
         
-        var notes = PaymentInfo()
+        var notes = LabelWithIcon()
         notes.title = "Add notes and #tags"
         notes.usefulIcon = "Notes Icon"
         
-        var receipt = PaymentInfo()
+        var receipt = LabelWithIcon()
         receipt.title = "Add receipt"
         receipt.usefulIcon = "Receipt Icon"
         
