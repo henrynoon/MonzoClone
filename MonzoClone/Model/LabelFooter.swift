@@ -1,5 +1,6 @@
 //
-//  Footer.swift
+//  LabelFooter.swift
+//  (Previously Footer.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.

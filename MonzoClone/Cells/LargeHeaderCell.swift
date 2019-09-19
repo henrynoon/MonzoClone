@@ -1,5 +1,7 @@
 //
-//  Header1Cell.swift
+//  LargeHeaderCell.swift
+//  (Previously PaymentInfoHeaderCell.swift)
+//  (Previously Header1Cell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 07/09/2019.

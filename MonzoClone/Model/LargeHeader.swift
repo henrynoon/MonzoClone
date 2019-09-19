@@ -1,5 +1,6 @@
 //
-//  PaymentInfoHeader.swift
+//  LargeHeader.swift
+//  (Previously PaymentInfoHeader.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 15/09/2019.
@@ -10,7 +11,7 @@ import UIKit
 import MapKit
 
 class LargeHeader: NSObject {
-//This more closely matches the data recieved back from Monzo API
+
     var amount: String?
     var created: String?
     var address: String?

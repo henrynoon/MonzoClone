@@ -1,5 +1,6 @@
 //
-//  ReuseSectionHeader.swift
+//  LabelHeader.swift
+//  (Previously ReuseSectionHeader.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.

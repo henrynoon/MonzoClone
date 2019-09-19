@@ -1,5 +1,6 @@
 //
-//  PaymentInfo.swift
+//  LabelWithIcon.swift
+//  (Previously PaymentInfo.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 15/09/2019.

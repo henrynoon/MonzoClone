@@ -1,5 +1,7 @@
 //
-//  ShareCostHeaderCell.swift
+//  LabelHeaderCell.swift
+//  (Previously ReuseSectionHeaderCell.swift)
+//  (Previously ShareCostHeaderCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.

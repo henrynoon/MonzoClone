@@ -1,5 +1,6 @@
 //
-//  FooterCell.swift
+//  LabelFooterCell.swift
+//  (Previously FooterCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 17/09/2019.
@@ -30,9 +31,9 @@ class LabelFooterCell: UICollectionReusableView {
         return label
     }()
     
-    var footer: LabelFooter? {
+    var labelFooter: LabelFooter? {
         didSet {
-            descriptionLabel.text = footer?.title
+            descriptionLabel.text = labelFooter?.title
         }
     }
 }

@@ -1,5 +1,7 @@
 //
-//  SectionZeroCell.swift
+//  LabelWithIconCell.swift
+//  (Previously PaymentInfoCell.swift)
+//  (Previously SectionZeroCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 11/09/2019.
@@ -12,11 +14,11 @@ class LabelWithIconCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpStackViews()
+        self.backgroundColor = .white
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1).cgColor
         self.layer.borderWidth = 0.5
-
+        setUpStackViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,14 +27,14 @@ class LabelWithIconCell: UICollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "Main label"
+//        label.text = "Main label"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
     let subLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sub-Label Sub-Label Sub-Label Sub-Label"
+//        label.text = "Sub-Label Sub-Label Sub-Label Sub-Label"
         label.font = .systemFont(ofSize: 8, weight: .light)
         return label
     }()
