@@ -78,8 +78,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [header]
     }()
     
-    var footerArray: [Footer] = {
-        let foot = Footer()
+    var footerArray: [LabelFooter] = {
+        let foot = LabelFooter()
         foot.title = "SAINSBURYS SACAT 0016 WIMBLEDON GBR"
         return [foot]
     }()

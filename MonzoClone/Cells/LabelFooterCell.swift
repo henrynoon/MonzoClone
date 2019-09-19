@@ -30,7 +30,7 @@ class LabelFooterCell: UICollectionReusableView {
         return label
     }()
     
-    var footer: Footer? {
+    var footer: LabelFooter? {
         didSet {
             descriptionLabel.text = footer?.title
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Footer: NSObject {
+class LabelFooter: NSObject {
     
     var title: String?
 
