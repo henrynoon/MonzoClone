@@ -15,7 +15,6 @@
 		5E65B1B7232001A7004A4293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B6232001A7004A4293 /* Assets.xcassets */; };
 		5E65B1BA232001A7004A4293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B8232001A7004A4293 /* LaunchScreen.storyboard */; };
 		5E65B1C4232004AD004A4293 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1C3232004AD004A4293 /* TransactionViewController.swift */; };
-		5E65B1C623200654004A4293 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1C523200654004A4293 /* HomeViewController.swift */; };
 		5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B377232E8C2900DA6C47 /* LabelWithIcon.swift */; };
 		5E65B37A232EA67C00DA6C47 /* LargeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B379232EA67C00DA6C47 /* LargeHeader.swift */; };
 		5E8C292A2330E373004C8FAF /* LabelHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C29292330E373004C8FAF /* LabelHeaderCell.swift */; };
@@ -36,7 +35,6 @@
 		5E65B1B9232001A7004A4293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E65B1BB232001A7004A4293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E65B1C3232004AD004A4293 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
-		5E65B1C523200654004A4293 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E65B377232E8C2900DA6C47 /* LabelWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIcon.swift; sourceTree = "<group>"; };
 		5E65B379232EA67C00DA6C47 /* LargeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHeader.swift; sourceTree = "<group>"; };
 		5E8C29292330E373004C8FAF /* LabelHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeaderCell.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				5E65B1AF232001A6004A4293 /* AppDelegate.swift */,
-				5E65B1C523200654004A4293 /* HomeViewController.swift */,
 				5E65B1C3232004AD004A4293 /* TransactionViewController.swift */,
 				5E65B1C22320048B004A4293 /* Layouts */,
 				5E1350512323CF4300E84F8D /* Cells */,
@@ -212,7 +209,6 @@
 				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
 				5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */,
-				5E65B1C623200654004A4293 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
