@@ -11,7 +11,6 @@ import UIKit
 class InfoViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let paymentInfoCellID = "paymentInfoCellID"
-    let shareCostCellID = "shareCostCellID"
     let cell3ID = "cell3ID"
     let cell4ID = "cell4ID"
     let cell5ID = "cell5ID"
@@ -100,7 +99,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     //registering the cells, headers, footers
     fileprivate func setUpCollectionView() {
         collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: paymentInfoCellID)
-        collectionView?.register(ShareCostCell.self, forCellWithReuseIdentifier: shareCostCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
@@ -131,7 +129,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
             return paymentInfoCell
         }
         if indexPath.section == 1 {
-            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: shareCostCellID, for: indexPath)
+            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath)
             return shareCostCell
         }
         if indexPath.section == 2 {
