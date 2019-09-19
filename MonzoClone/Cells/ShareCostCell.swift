@@ -31,8 +31,8 @@ class ShareCostCell: UICollectionViewCell {
     
     let subLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Sub-Label Sub-Label Sub-Label Sub-Label"
-        label.font = .systemFont(ofSize: 9, weight: .light)
+        label.text = "Sub-Label Sub-Label Sub-Label Sub-Label"
+        label.font = .systemFont(ofSize: 8, weight: .light)
         return label
     }()
     
