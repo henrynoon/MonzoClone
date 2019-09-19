@@ -22,7 +22,7 @@
 		5E8C292C2330FB5F004C8FAF /* ReuseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292B2330FB5F004C8FAF /* ReuseSectionHeader.swift */; };
 		5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */; };
 		5E8C293023314CD0004C8FAF /* LabelFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292F23314CD0004C8FAF /* LabelFooter.swift */; };
-		5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */; };
+		5EC2AA6B23297B2E00FE5EB5 /* LabelWithIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +43,7 @@
 		5E8C292B2330FB5F004C8FAF /* ReuseSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseSectionHeader.swift; sourceTree = "<group>"; };
 		5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooterCell.swift; sourceTree = "<group>"; };
 		5E8C292F23314CD0004C8FAF /* LabelFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooter.swift; sourceTree = "<group>"; };
-		5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoCell.swift; sourceTree = "<group>"; };
+		5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIconCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */,
-				5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */,
+				5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */,
 				5E8C29292330E373004C8FAF /* ReuseSectionHeaderCell.swift */,
 				5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */,
 			);
@@ -201,7 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E65B37A232EA67C00DA6C47 /* LargeHeader.swift in Sources */,
-				5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */,
+				5EC2AA6B23297B2E00FE5EB5 /* LabelWithIconCell.swift in Sources */,
 				5E65B1C4232004AD004A4293 /* InfoViewController.swift in Sources */,
 				5E8C293023314CD0004C8FAF /* LabelFooter.swift in Sources */,
 				5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 class InfoViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let paymentInfoCellID = "paymentInfoCellID"
+    let labelWithIconCellID = "labelWithIconCellID"
     let cell3ID = "cell3ID"
     let cell4ID = "cell4ID"
     let cell5ID = "cell5ID"
@@ -98,7 +98,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //registering the cells, headers, footers
     fileprivate func setUpCollectionView() {
-        collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: paymentInfoCellID)
+        collectionView?.register(LabelWithIconCell.self, forCellWithReuseIdentifier: labelWithIconCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
@@ -124,12 +124,12 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
   
         if indexPath.section == 0 {
-            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath) as! PaymentInfoCell
+            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
             paymentInfoCell.paymentInfo = paymentInfoArray[indexPath.item]
             return paymentInfoCell
         }
         if indexPath.section == 1 {
-            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: paymentInfoCellID, for: indexPath)
+            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath)
             return shareCostCell
         }
         if indexPath.section == 2 {
