@@ -23,6 +23,7 @@
 		5E8C292E23313EAB004C8FAF /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292D23313EAB004C8FAF /* FooterCell.swift */; };
 		5E8C293023314CD0004C8FAF /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292F23314CD0004C8FAF /* Footer.swift */; };
 		5EC2AA6B23297B2E00FE5EB5 /* PaymentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */; };
+		5EC6D64B233385000077644C /* ShareCostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6D64A233385000077644C /* ShareCostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5E8C292D23313EAB004C8FAF /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		5E8C292F23314CD0004C8FAF /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoCell.swift; sourceTree = "<group>"; };
+		5EC6D64A233385000077644C /* ShareCostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5E1350522323CF5700E84F8D /* PaymentInfoHeaderCell.swift */,
 				5EC2AA6A23297B2E00FE5EB5 /* PaymentInfoCell.swift */,
 				5E8C29292330E373004C8FAF /* ReuseSectionHeaderCell.swift */,
+				5EC6D64A233385000077644C /* ShareCostCell.swift */,
 				5E8C292D23313EAB004C8FAF /* FooterCell.swift */,
 			);
 			path = Cells;
@@ -208,6 +211,7 @@
 				5E8C292C2330FB5F004C8FAF /* ReuseSectionHeader.swift in Sources */,
 				5E1350532323CF5700E84F8D /* PaymentInfoHeaderCell.swift in Sources */,
 				5E8C292A2330E373004C8FAF /* ReuseSectionHeaderCell.swift in Sources */,
+				5EC6D64B233385000077644C /* ShareCostCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
 				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* PaymentInfo.swift in Sources */,

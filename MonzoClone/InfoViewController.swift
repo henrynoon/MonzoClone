@@ -11,7 +11,7 @@ import UIKit
 class InfoViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let paymentInfoCellID = "paymentInfoCellID"
-    let cell2ID = "cell2ID"
+    let shareCostCellID = "shareCostCellID"
     let cell3ID = "cell3ID"
     let cell4ID = "cell4ID"
     let cell5ID = "cell5ID"
@@ -100,7 +100,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     //registering the cells, headers, footers
     fileprivate func setUpCollectionView() {
         collectionView?.register(PaymentInfoCell.self, forCellWithReuseIdentifier: paymentInfoCellID)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell2ID)
+        collectionView?.register(ShareCostCell.self, forCellWithReuseIdentifier: shareCostCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
@@ -120,7 +120,6 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //creating cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: cell2ID, for: indexPath)
         let cell3 = collectionView.dequeueReusableCell(withReuseIdentifier: cell3ID, for: indexPath)
         let cell4 = collectionView.dequeueReusableCell(withReuseIdentifier: cell4ID, for: indexPath)
         let cell5 = collectionView.dequeueReusableCell(withReuseIdentifier: cell5ID, for: indexPath)
@@ -132,8 +131,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
             return paymentInfoCell
         }
         if indexPath.section == 1 {
-            cell2.backgroundColor = .green
-            return cell2
+            let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: shareCostCellID, for: indexPath)
+            return shareCostCell
         }
         if indexPath.section == 2 {
             cell3.backgroundColor = .yellow
