@@ -17,7 +17,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
     
-    let paymentInfoHeaderCellID = "paymentInfoHeaderCellID"
+    let largeHeaderCellID = "largeHeaderCellID"
     let reuseSectionHeaderCellID = "reuseSectionHeaderCellID"
     
     let labelFooterCellID = "labelFooterCellID"
@@ -106,7 +106,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
-        collectionView?.register(PaymentInfoHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: paymentInfoHeaderCellID)
+        collectionView?.register(LargeHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: largeHeaderCellID)
         
          collectionView?.register(ReuseSectionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseSectionHeaderCellID)
         
@@ -202,7 +202,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if kind == UICollectionView.elementKindSectionHeader {
             
             if indexPath.section == 0 {
-                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: paymentInfoHeaderCellID, for: indexPath) as! PaymentInfoHeaderCell
+                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: largeHeaderCellID, for: indexPath) as! LargeHeaderCell
                 paymentInfoHeaderCell.paymentInfoHeader = paymentInfoHeaderArray[indexPath.item]
                 return paymentInfoHeaderCell
             }

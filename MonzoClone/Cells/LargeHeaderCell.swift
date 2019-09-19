@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class PaymentInfoHeaderCell: UICollectionReusableView {
+class LargeHeaderCell: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
