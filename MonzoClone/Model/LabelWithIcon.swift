@@ -12,5 +12,6 @@ class LabelWithIcon: NSObject {
 
     var usefulIcon: String?
     var title: String?
+    var subtitle: String?
     
 }
