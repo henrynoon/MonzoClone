@@ -126,7 +126,7 @@ class LargeHeaderCell: UICollectionReusableView {
         mapView.isUserInteractionEnabled = false
     }
     
-    var paymentInfoHeader: PaymentInfoHeader? {
+    var paymentInfoHeader: LargeHeader? {
         didSet {
             priceLabel.text = paymentInfoHeader?.amount
             addressLabel.text = [(paymentInfoHeader?.address)!, (paymentInfoHeader?.postcode)!].compactMap{$0}.joined(separator: " ")

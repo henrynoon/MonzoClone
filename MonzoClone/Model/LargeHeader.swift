@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class PaymentInfoHeader: NSObject {
+class LargeHeader: NSObject {
 //This more closely matches the data recieved back from Monzo API
     var amount: String?
     var created: String?

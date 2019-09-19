@@ -22,8 +22,8 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     let labelFooterCellID = "labelFooterCellID"
     
-    var paymentInfoHeaderArray: [PaymentInfoHeader] = {
-        var shop = PaymentInfoHeader()
+    var paymentInfoHeaderArray: [LargeHeader] = {
+        var shop = LargeHeader()
         shop.amount = "£5.45"
         shop.created = "2019-03-15T20:26:18Z"
         shop.address = "8-12 Worple Rd, Wimbledon"
