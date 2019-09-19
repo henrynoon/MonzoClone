@@ -21,7 +21,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     let labelFooterCellID = "labelFooterCellID"
     
-    var paymentInfoHeaderArray: [LargeHeader] = {
+    var transactionInfoHeaderArray: [LargeHeader] = {
         var shop = LargeHeader()
         shop.amount = "£5.45"
         shop.created = "2019-03-15T20:26:18Z"
@@ -37,7 +37,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [shop]
     }()
 
-    var paymentInfoArray: [LabelWithIcon] = {
+    var transactionInfoArray: [LabelWithIcon] = {
         var category = LabelWithIcon()
         category.title = "Groceries"
         category.usefulIcon = "Category Icon"
@@ -124,9 +124,9 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
   
         if indexPath.section == 0 {
-            let paymentInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
-            paymentInfoCell.paymentInfo = paymentInfoArray[indexPath.item]
-            return paymentInfoCell
+            let transactionInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
+            transactionInfoCell.labelWithIcon = transactionInfoArray[indexPath.item]
+            return transactionInfoCell
         }
         if indexPath.section == 1 {
             let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath)
@@ -152,7 +152,7 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return paymentInfoArray.count
+            return transactionInfoArray.count
         }
         if section == 1 {
             return 2
@@ -200,9 +200,9 @@ class InfoViewController: UICollectionViewController, UICollectionViewDelegateFl
         if kind == UICollectionView.elementKindSectionHeader {
             
             if indexPath.section == 0 {
-                let paymentInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: largeHeaderCellID, for: indexPath) as! LargeHeaderCell
-                paymentInfoHeaderCell.paymentInfoHeader = paymentInfoHeaderArray[indexPath.item]
-                return paymentInfoHeaderCell
+                let transactionInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: largeHeaderCellID, for: indexPath) as! LargeHeaderCell
+                transactionInfoHeaderCell.largeHeader = transactionInfoHeaderArray[indexPath.item]
+                return transactionInfoHeaderCell
             }
             
             if indexPath.section == 1 {

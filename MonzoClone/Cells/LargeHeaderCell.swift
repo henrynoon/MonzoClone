@@ -126,14 +126,14 @@ class LargeHeaderCell: UICollectionReusableView {
         mapView.isUserInteractionEnabled = false
     }
     
-    var paymentInfoHeader: LargeHeader? {
+    var largeHeader: LargeHeader? {
         didSet {
-            priceLabel.text = paymentInfoHeader?.amount
-            addressLabel.text = [(paymentInfoHeader?.address)!, (paymentInfoHeader?.postcode)!].compactMap{$0}.joined(separator: " ")
-            mapLatitude = (paymentInfoHeader?.latitude!)!
-            mapLongitude = (paymentInfoHeader?.longitude!)!
-            shopLogo.image = UIImage(named: (paymentInfoHeader?.logo)!)
-            shopNameLabel.text = paymentInfoHeader?.name
+            priceLabel.text = largeHeader?.amount
+            addressLabel.text = [(largeHeader?.address)!, (largeHeader?.postcode)!].compactMap{$0}.joined(separator: " ")
+            mapLatitude = (largeHeader?.latitude!)!
+            mapLongitude = (largeHeader?.longitude!)!
+            shopLogo.image = UIImage(named: (largeHeader?.logo)!)
+            shopNameLabel.text = largeHeader?.name
             
             setUpMap()
         }

@@ -61,11 +61,11 @@ class LabelWithIconCell: UICollectionViewCell {
     }
 
     
-    var paymentInfo: LabelWithIcon? {
+    var labelWithIcon: LabelWithIcon? {
         didSet {
-            iconImageView.image = UIImage(named: (paymentInfo?.usefulIcon)!)
-            mainLabel.text = paymentInfo?.title
-            subLabel.text = paymentInfo?.subtitle
+            iconImageView.image = UIImage(named: (labelWithIcon?.usefulIcon)!)
+            mainLabel.text = labelWithIcon?.title
+            subLabel.text = labelWithIcon?.subtitle
         }
     }
 }
