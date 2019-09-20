@@ -24,7 +24,6 @@ class LabelWithSwitchCell: UICollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "Repeating payment"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
         return label
@@ -32,7 +31,6 @@ class LabelWithSwitchCell: UICollectionViewCell {
     
     let subLabel: UILabel = {
         let label = UILabel()
-        label.text = "We'll predict this for you in Summary"
         label.font = .systemFont(ofSize: 9, weight: .light)
         label.textColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         return label
@@ -56,4 +54,13 @@ class LabelWithSwitchCell: UICollectionViewCell {
         addSubview(horizontalStackView)
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 16))
     }
+    
+    var labelWithSwitch: LabelWithSwitch? {
+        didSet {
+            mainLabel.text = labelWithSwitch?.title
+            subLabel.text = labelWithSwitch?.subtitle
+        }
+    }
+    
+    
 }

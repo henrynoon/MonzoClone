@@ -76,6 +76,13 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         header.title = "SUBSCRIPTIONS"
         return [header]
     }()
+    
+    var subscriptionsArray: [LabelWithSwitch] = {
+        var repeatingPayment = LabelWithSwitch()
+        repeatingPayment.title = "Repeating payment"
+        repeatingPayment.subtitle = "We'll predict this for you in Summary"
+        return [repeatingPayment]
+    }()
 
     var historyHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
@@ -145,7 +152,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return shareCostCell
         }
         if indexPath.section == 2 {
-            let subscriptionsCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath)
+            let subscriptionsCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath) as! LabelWithSwitchCell
+            subscriptionsCell.labelWithSwitch = subscriptionsArray[indexPath.item]
             return subscriptionsCell
         }
         if indexPath.section == 3 {
@@ -172,7 +180,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return shareCostArray.count
         }
         if section == 2 {
-            return 1
+            return subscriptionsArray.count
         }
         if section == 3 {
             return 3
