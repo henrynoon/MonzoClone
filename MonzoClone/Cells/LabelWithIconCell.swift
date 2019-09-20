@@ -27,12 +27,14 @@ class LabelWithIconCell: UICollectionViewCell {
     let mainLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
         return label
     }()
     
     let subLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 9, weight: .light)
+        label.textColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1)
         return label
     }()
     

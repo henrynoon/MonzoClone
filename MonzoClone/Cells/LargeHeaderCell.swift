@@ -48,21 +48,21 @@ class LargeHeaderCell: UICollectionReusableView {
     let shopNameLabel: UILabel = {
         let shop = UILabel()
         shop.font = .systemFont(ofSize: 20, weight: .regular)
-        shop.textColor = .black
+        shop.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
         return shop
     }()
     
     let addressLabel: UILabel = {
        let address = UILabel()
         address.font = .systemFont(ofSize: 12, weight: .light)
-        address.textColor = .gray
+        address.textColor = UIColor(red: 0.63, green: 0.65, blue: 0.69, alpha: 1)
         return address
     }()
     
     let priceLabel: UILabel = {
         let price = UILabel()
         price.font = .systemFont(ofSize: 24, weight: .regular)
-        price.textColor = .black
+        price.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
         return price
     }()
     
