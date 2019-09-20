@@ -332,6 +332,16 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return .zero
         }
     }
+    
+    //MARK: - Selecting Cells
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            print("You have clicked on a transactionInfoCell")
+        }
+        else if indexPath.section == 1 {
+            print("You have clicked on a shareCostCell")
+        }
+    }
 }
 
 
