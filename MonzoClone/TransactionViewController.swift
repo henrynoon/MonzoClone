@@ -12,9 +12,8 @@ import UIKit
 class TransactionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let labelWithIconCellID = "labelWithIconCellID"
-    let cell3ID = "cell3ID"
+    let labelWithSwitchCellID = "labelWithSwitchCellID"
     let cell4ID = "cell4ID"
-    let cell5ID = "cell5ID"
     let cell6ID = "cell6ID"
     let largeHeaderCellID = "largeHeaderCellID"
     let labelHeaderCellID = "labelHeaderCellID"
@@ -122,9 +121,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     fileprivate func setUpCollectionView() {
         collectionView?.register(LabelWithIconCell.self, forCellWithReuseIdentifier: labelWithIconCellID)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell3ID)
+        collectionView?.register(LabelWithSwitchCell.self, forCellWithReuseIdentifier: labelWithSwitchCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell5ID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
         
         collectionView?.register(LargeHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: largeHeaderCellID)
@@ -136,11 +134,6 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     //MARK: - Creating cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell3 = collectionView.dequeueReusableCell(withReuseIdentifier: cell3ID, for: indexPath)
-        let cell4 = collectionView.dequeueReusableCell(withReuseIdentifier: cell4ID, for: indexPath)
-        let cell5 = collectionView.dequeueReusableCell(withReuseIdentifier: cell5ID, for: indexPath)
-        let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
-  
         if indexPath.section == 0 {
             let transactionInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
             transactionInfoCell.labelWithIcon = transactionInfoArray[indexPath.item]
@@ -152,18 +145,20 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return shareCostCell
         }
         if indexPath.section == 2 {
-            cell3.backgroundColor = .yellow
-            return cell3
+            let subscriptionsCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath)
+            return subscriptionsCell
         }
         if indexPath.section == 3 {
-            cell4.backgroundColor = .red
+            let cell4 = collectionView.dequeueReusableCell(withReuseIdentifier: cell4ID, for: indexPath)
+            cell4.backgroundColor = .yellow
             return cell4
         }
         if indexPath.section == 4 {
-            cell5.backgroundColor = .purple
-            return cell5
+            let optionsCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath)
+            return optionsCell
         }
         else {
+            let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
             cell6.backgroundColor = .cyan
             return cell6
         }

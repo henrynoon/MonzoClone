@@ -10,6 +10,7 @@
 		5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */; };
 		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
 		5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */; };
+		5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */; };
 		5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1AF232001A6004A4293 /* AppDelegate.swift */; };
 		5E65B1B5232001A6004A4293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B3232001A6004A4293 /* Main.storyboard */; };
 		5E65B1B7232001A7004A4293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B6232001A7004A4293 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFlowLayout.swift; sourceTree = "<group>"; };
+		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
 		5E65B1AC232001A6004A4293 /* MonzoClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonzoClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E65B1AF232001A6004A4293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E65B1B4232001A6004A4293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */,
 				5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */,
 				5E8C29292330E373004C8FAF /* LabelHeaderCell.swift */,
+				5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */,
 				5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */,
 			);
 			path = Cells;
@@ -209,6 +212,7 @@
 				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
 				5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */,
+				5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
