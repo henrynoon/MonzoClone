@@ -90,6 +90,24 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return [header]
     }()
     
+    var historyArray: [LabelWithLabel] = {
+       var transactionsNum = LabelWithLabel()
+        transactionsNum.title = "Number of transactions"
+        transactionsNum.detail = "143"
+        
+        var averageSpend = LabelWithLabel()
+        averageSpend.title = "Average spend"
+        averageSpend.subtitle = "143 payments"
+        averageSpend.detail = "£7.93"
+        
+        var totalSpent = LabelWithLabel()
+        totalSpent.title = "Total spent"
+        totalSpent.subtitle = "143 payments"
+        totalSpent.detail = "£1,134.38"
+        
+        return [transactionsNum, averageSpend, totalSpent]
+    }()
+    
     var optionHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
         header.title = "TRANSACTION OPTIONS"
@@ -173,7 +191,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return subscriptionsCell
         }
         if indexPath.section == 3 {
-            let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithLabelCellID, for: indexPath)
+            let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithLabelCellID, for: indexPath) as! LabelWithLabelCell
+            historyCell.labelWithLabel = historyArray[indexPath.item]
             return historyCell
         }
         if indexPath.section == 4 {

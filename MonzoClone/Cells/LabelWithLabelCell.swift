@@ -38,7 +38,7 @@ class LabelWithLabelCell: UICollectionViewCell {
         return label
     }()
     
-    let informationLabel: UILabel = {
+    let infoLabel: UILabel = {
         let price = UILabel()
         price.text = "£7.93"
         price.font = .systemFont(ofSize: 20, weight: .light)
@@ -52,11 +52,19 @@ class LabelWithLabelCell: UICollectionViewCell {
         verticalStackView.axis = .vertical
         verticalStackView.spacing = 3
         
-        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, informationLabel])
+        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, infoLabel])
         horizontalStackView.axis = .horizontal
         horizontalStackView.distribution = .equalCentering
         
         addSubview(horizontalStackView)
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 16))
+    }
+    
+    var labelWithLabel: LabelWithLabel? {
+        didSet {
+            mainLabel.text = labelWithLabel?.title
+            subLabel.text = labelWithLabel?.subtitle
+            infoLabel.text = labelWithLabel?.detail
+        }
     }
 }
