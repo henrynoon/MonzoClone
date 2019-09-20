@@ -55,8 +55,7 @@ class LabelWithIconCell: UICollectionViewCell {
         horizontalStackView.spacing = 16
         
         addSubview(horizontalStackView)
-        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 10))
-        
+        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 16))
     }
 
     
