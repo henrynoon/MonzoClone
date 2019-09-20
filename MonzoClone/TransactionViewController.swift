@@ -96,6 +96,13 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return [header]
     }()
     
+    var optionArray: [LabelWithSwitch] = {
+        var excludeFromSummary = LabelWithSwitch()
+        excludeFromSummary.title = "Exclude from Summary"
+        excludeFromSummary.subtitle = "Hide this payment from your total spending"
+        return [excludeFromSummary]
+    }()
+    
     var footerArray: [LabelFooter] = {
         let foot = LabelFooter()
         foot.title = "SAINSBURYS SACAT 0016 WIMBLEDON GBR"
@@ -162,8 +169,9 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return cell4
         }
         if indexPath.section == 4 {
-            let optionsCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath)
-            return optionsCell
+            let optionCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath) as! LabelWithSwitchCell
+            optionCell.labelWithSwitch = optionArray[indexPath.item]
+            return optionCell
         }
         else {
             let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
@@ -186,7 +194,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return 3
         }
         if section == 4 {
-            return 1
+            return optionArray.count
         }
         else { //section == 5
             return 2
