@@ -218,7 +218,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return subscriptionsArray.count
         }
         if section == 3 {
-            return 3
+            return historyArray.count
         }
         if section == 4 {
             return optionArray.count
@@ -232,22 +232,22 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if indexPath.section == 0 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 60)
         }
         if indexPath.section == 1 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 60)
         }
         if indexPath.section == 2 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 60)
         }
         if indexPath.section == 3 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 60)
         }
         if indexPath.section == 4 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 60)
         }
         else { // indexPath.section == 5
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 43.5)
         }
     }
     
@@ -306,19 +306,19 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return CGSize(width: view.frame.width, height: 250)
         }
         if section == 1 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 56.5)
         }
         if section == 2 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 56.5)
         }
         if section == 3 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 56.5)
         }
         
         if section == 4 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 56.5)
         } else { // section == 5
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 36.5)
         }
     }
     
@@ -327,7 +327,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         
         if section == 5 {
-            return CGSize(width: view.frame.width, height: 50)
+            return CGSize(width: view.frame.width, height: 63)
         } else {
             return .zero
         }
