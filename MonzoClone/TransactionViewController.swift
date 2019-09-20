@@ -103,6 +103,18 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return [excludeFromSummary]
     }()
     
+    var feedbackArray: [CentreLabel] = {
+        var improveName = CentreLabel()
+        improveName.title = "Improve name, location or logo"
+        improveName.colour = UIColor(red: 0, green: 0.64, blue: 0.86, alpha: 1)
+        
+        var somethingWrong = CentreLabel()
+        somethingWrong.title = "Something Wrong? Tell Us!"
+        somethingWrong.colour = UIColor(red: 0.82, green: 0.24, blue: 0.31, alpha: 1)
+        
+        return [improveName, somethingWrong]
+    }()
+    
     var footerArray: [LabelFooter] = {
         let foot = LabelFooter()
         foot.title = "SAINSBURYS SACAT 0016 WIMBLEDON GBR"
@@ -174,7 +186,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return optionCell
         }
         else {
-            let feedbackCell = collectionView.dequeueReusableCell(withReuseIdentifier: centreLabelCellID, for: indexPath)
+            let feedbackCell = collectionView.dequeueReusableCell(withReuseIdentifier: centreLabelCellID, for: indexPath) as! CentreLabelCell
+            feedbackCell.centreLabel = feedbackArray[indexPath.item]
             return feedbackCell
         }
     }
@@ -196,7 +209,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return optionArray.count
         }
         else { //section == 5
-            return 2
+            return feedbackArray.count
         }
     }
     

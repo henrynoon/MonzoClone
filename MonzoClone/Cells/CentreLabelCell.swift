@@ -31,4 +31,11 @@ class CentreLabelCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
+    
+    var centreLabel: CentreLabel? {
+        didSet {
+            mainLabel.text = centreLabel?.title
+            mainLabel.textColor = centreLabel?.colour
+        }
+    }
 }
