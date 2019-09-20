@@ -13,7 +13,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     let labelWithIconCellID = "labelWithIconCellID"
     let labelWithSwitchCellID = "labelWithSwitchCellID"
-    let cell4ID = "cell4ID"
+    let labelWithLabelCellID = "labelWithLabelCellID"
     let centreLabelCellID = "centreLabelCellID"
     let largeHeaderCellID = "largeHeaderCellID"
     let labelHeaderCellID = "labelHeaderCellID"
@@ -148,13 +148,10 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     fileprivate func setUpCollectionView() {
         collectionView?.register(LabelWithIconCell.self, forCellWithReuseIdentifier: labelWithIconCellID)
         collectionView?.register(LabelWithSwitchCell.self, forCellWithReuseIdentifier: labelWithSwitchCellID)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
+        collectionView?.register(LabelWithLabelCell.self, forCellWithReuseIdentifier: labelWithLabelCellID)
         collectionView?.register(CentreLabelCell.self, forCellWithReuseIdentifier: centreLabelCellID)
-        
         collectionView?.register(LargeHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: largeHeaderCellID)
-        
          collectionView?.register(LabelHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: labelHeaderCellID)
-        
         collectionView?.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: labelFooterCellID)
     }
     
@@ -176,9 +173,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return subscriptionsCell
         }
         if indexPath.section == 3 {
-            let cell4 = collectionView.dequeueReusableCell(withReuseIdentifier: cell4ID, for: indexPath)
-            cell4.backgroundColor = .yellow
-            return cell4
+            let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithLabelCellID, for: indexPath)
+            return historyCell
         }
         if indexPath.section == 4 {
             let optionCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithSwitchCellID, for: indexPath) as! LabelWithSwitchCell

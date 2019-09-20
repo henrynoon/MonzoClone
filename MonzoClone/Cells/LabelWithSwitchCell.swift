@@ -61,6 +61,4 @@ class LabelWithSwitchCell: UICollectionViewCell {
             subLabel.text = labelWithSwitch?.subtitle
         }
     }
-    
-    
 }
