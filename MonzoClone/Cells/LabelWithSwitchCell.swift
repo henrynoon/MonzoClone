@@ -49,7 +49,7 @@ class LabelWithSwitchCell: UICollectionViewCell {
         
         let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, switchToggle])
         horizontalStackView.axis = .horizontal
-        horizontalStackView.spacing = 100
+        horizontalStackView.distribution = .equalCentering
         
         addSubview(horizontalStackView)
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 10, right: 16))

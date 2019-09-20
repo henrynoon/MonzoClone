@@ -91,7 +91,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     }()
     
     var historyArray: [LabelWithLabel] = {
-       var transactionsNum = LabelWithLabel()
+        var transactionsNum = LabelWithLabel()
         transactionsNum.title = "Number of transactions"
         transactionsNum.detail = "143"
         
