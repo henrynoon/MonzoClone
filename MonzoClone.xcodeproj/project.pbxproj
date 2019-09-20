@@ -13,6 +13,7 @@
 		5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */; };
 		5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */; };
 		5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */; };
+		5E34E60F2334E5F900B03EDD /* CentreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60E2334E5F900B03EDD /* CentreLabel.swift */; };
 		5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1AF232001A6004A4293 /* AppDelegate.swift */; };
 		5E65B1B5232001A6004A4293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B3232001A6004A4293 /* Main.storyboard */; };
 		5E65B1B7232001A7004A4293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B6232001A7004A4293 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
 		5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitch.swift; sourceTree = "<group>"; };
 		5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabelCell.swift; sourceTree = "<group>"; };
+		5E34E60E2334E5F900B03EDD /* CentreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabel.swift; sourceTree = "<group>"; };
 		5E65B1AC232001A6004A4293 /* MonzoClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonzoClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E65B1AF232001A6004A4293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E65B1B4232001A6004A4293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				5E65B377232E8C2900DA6C47 /* LabelWithIcon.swift */,
 				5E8C292B2330FB5F004C8FAF /* LabelHeader.swift */,
 				5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */,
+				5E34E60E2334E5F900B03EDD /* CentreLabel.swift */,
 				5E8C292F23314CD0004C8FAF /* LabelFooter.swift */,
 			);
 			path = Model;
@@ -219,6 +222,7 @@
 				5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
 				5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */,
+				5E34E60F2334E5F900B03EDD /* CentreLabel.swift in Sources */,
 				5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */,
 				5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */,
 			);
