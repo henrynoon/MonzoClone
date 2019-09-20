@@ -14,7 +14,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let labelWithIconCellID = "labelWithIconCellID"
     let labelWithSwitchCellID = "labelWithSwitchCellID"
     let cell4ID = "cell4ID"
-    let cell6ID = "cell6ID"
+    let centreLabelCellID = "centreLabelCellID"
     let largeHeaderCellID = "largeHeaderCellID"
     let labelHeaderCellID = "labelHeaderCellID"
     let labelFooterCellID = "labelFooterCellID"
@@ -137,7 +137,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         collectionView?.register(LabelWithIconCell.self, forCellWithReuseIdentifier: labelWithIconCellID)
         collectionView?.register(LabelWithSwitchCell.self, forCellWithReuseIdentifier: labelWithSwitchCellID)
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell4ID)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cell6ID)
+        collectionView?.register(CentreLabelCell.self, forCellWithReuseIdentifier: centreLabelCellID)
         
         collectionView?.register(LargeHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: largeHeaderCellID)
         
@@ -174,9 +174,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             return optionCell
         }
         else {
-            let cell6 = collectionView.dequeueReusableCell(withReuseIdentifier: cell6ID, for: indexPath)
-            cell6.backgroundColor = .cyan
-            return cell6
+            let feedbackCell = collectionView.dequeueReusableCell(withReuseIdentifier: centreLabelCellID, for: indexPath)
+            return feedbackCell
         }
     }
     
