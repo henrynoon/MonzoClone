@@ -32,7 +32,9 @@ class LabelHeaderCell: UICollectionReusableView {
     
     var labelHeader: LabelHeader? {
         didSet {
-            sectionLabel.text = labelHeader?.title
+            if let title = labelHeader?.title {
+                sectionLabel.text = title
+            }
         }
     }
 }
