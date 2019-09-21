@@ -57,8 +57,12 @@ class LabelWithSwitchCell: UICollectionViewCell {
     
     var labelWithSwitch: LabelWithSwitch? {
         didSet {
-            mainLabel.text = labelWithSwitch?.title
-            subLabel.text = labelWithSwitch?.subtitle
+            if let title = labelWithSwitch?.title {
+                mainLabel.text = title
+            }
+            if let subtitle = labelWithSwitch?.subtitle {
+                subLabel.text = subtitle
+            }
         }
     }
 }
