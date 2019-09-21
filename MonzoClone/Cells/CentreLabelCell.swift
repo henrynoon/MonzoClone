@@ -34,8 +34,12 @@ class CentreLabelCell: UICollectionViewCell {
     
     var centreLabel: CentreLabel? {
         didSet {
-            mainLabel.text = centreLabel?.title
-            mainLabel.textColor = centreLabel?.colour
+            if let title = centreLabel?.title {
+                mainLabel.text = title
+            }
+            if let colour = centreLabel?.colour {
+                mainLabel.textColor = colour
+            }
         }
     }
 }
