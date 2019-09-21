@@ -11,7 +11,8 @@ import UIKit
 
 class LabelWithIcon: NSObject {
 
-    var icon: String?
+    var leftIcon: String?
+    var rightIcon: String?
     var title: String?
     var subtitle: String?
     

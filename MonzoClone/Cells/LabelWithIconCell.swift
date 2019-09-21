@@ -54,7 +54,7 @@ class LabelWithIconCell: UICollectionViewCell {
     }()
     
     let rightIconImageView: UIImageView = {
-        let icon = UIImageView(image: #imageLiteral(resourceName: "Arrow"))
+        let icon = UIImageView()
         icon.frame = CGRect(x: 15, y: 7.5, width: 15, height: 15)
         return icon
     }()
@@ -95,9 +95,22 @@ class LabelWithIconCell: UICollectionViewCell {
     
     var labelWithIcon: LabelWithIcon? {
         didSet {
-            leftIconImageView.image = UIImage(named: (labelWithIcon?.icon)!)
-            mainLabel.text = labelWithIcon?.title
-            subLabel.text = labelWithIcon?.subtitle
+            
+            if let leftIcon = labelWithIcon?.leftIcon {
+                leftIconImageView.image = UIImage(named: leftIcon)
+            }
+            
+            if let title = labelWithIcon?.title {
+                mainLabel.text = title
+            }
+            
+            if let subtitle = labelWithIcon?.subtitle {
+                subLabel.text = subtitle
+            }
+            
+            if let rightIcon = labelWithIcon?.rightIcon {
+                rightIconImageView.image = UIImage(named: rightIcon)
+            }
         }
     }
 }

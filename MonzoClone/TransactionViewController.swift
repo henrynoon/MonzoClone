@@ -38,15 +38,18 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     var transactionInfoArray: [LabelWithIcon] = {
         var category = LabelWithIcon()
         category.title = "Groceries"
-        category.icon = "Category Icon"
+        category.leftIcon = "Category Icon"
+        category.rightIcon = "Arrow"
         
         var notes = LabelWithIcon()
         notes.title = "Add notes and #tags"
-        notes.icon = "Notes Icon"
+        notes.leftIcon = "Notes Icon"
+        notes.rightIcon = "Arrow"
         
         var receipt = LabelWithIcon()
         receipt.title = "Add receipt"
-        receipt.icon = "Receipt Icon"
+        receipt.leftIcon = "Receipt Icon"
+        receipt.rightIcon = "Arrow"
         
         return [category, notes, receipt]
     }()
@@ -61,10 +64,10 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         var sharedTab = LabelWithIcon()
         sharedTab.title = "Add to Shared Tab"
         sharedTab.subtitle = "A simple way to manage shared expenses"
-        sharedTab.icon = "Tab Icon"
+        sharedTab.leftIcon = "Tab Icon"
         
         var splitBill = LabelWithIcon()
-        splitBill.icon = "Bill Icon"
+        splitBill.leftIcon = "Bill Icon"
         splitBill.title = "Split this bill"
         splitBill.subtitle = "Instantly get paid back by your friends"
         
