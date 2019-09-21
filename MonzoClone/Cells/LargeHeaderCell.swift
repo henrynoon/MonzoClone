@@ -126,12 +126,24 @@ class LargeHeaderCell: UICollectionReusableView {
     
     var largeHeader: LargeHeader? {
         didSet {
-            priceLabel.text = largeHeader?.amount
-            addressLabel.text = [(largeHeader?.address)!, (largeHeader?.postcode)!].compactMap{$0}.joined(separator: " ")
-            mapLatitude = (largeHeader?.latitude!)!
-            mapLongitude = (largeHeader?.longitude!)!
-            shopLogo.image = UIImage(named: (largeHeader?.logo)!)
-            shopNameLabel.text = largeHeader?.name
+            if let amount = largeHeader?.amount {
+                priceLabel.text = amount
+            }
+            if let address = largeHeader?.address, let postcode = largeHeader?.postcode {
+                addressLabel.text = [address, postcode].compactMap{$0}.joined(separator: " ")
+            }
+            if let latitude = largeHeader?.latitude {
+                mapLatitude = latitude
+            }
+            if let longitude = largeHeader?.longitude {
+                mapLongitude = longitude
+            }
+            if let logo = largeHeader?.logo {
+                shopLogo.image = UIImage(named: logo)
+            }
+            if let name = largeHeader?.name {
+                shopNameLabel.text = name
+            }
             setUpMap()
         }
     }

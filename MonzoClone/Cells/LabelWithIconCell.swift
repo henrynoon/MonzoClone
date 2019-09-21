@@ -95,19 +95,15 @@ class LabelWithIconCell: UICollectionViewCell {
     
     var labelWithIcon: LabelWithIcon? {
         didSet {
-            
             if let leftIcon = labelWithIcon?.leftIcon {
                 leftIconImageView.image = UIImage(named: leftIcon)
             }
-            
             if let title = labelWithIcon?.title {
                 mainLabel.text = title
             }
-            
             if let subtitle = labelWithIcon?.subtitle {
                 subLabel.text = subtitle
             }
-            
             if let rightIcon = labelWithIcon?.rightIcon {
                 rightIconImageView.image = UIImage(named: rightIcon)
             }
