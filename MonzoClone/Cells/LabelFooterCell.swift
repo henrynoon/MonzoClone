@@ -33,7 +33,9 @@ class LabelFooterCell: UICollectionReusableView {
     
     var labelFooter: LabelFooter? {
         didSet {
-            descriptionLabel.text = labelFooter?.title
+            if let title = labelFooter?.title {
+                descriptionLabel.text = title
+            }
         }
     }
 }
