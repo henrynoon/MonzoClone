@@ -17,6 +17,7 @@ class LabelWithIconCell: UICollectionViewCell {
         self.backgroundColor = .white
         self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1).cgColor
         self.layer.borderWidth = 0.5
+        containerView.addSubview(rightIconImageView)
         setUpStackViews()
     }
     
@@ -38,11 +39,23 @@ class LabelWithIconCell: UICollectionViewCell {
         return label
     }()
     
-    let iconImageView: UIImageView = {
-        let icon = UIImageView(image: #imageLiteral(resourceName: "Receipt Icon"))
-        let iconSize = CGSize(width: 30, height: 30)
-        icon.widthAnchor.constraint(equalToConstant: iconSize.width).isActive = true
-        icon.heightAnchor.constraint(equalToConstant: iconSize.height).isActive = true
+    let leftIconImageView: UIImageView = {
+        let icon = UIImageView()
+        icon.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        icon.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return icon
+    }()
+    
+    let containerView: UIView = {
+        let view = UIView()
+        view.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return view
+    }()
+    
+    let rightIconImageView: UIImageView = {
+        let icon = UIImageView(image: #imageLiteral(resourceName: "Arrow"))
+        icon.frame = CGRect(x: 15, y: 7.5, width: 15, height: 15)
         return icon
     }()
     
@@ -52,10 +65,10 @@ class LabelWithIconCell: UICollectionViewCell {
         verticalStackView.axis = .vertical
         verticalStackView.spacing = 3
         
-        let horizontalStackView = UIStackView(arrangedSubviews: [iconImageView, verticalStackView])
+        let horizontalStackView = UIStackView(arrangedSubviews: [leftIconImageView, verticalStackView, containerView])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 16
-//        horizontalStackView.distribution = .fillProportionally
+        horizontalStackView.distribution = .fillProportionally
         
         addSubview(horizontalStackView)
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 15, left: 16, bottom: 15, right: 16))
@@ -82,7 +95,7 @@ class LabelWithIconCell: UICollectionViewCell {
     
     var labelWithIcon: LabelWithIcon? {
         didSet {
-            iconImageView.image = UIImage(named: (labelWithIcon?.icon)!)
+            leftIconImageView.image = UIImage(named: (labelWithIcon?.icon)!)
             mainLabel.text = labelWithIcon?.title
             subLabel.text = labelWithIcon?.subtitle
         }
