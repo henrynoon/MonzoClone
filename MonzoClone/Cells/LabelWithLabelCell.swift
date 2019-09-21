@@ -81,9 +81,15 @@ class LabelWithLabelCell: UICollectionViewCell {
     
     var labelWithLabel: LabelWithLabel? {
         didSet {
-            mainLabel.text = labelWithLabel?.title
-            subLabel.text = labelWithLabel?.subtitle
-            infoLabel.text = labelWithLabel?.detail
+            if let title = labelWithLabel?.title {
+                mainLabel.text = title
+            }
+            if let subtitle = labelWithLabel?.subtitle {
+                subLabel.text = subtitle
+            }
+            if let detail = labelWithLabel?.detail {
+                infoLabel.text = detail
+            }
         }
     }
 }
