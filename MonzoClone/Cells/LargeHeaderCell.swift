@@ -90,7 +90,7 @@ class LargeHeaderCell: UICollectionReusableView {
         verticalStackView.axis = .vertical
         verticalStackView.spacing = 5
         addSubview(verticalStackView)
-        verticalStackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+        verticalStackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 15, right: 15))
     }
     
     

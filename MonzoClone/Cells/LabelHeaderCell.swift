@@ -16,7 +16,7 @@ class LabelHeaderCell: UICollectionReusableView {
         super.init(frame: frame)
         self.backgroundColor = UIColor(displayP3Red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         addSubview(sectionLabel)
-        sectionLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil, padding: .init(top: 0, left: 16, bottom: 8, right: 0))
+        sectionLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil, padding: .init(top: 0, left: 15, bottom: 8, right: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {

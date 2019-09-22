@@ -57,7 +57,7 @@ class LabelWithLabelCell: UICollectionViewCell {
         horizontalStackView.distribution = .equalCentering
         
         addSubview(horizontalStackView)
-        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 15, left: 16, bottom: 15, right: 16))
+        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 15, left: 15, bottom: 15, right: 15))
     }
     
     override var isHighlighted: Bool {
