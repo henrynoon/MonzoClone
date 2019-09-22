@@ -180,11 +180,21 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         if indexPath.section == 0 {
             let transactionInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
             transactionInfoCell.labelWithIcon = transactionInfoArray[indexPath.item]
+            
+            if indexPath.item == transactionInfoArray.count - 1 { // i.e. for the last cell
+                transactionInfoCell.separatorView.backgroundColor = .white
+            }
+            
             return transactionInfoCell
         }
         if indexPath.section == 1 {
             let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
             shareCostCell.labelWithIcon = shareCostArray[indexPath.item]
+            
+            if indexPath.item == shareCostArray.count - 1 { // i.e. for the last cell
+                shareCostCell.separatorView.backgroundColor = .white
+            }
+            
             return shareCostCell
         }
         if indexPath.section == 2 {
@@ -195,6 +205,11 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         if indexPath.section == 3 {
             let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithLabelCellID, for: indexPath) as! LabelWithLabelCell
             historyCell.labelWithLabel = historyArray[indexPath.item]
+           
+            if indexPath.item == historyArray.count - 1 { // i.e. for the last cell
+                historyCell.separatorView.backgroundColor = .white
+            }
+            
             return historyCell
         }
         if indexPath.section == 4 {
@@ -205,6 +220,11 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         else {
             let feedbackCell = collectionView.dequeueReusableCell(withReuseIdentifier: centreLabelCellID, for: indexPath) as! CentreLabelCell
             feedbackCell.centreLabel = feedbackArray[indexPath.item]
+            
+            if indexPath.item == feedbackArray.count - 1 { // i.e. for the last cell
+                feedbackCell.separatorView.backgroundColor = .white
+            }
+            
             return feedbackCell
         }
     }
