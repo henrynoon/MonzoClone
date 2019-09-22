@@ -13,9 +13,8 @@ class LabelWithLabelCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1).cgColor
-        self.layer.borderWidth = 0.5
         setUpStackViews()
+        setUpSeparatorView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,6 +45,12 @@ class LabelWithLabelCell: UICollectionViewCell {
         return price
     }()
     
+    let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
+        return view
+    }()
+    
     fileprivate func setUpStackViews() {
         
         let verticalStackView = UIStackView(arrangedSubviews: [mainLabel, subLabel])
@@ -57,8 +62,16 @@ class LabelWithLabelCell: UICollectionViewCell {
         horizontalStackView.distribution = .equalCentering
         
         addSubview(horizontalStackView)
-        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 15, left: 15, bottom: 15, right: 15))
+        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 14.75, left: 15, bottom: 14.75, right: 15))
     }
+    
+    fileprivate func setUpSeparatorView() {
+        addSubview(separatorView)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
+    }
+    
     
     override var isHighlighted: Bool {
         didSet {
