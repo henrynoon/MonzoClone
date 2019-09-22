@@ -15,9 +15,8 @@ class LabelWithIconCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1).cgColor
-        self.layer.borderWidth = 0.5
         containerView.addSubview(rightIconImageView)
+        addSubview(separatorView)
         setUpStackViews()
     }
     
@@ -59,6 +58,12 @@ class LabelWithIconCell: UICollectionViewCell {
         return icon
     }()
     
+    let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
+        return view
+    }()
+    
     fileprivate func setUpStackViews() {
         
         let verticalStackView = UIStackView(arrangedSubviews: [mainLabel,subLabel])
@@ -67,11 +72,15 @@ class LabelWithIconCell: UICollectionViewCell {
         
         let horizontalStackView = UIStackView(arrangedSubviews: [leftIconImageView, verticalStackView, containerView])
         horizontalStackView.axis = .horizontal
-        horizontalStackView.spacing = 16
+        horizontalStackView.spacing = 15
         horizontalStackView.distribution = .fillProportionally
         
         addSubview(horizontalStackView)
-        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 15, left: 15, bottom: 15, right: 15))
+        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 14.75, left: 15, bottom: 14.75, right: 15))
+
+        separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 60, bottom: 0, right: 0))
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
     }
 
     override var isHighlighted: Bool {

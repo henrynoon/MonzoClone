@@ -146,13 +146,10 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         setUpCollectionView()
-        setUpCollectionViewLayout()
     }
     
-    fileprivate func setUpCollectionViewLayout() {
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.minimumLineSpacing = 0.5
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
@@ -162,6 +159,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     }
     
     //MARK: - Registration
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 6
     }
@@ -177,6 +175,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     }
     
     //MARK: - Creating cells
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let transactionInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
@@ -232,6 +231,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     }
     
     //MARK: - Setting size of Cells
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if indexPath.section == 0 {
@@ -255,6 +255,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     }
     
     //MARK: - Creating Headers
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         if kind == UICollectionView.elementKindSectionHeader {
@@ -303,6 +304,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
 
 
     //MARK: - Setting size of Headers
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
         if section == 0 {
@@ -327,6 +329,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
 
     //MARK: - Setting size of Footers
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         
         if section == 5 {
@@ -337,6 +340,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     }
     
     //MARK: - Selecting Cells
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             print("You have clicked on a transactionInfoCell")
