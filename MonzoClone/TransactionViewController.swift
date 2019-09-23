@@ -174,7 +174,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         collectionView?.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: labelFooterCellID)
     }
     
-    //MARK: - Creating cells
+    //MARK: - Creating Cells
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
@@ -274,7 +274,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         }
     }
     
-    //MARK: - Creating Headers
+    //MARK: - Creating Headers and Footers
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
