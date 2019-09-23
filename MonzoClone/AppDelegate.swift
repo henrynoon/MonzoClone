@@ -23,10 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let transactionViewController = TransactionViewController(collectionViewLayout: HeaderFlowLayout())
-        window?.rootViewController = UINavigationController(rootViewController: transactionViewController)
+//        let transactionViewController = TransactionViewController(collectionViewLayout: HeaderFlowLayout())
+//        window?.rootViewController = UINavigationController(rootViewController: transactionViewController)
         
-    
+        let homeViewController = HomeViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        window?.rootViewController = UINavigationController(rootViewController: homeViewController)
+        
         return true
     }
 
