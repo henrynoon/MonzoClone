@@ -20,12 +20,20 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    //MARK: - Layout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionHeader {
+            view.layer.zPosition = 0
+        }
     }
     
     //MARK: - Registration
