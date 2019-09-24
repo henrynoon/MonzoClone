@@ -7,16 +7,6 @@
 //  Created by Henry Noon on 11/09/2019.
 //  Copyright © 2019 Henry Noon. All rights reserved.
 //
-/*
- 
- Reverting back to how LabelWithIconCell previously was. Because...
- The separatorView has padding of 60 when displayed in TransactionViewController
- But would need padding of just 15 when displayed in HomeViewController
- I could change this class to enable this difference between the VCs
- But it adds another layer of complexity
- For simplicity, I'm going to create another class for the cells in HomeViewController
- 
- */
 
 import UIKit
 
@@ -52,6 +42,8 @@ class LabelWithIconCell: UICollectionViewCell {
         let icon = UIImageView()
         icon.widthAnchor.constraint(equalToConstant: 30).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        icon.layer.cornerRadius = 8
+        icon.clipsToBounds = true
         return icon
     }()
     
