@@ -14,5 +14,6 @@ class Transaction: NSObject {
     var title: String?
     var subtitle: String?
     var price: String?
+    var created: String? //date of transaction
     
 }

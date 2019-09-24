@@ -63,7 +63,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     fileprivate func setUpCollectionView() {
         collectionView.register(TransactionCell.self, forCellWithReuseIdentifier: transactionCellID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: topHeaderID)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
+        collectionView.register(TransactionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
     }
     
     
@@ -99,8 +99,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             topHeader.backgroundColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
             return topHeader
         } else {
-            let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath)
-            transactionHeader.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1)
+            let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath) as! TransactionHeaderCell
             return transactionHeader
         }
     }
