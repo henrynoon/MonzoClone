@@ -148,6 +148,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         setUpCollectionView()
     }
     
+    //MARK: - Layout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -157,6 +159,12 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             view.layer.zPosition = 0
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     
     //MARK: - Registration
     
@@ -369,6 +377,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             print("You have clicked on a shareCostCell")
         }
     }
+    
+   
 }
 
 

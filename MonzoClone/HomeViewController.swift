@@ -54,6 +54,12 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    
     //MARK: - Registration
    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -113,6 +119,13 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         else {
             return CGSize(width: view.frame.width, height: 30)
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let transactionVC = TransactionViewController(collectionViewLayout: HeaderFlowLayout())
+        
+        self.navigationController?.pushViewController(transactionVC, animated: true)
     }
 }
 
