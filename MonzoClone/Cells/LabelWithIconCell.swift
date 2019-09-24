@@ -8,12 +8,14 @@
 //  Copyright © 2019 Henry Noon. All rights reserved.
 //
 /*
- The aim of this commit is to enable this cell to be used in HomeViewController to display each transaction in a separate cell, as well as in the TransactionViewController where it is currently being used.
  
- Previously, I created a UIView which acted as a container - named 'containerView'. I added a UIImageView as a Subview of containerView. The containerView was (and still is) the last element in the horizontalStackView.
+ Reverting back to how LabelWithIconCell previously was. Because...
+ The separatorView has padding of 60 when displayed in TransactionViewController
+ But would need padding of just 15 when displayed in HomeViewController
+ I could change this class to enable this difference between the VCs
+ But it adds another layer of complexity
+ For simplicity, I'm going to create another class for the cells in HomeViewController
  
- In this commit, I have added a UILabel as a Subview of the containerView. The containerView now has 2 subviews - the UIImageView (which will be used to show an image of an arrow in TransactionViewController) and a UILabel (which will be used to display the transaction price in HomeViewController)
-
  */
 
 import UIKit
@@ -23,7 +25,7 @@ class LabelWithIconCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        setUpContainerView()
+        containerView.addSubview(rightIconImageView)
         setUpStackViews()
         setUpSeparatorView()
     }
@@ -53,17 +55,17 @@ class LabelWithIconCell: UICollectionViewCell {
         return icon
     }()
     
-    let rightIconImageView: UIImageView = {
-        let icon = UIImageView()
-        icon.frame = CGRect(x: 85, y: 7.5, width: 15, height: 15)
-        return icon
+    let containerView: UIView = {
+        let view = UIView()
+        view.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return view
     }()
     
-    let rightLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-        return label
+    let rightIconImageView: UIImageView = {
+        let icon = UIImageView()
+        icon.frame = CGRect(x: 15, y: 7.5, width: 15, height: 15)
+        return icon
     }()
     
     let separatorView: UIView = {
@@ -71,21 +73,6 @@ class LabelWithIconCell: UICollectionViewCell {
         view.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
         return view
     }()
-    
-    let containerView: UIView = {
-        let view = UIView()
-        view.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        return view
-    }()
-    
-    
-    fileprivate func setUpContainerView() {
-        containerView.addSubview(rightIconImageView)
-        containerView.addSubview(rightLabel)
-        rightLabel.anchor(top: containerView.topAnchor, leading: nil, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor)
-    }
-    
     
     fileprivate func setUpStackViews() {
         let verticalStackView = UIStackView(arrangedSubviews: [mainLabel,subLabel])
@@ -142,10 +129,6 @@ class LabelWithIconCell: UICollectionViewCell {
             }
             if let rightIcon = labelWithIcon?.rightIcon {
                 rightIconImageView.image = UIImage(named: rightIcon)
-            }
-            
-            if let price = labelWithIcon?.price {
-                rightLabel.text = price
             }
         }
     }
