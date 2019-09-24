@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let cellID = "cellID"
+    let transactionCellID = "transactionCellID"
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
     
@@ -43,7 +43,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     fileprivate func setUpCollectionView() {
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(TransactionCell.self, forCellWithReuseIdentifier: transactionCellID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: topHeaderID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
     }
@@ -52,8 +52,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     //MARK: - Creating Cells
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-            transactionCell.backgroundColor = .white
+            let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
             return transactionCell
     }
     
