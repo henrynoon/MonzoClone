@@ -14,6 +14,24 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
     
+    var transactionsArray: [Transaction] = {
+        //Sample data...I will get the data later from Monzo
+        var transaction1 = Transaction()
+        transaction1.logo = "Sainsbury's Logo"
+        transaction1.title = "Sainsbury's"
+        transaction1.subtitle = "I bought some groceries"
+        transaction1.price = "£5.45"
+        
+        
+        var transaction2 = Transaction()
+        transaction2.logo = "Coop Logo"
+        transaction2.title = "Coop"
+        transaction2.subtitle = "I bought some bread"
+        transaction2.price = "£1.00"
+        
+        return [transaction1, transaction2]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
@@ -52,15 +70,16 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     //MARK: - Creating Cells
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
-            return transactionCell
+        let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
+        transactionCell.transaction = transactionsArray[indexPath.item]
+        return transactionCell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 0
         } else {
-            return 3
+            return transactionsArray.count
         }
     }
     

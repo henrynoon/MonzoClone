@@ -25,7 +25,6 @@ class TransactionCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-        label.text = "Sainsbury's"
         return label
     }()
     
@@ -33,7 +32,6 @@ class TransactionCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 9, weight: .light)
         label.textColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1)
-        label.text = "Some comment"
         return label
     }()
     
@@ -48,7 +46,6 @@ class TransactionCell: UICollectionViewCell {
     
     let rightLabel: UILabel = {
         let label = UILabel()
-        label.text = "£5.45"
         return label
     }()
     
@@ -95,6 +92,23 @@ class TransactionCell: UICollectionViewCell {
                            options: [.allowUserInteraction, .beginFromCurrentState],
                            animations: animations,
                            completion: nil)
+        }
+    }
+    
+    var transaction: Transaction? {
+        didSet {
+            if let logo = transaction?.logo {
+                logoImageView.image = UIImage(named: logo)
+            }
+            if let title = transaction?.title {
+                mainLabel.text = title
+            }
+            if let subtitle = transaction?.subtitle {
+                subLabel.text = subtitle
+            }
+            if let price = transaction?.price {
+                rightLabel.text = price
+            }
         }
     }
 }
