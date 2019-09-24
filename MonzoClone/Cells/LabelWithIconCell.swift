@@ -143,6 +143,10 @@ class LabelWithIconCell: UICollectionViewCell {
             if let rightIcon = labelWithIcon?.rightIcon {
                 rightIconImageView.image = UIImage(named: rightIcon)
             }
+            
+            if let price = labelWithIcon?.price {
+                rightLabel.text = price
+            }
         }
     }
 }
