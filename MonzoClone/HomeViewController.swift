@@ -121,7 +121,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             return CGSize(width: view.frame.width, height: 90)
         }
         else {
-            return CGSize(width: view.frame.width, height: 30)
+            return CGSize(width: view.frame.width, height: 45)
         }
     }
     
