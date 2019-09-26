@@ -22,7 +22,6 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         transaction1.subtitle = "I bought some groceries"
         transaction1.price = "£5.45"
         
-        
         var transaction2 = Transaction()
         transaction2.logo = "Coop Logo"
         transaction2.title = "Coop"
@@ -78,6 +77,11 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
         transactionCell.transaction = transactionsArray[indexPath.item]
+        
+        if indexPath.item == transactionsArray.count - 1 {
+            transactionCell.separatorView.backgroundColor = .white
+        }
+        
         return transactionCell
     }
     
