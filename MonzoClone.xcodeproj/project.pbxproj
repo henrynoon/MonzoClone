@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */; };
 		5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */; };
 		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
 		5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFlowLayout.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */,
 				5E4DE797233A33640056BD98 /* TransactionCell.swift */,
 				5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */,
+				5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */,
 				5E8C292A2330E373004C8FAF /* LabelHeaderCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
+				5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */,
 				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
 				5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
