@@ -12,8 +12,6 @@ class TopHeaderCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
         self.backgroundColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
     }
     
