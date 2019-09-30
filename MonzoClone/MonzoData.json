@@ -1,7 +1,7 @@
 {
     "transactions": [
         {
-            "id": “- - REMOVED - - ”,
+            "id": "- - REMOVED - -",
             "created": "2019-03-16T12:35:51.257Z",
             "description": "WAITROSE               HAMPTON       GBR",
             "amount": -394,
@@ -33,7 +33,7 @@
                 "updated": "2018-04-23T18:31:21.693Z",
                 "metadata": {
                     "created_for_merchant": "merch_000092JZmjBOPq9SZEhd7B",
-                    "created_for_transaction": “- - REMOVED - -”,
+                    "created_for_transaction": "- - REMOVED - -",
                     "foursquare_category": "Supermarket",
                     "foursquare_category_icon": "https://ss3.4sqi.net/img/categories_v2/shops/food_grocery_88.png",
                     "foursquare_id": "4b97ec98f964a520c11f35e3",
@@ -52,10 +52,10 @@
             },
             "notes": "Food",
             "metadata": {
-                "ledger_insertion_id": “- - REMOVED - -”,
+                "ledger_insertion_id": "- - REMOVED - -",
                 "mastercard_approval_type": "full",
-                "mastercard_auth_message_id": “- - REMOVED - -”,
-                "mastercard_lifecycle_id": “- - REMOVED - -”,
+                "mastercard_auth_message_id": "- - REMOVED - -",
+                "mastercard_lifecycle_id": "- - REMOVED - -",
                 "mcc": "5411",
                 "notes": "Food"
             },
@@ -73,7 +73,7 @@
             "user_id": "- - REMOVED - - ",
             "counterparty": {},
             "scheme": "mastercard",
-            "dedupe_id": “- - REMOVED - -”,
+            "dedupe_id": "- - REMOVED - -",
             "originator": false,
             "include_in_spending": true,
             "can_be_excluded_from_breakdown": true,
@@ -83,7 +83,7 @@
             "amount_is_pending": false
         },
         {
-            "id": “- - REMOVED - -”,
+            "id": "- - REMOVED - -",
             "created": "2019-03-16T12:36:38.019Z",
             "description": "TFL TRAVEL CH\\VICTORIA STREET\\TFL.GOV.UK/CP\\SW1H 0TL     GBR",
             "amount": -820,
@@ -115,8 +115,8 @@
                 "updated": "2018-08-25T21:57:46.577Z",
                 "metadata": {
                     "created_for_merchant": "merch_000092JYbUJXFziJUYDUS9",
-                    "created_for_transaction": “- - REMOVED - -”,
-                    "enriched_from_settlement": “- - REMOVED - -”,
+                    "created_for_transaction": "- - REMOVED - -",
+                    "enriched_from_settlement": "- - REMOVED - -",
                     "foursquare_category": "Office",
                     "foursquare_category_icon": "https://ss3.4sqi.net/img/categories_v2/building/default_88.png",
                     "foursquare_id": "4be929db88ed2d7fa0a3cc1d",
@@ -135,9 +135,9 @@
             },
             "notes": "Travel charge for Friday, 15 Mar",
             "metadata": {
-                "ledger_insertion_id": “- - REMOVED - -”,
-                "mastercard_clearing_message_id": “- - REMOVED - -”,
-                "mastercard_lifecycle_id": “- - REMOVED - -”,
+                "ledger_insertion_id": "- - REMOVED - -",
+                "mastercard_clearing_message_id": "- - REMOVED - -",
+                "mastercard_lifecycle_id": "- - REMOVED - -",
                 "mcc": "4111",
                 "notes": "Travel charge for Friday, 15 Mar"
             },
@@ -155,7 +155,7 @@
             "user_id": "- - REMOVED - -",
             "counterparty": {},
             "scheme": "mastercard",
-            "dedupe_id": “- - REMOVED - -”,
+            "dedupe_id": "- - REMOVED - -",
             "originator": false,
             "include_in_spending": true,
             "can_be_excluded_from_breakdown": true,
@@ -165,7 +165,7 @@
             "amount_is_pending": false
         },
         {
-            "id": “- - REMOVED - -”,
+            "id": "- - REMOVED - -",
             "created": "2019-03-16T14:38:06.368Z",
             "description": "CANCER RESEARCH LTD    RICHMOND SURR GBR",
             "amount": -1000,
@@ -197,8 +197,8 @@
                 "updated": "2016-05-31T23:07:08.98Z",
                 "metadata": {
                     "created_for_merchant": "merch_000094uxnVaO8KlZDyEaxt",
-                    "created_for_transaction": “- - REMOVED - -”,
-                    "enriched_from_settlement": “- - REMOVED - -”,
+                    "created_for_transaction": "- - REMOVED - -",
+                    "enriched_from_settlement": "- - REMOVED - -",
                     "foursquare_category": "Miscellaneous Shop",
                     "foursquare_id": "4f523d85e4b07e4c6264ff0f",
                     "foursquare_website": "",
@@ -214,10 +214,10 @@
             },
             "notes": "Jumper ",
             "metadata": {
-                "ledger_insertion_id": “- - REMOVED - -”,
+                "ledger_insertion_id": "- - REMOVED - -",
                 "mastercard_approval_type": "full",
-                "mastercard_auth_message_id": “- - REMOVED - -”,
-                "mastercard_lifecycle_id": “- - REMOVED - -”,
+                "mastercard_auth_message_id": "- - REMOVED - -",
+                "mastercard_lifecycle_id": "- - REMOVED - -",
                 "mcc": "8398",
                 "notes": "Jumper "
             },
@@ -235,7 +235,7 @@
             "user_id": "- - REMOVED - - ",
             "counterparty": {},
             "scheme": "mastercard",
-            "dedupe_id": “- - REMOVED - -”,
+            "dedupe_id": "- - REMOVED - -",
             "originator": false,
             "include_in_spending": true,
             "can_be_excluded_from_breakdown": true,
@@ -245,7 +245,7 @@
             "amount_is_pending": false
         },
         {
-            "id": “- - REMOVED - -”,
+            "id": "- - REMOVED - -",
             "created": "2019-03-16T14:52:01.339Z",
             "description": "PRET A MANGER          RICHMOND      GBR",
             "amount": -749,
@@ -277,7 +277,7 @@
                 "updated": "2018-08-15T15:07:11.846Z",
                 "metadata": {
                     "created_for_merchant": "merch_000092JYpwwVc56LpI9HX7",
-                    "created_for_transaction": “- - REMOVED - -”,
+                    "created_for_transaction": "- - REMOVED - -",
                     "foursquare_category": "Sandwich Place",
                     "foursquare_category_icon": "https://ss3.4sqi.net/img/categories_v2/food/deli_88.png",
                     "foursquare_id": "4b83d97af964a520751331e3",
@@ -294,10 +294,10 @@
             },
             "notes": "Lunch ",
             "metadata": {
-                "ledger_insertion_id": “- - REMOVED - -”,
+                "ledger_insertion_id": "- - REMOVED - -",
                 "mastercard_approval_type": "full",
-                "mastercard_auth_message_id": “- - REMOVED - -”,
-                "mastercard_lifecycle_id": “- - REMOVED - -”,
+                "mastercard_auth_message_id": "- - REMOVED - -",
+                "mastercard_lifecycle_id": "- - REMOVED - -",
                 "mcc": "5812",
                 "notes": "Lunch "
             },
@@ -315,7 +315,7 @@
             "user_id": "- - REMOVED - - ",
             "counterparty": {},
             "scheme": "mastercard",
-            "dedupe_id": “- - REMOVED - -”,
+            "dedupe_id": "- - REMOVED - -",
             "originator": false,
             "include_in_spending": true,
             "can_be_excluded_from_breakdown": true,
@@ -325,7 +325,7 @@
             "amount_is_pending": false
         },
         {
-            "id": “- - REMOVED - -”,
+            "id": "- - REMOVED - -",
             "created": "2019-03-16T19:55:14.071Z",
             "description": "WAITROSE               WIMBLEDON     GBR",
             "amount": -200,
@@ -377,10 +377,10 @@
             },
             "notes": "Chocolate ",
             "metadata": {
-                "ledger_insertion_id": “- - REMOVED - -”,
+                "ledger_insertion_id": "- - REMOVED - -",
                 "mastercard_approval_type": "full",
-                "mastercard_auth_message_id": “- - REMOVED - -”,
-                "mastercard_lifecycle_id": “- - REMOVED - -”,
+                "mastercard_auth_message_id": "- - REMOVED - -",
+                "mastercard_lifecycle_id": "- - REMOVED - -",
                 "mcc": "5411",
                 "notes": "Chocolate "
             },
@@ -398,7 +398,7 @@
             "user_id": "- - REMOVED - - ",
             "counterparty": {},
             "scheme": "mastercard",
-            "dedupe_id": “- - REMOVED - -”,
+            "dedupe_id": "- - REMOVED - -",
             "originator": false,
             "include_in_spending": true,
             "can_be_excluded_from_breakdown": true,
@@ -408,7 +408,7 @@
             "amount_is_pending": false
         },
         {
-            "id": “- - REMOVED - - ”,
+            "id": "- - REMOVED - -",
             "created": "2019-03-16T20:12:05.933Z",
             "description": "WAGAMAMA WIMBLEDON     LONDON        GBR",
             "amount": -995,
@@ -458,10 +458,10 @@
             },
             "notes": "Dinner - takeaway ",
             "metadata": {
-                "ledger_insertion_id": “- - REMOVED - -”,
+                "ledger_insertion_id": "- - REMOVED - -",
                 "mastercard_approval_type": "full",
-                "mastercard_auth_message_id": “- - REMOVED - -”,
-                "mastercard_lifecycle_id": “- - REMOVED - -”,
+                "mastercard_auth_message_id": "- - REMOVED - -",
+                "mastercard_lifecycle_id": "- - REMOVED - -",
                 "mcc": "5812",
                 "notes": "Dinner - takeaway "
             },
@@ -479,7 +479,7 @@
             "user_id": "- - REMOVED - - ",
             "counterparty": {},
             "scheme": "mastercard",
-            "dedupe_id": “- - REMOVED - -”,
+            "dedupe_id": "- - REMOVED - -",
             "originator": false,
             "include_in_spending": true,
             "can_be_excluded_from_breakdown": true,

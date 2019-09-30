@@ -43,7 +43,7 @@
 		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFlowLayout.swift; sourceTree = "<group>"; };
 		5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		5E26A4E9234248AB004831BB /* MonzoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoData.json; sourceTree = "<group>"; };
+		5E26A4E9234248AB004831BB /* MonzoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
 		5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitch.swift; sourceTree = "<group>"; };
 		5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabelCell.swift; sourceTree = "<group>"; };

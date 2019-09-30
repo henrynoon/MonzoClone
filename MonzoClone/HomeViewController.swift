@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -33,10 +34,31 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getMonzoData()
         setUpCollectionView()
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    //MARK - Importing Monzo JSON Data
+    
+    func getMonzoData() {
+        //N.B. For now, I have put a sample of some Monzo data into a JSON file. I will deserialise it here and use it to populate the rest of the app. After that, I'll change this method so you can get your own data from your Monzo account
+        
+        guard let path = Bundle.main.path(forResource: "MonzoData", ofType: "json") else { return }
+
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let data = try Data(contentsOf: url)
+            
+            let json = try JSON(data: data)
+            print(json)
+            
+        } catch {
+            print(error)
+        }
+    }
+
     //MARK: - Layout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
