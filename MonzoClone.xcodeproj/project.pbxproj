@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045CF5E20EBDBDBA5FAA0F64 /* Pods_MonzoClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58F72730D97F57053F12284 /* Pods_MonzoClone.framework */; };
 		5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */; };
 		5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */; };
 		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
@@ -64,6 +65,9 @@
 		5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooterCell.swift; sourceTree = "<group>"; };
 		5E8C292F23314CD0004C8FAF /* LabelFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooter.swift; sourceTree = "<group>"; };
 		5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIconCell.swift; sourceTree = "<group>"; };
+		A1D89991AC4C603B97D4D913 /* Pods-MonzoClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonzoClone.debug.xcconfig"; path = "Target Support Files/Pods-MonzoClone/Pods-MonzoClone.debug.xcconfig"; sourceTree = "<group>"; };
+		C1CF1596693A3974D4195A2C /* Pods-MonzoClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonzoClone.release.xcconfig"; path = "Target Support Files/Pods-MonzoClone/Pods-MonzoClone.release.xcconfig"; sourceTree = "<group>"; };
+		F58F72730D97F57053F12284 /* Pods_MonzoClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonzoClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045CF5E20EBDBDBA5FAA0F64 /* Pods_MonzoClone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +112,8 @@
 			children = (
 				5E65B1AE232001A6004A4293 /* MonzoClone */,
 				5E65B1AD232001A6004A4293 /* Products */,
+				7735CE7097D925B783956718 /* Pods */,
+				A5636C238420F2301FC9F076 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +166,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7735CE7097D925B783956718 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1D89991AC4C603B97D4D913 /* Pods-MonzoClone.debug.xcconfig */,
+				C1CF1596693A3974D4195A2C /* Pods-MonzoClone.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A5636C238420F2301FC9F076 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F58F72730D97F57053F12284 /* Pods_MonzoClone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E65B1BE232001A7004A4293 /* Build configuration list for PBXNativeTarget "MonzoClone" */;
 			buildPhases = (
+				DA6B98040AB51443E3FB69BD /* [CP] Check Pods Manifest.lock */,
 				5E65B1A8232001A6004A4293 /* Sources */,
 				5E65B1A9232001A6004A4293 /* Frameworks */,
 				5E65B1AA232001A6004A4293 /* Resources */,
+				4CDCFE7E09925EA2190D0467 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +251,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CDCFE7E09925EA2190D0467 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MonzoClone/Pods-MonzoClone-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonzoClone/Pods-MonzoClone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA6B98040AB51443E3FB69BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonzoClone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E65B1A8232001A6004A4293 /* Sources */ = {
@@ -396,6 +470,7 @@
 		};
 		5E65B1BF232001A7004A4293 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1D89991AC4C603B97D4D913 /* Pods-MonzoClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -414,6 +489,7 @@
 		};
 		5E65B1C0232001A7004A4293 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CF1596693A3974D4195A2C /* Pods-MonzoClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
