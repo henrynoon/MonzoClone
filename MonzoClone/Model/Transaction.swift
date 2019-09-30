@@ -41,6 +41,15 @@ struct Transaction {
     var can_split_the_bill: Bool?
     var can_add_to_tab: Bool?
     var amount_is_pending: Bool?
+    
+    
+    var logo: String?
+    var title: String?
+    var subtitle: String?
+    var price: String?
+
+    
+    
 }
 
 struct Fees {
@@ -52,6 +61,7 @@ struct Metadata {
     var mastercard_approval_type: String?
     var mastercard_auth_message_id: String?
     var mastercard_lifecycle_id: String?
+    var mastercard_clearing_message_id: String?
     var mcc: String?
     var notes: String?
     
@@ -118,9 +128,3 @@ struct MerchantMetadata {
 
 
 
-
-
-//var logo: String?
-//var title: String?
-//var subtitle: String?
-//var price: String?
