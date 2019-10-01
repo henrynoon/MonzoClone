@@ -1,5 +1,6 @@
 //
-//  LabelCentralCell.swift
+//  CentreLabelCell.swift
+//  (Previously LabelCentralCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 20/09/2019.
