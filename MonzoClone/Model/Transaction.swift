@@ -41,15 +41,6 @@ class Transaction: NSObject {
     var can_split_the_bill: Bool?
     var can_add_to_tab: Bool?
     var amount_is_pending: Bool?
-    
-    
-    var logo: String?
-    var title: String?
-    var subtitle: String?
-    var price: String?
-
-    
-    
 }
 
 class Fees: NSObject {
