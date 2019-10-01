@@ -36,7 +36,7 @@ class TransactionCell: UICollectionViewCell {
     }()
     
     let logoImageView: UIImageView = {
-        let logo = UIImageView(image: #imageLiteral(resourceName: "Sainsbury's Logo"))
+        let logo = UIImageView()
         logo.widthAnchor.constraint(equalToConstant: 30).isActive = true
         logo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         logo.layer.cornerRadius = 8
