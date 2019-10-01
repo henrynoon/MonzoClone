@@ -15,24 +15,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
     
-    var transactionsArray: [Transaction] = {
-        //Sample data...I will get the data later from Monzo
-        var transaction1 = Transaction()
-        transaction1.logo = "Sainsbury's Logo"
-        transaction1.title = "Sainsbury's"
-        transaction1.subtitle = "I bought some groceries"
-        transaction1.price = "£5.45"
-        
-        var transaction2 = Transaction()
-        transaction2.logo = "Coop Logo"
-        transaction2.title = "Coop"
-        transaction2.subtitle = "I bought some bread"
-        transaction2.price = "£1.00"
-        
-        return [transaction1, transaction2]
-    }()
-    
-    var transactionsArrayTwo = [Transaction]() 
+    var transactionsArray = [Transaction]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +87,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             addressObj.latitude = latitudeArray[index]
             addressObj.longitude = longitudeArray[index]
            
-            transactionsArrayTwo.append(transactionObj)
+            transactionsArray.append(transactionObj)
         }
     }
 
