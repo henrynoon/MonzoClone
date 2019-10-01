@@ -97,8 +97,8 @@ class TransactionCell: UICollectionViewCell {
     
     var transaction: Transaction? {
         didSet {
-            if let logo = transaction?.logo {
-                logoImageView.image = UIImage(named: logo)
+            if let logo = transaction?.merchant?.logo {
+                logoImageView.loadImageUsingUrlString(urlString: logo)
             }
             if let name = transaction?.merchant?.name {
                 mainLabel.text = name
