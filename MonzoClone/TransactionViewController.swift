@@ -19,6 +19,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let labelHeaderCellID = "labelHeaderCellID"
     let labelFooterCellID = "labelFooterCellID"
     
+    var selectedTransaction: Transaction?
+    
     var transactionInfoHeaderArray: [LargeHeader] = {
         var shop = LargeHeader()
         shop.amount = "£5.45"
