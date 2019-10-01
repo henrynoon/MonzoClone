@@ -8,11 +8,11 @@
 
 import UIKit
 
-struct Transaction {
+class Transaction: NSObject {
 
     var id: String?
     var created: String?
-    var description: String?
+    var transactionDescription: String?
     var amount: Int?
     var fees: Fees?
     var currency: String?
@@ -20,13 +20,13 @@ struct Transaction {
     var notes: String?
     var metadata: Metadata?
     var labels: String?
-    var account_balance: Float?
+    var account_balance: Double?
     var attachments: Attachments?
     var international: String?
     var category: String?
     var is_load: Bool?
     var settled: String?
-    var local_amount: Float?
+    var local_amount: Double?
     var local_currency: String?
     var updated: String?
     var account_id: String?
@@ -52,11 +52,11 @@ struct Transaction {
     
 }
 
-struct Fees {
+class Fees: NSObject {
     
 }
 
-struct Metadata {
+class Metadata: NSObject {
     var ledger_insertion_id: String?
     var mastercard_approval_type: String?
     var mastercard_auth_message_id: String?
@@ -67,18 +67,18 @@ struct Metadata {
     
 }
 
-struct Attachments {
+class Attachments: NSObject {
     
 }
 
-struct Counterparty {
+class Counterparty: NSObject {
     
 }
 
 
 // Below are specific to the Merchant
 
-struct Merchant {
+class Merchant: NSObject {
     var id: String?
     var group_id: String?
     var created: String?
@@ -94,7 +94,7 @@ struct Merchant {
     var disable_feedback: Bool?
 }
 
-struct Address {
+class Address: NSObject {
     var short_formatted: String?
     var formatted: String?
     var address: String?
@@ -102,13 +102,13 @@ struct Address {
     var region: String?
     var country: String?
     var postcode: String?
-    var latitude: Float?
-    var longitude: Float?
+    var latitude: Double?
+    var longitude: Double?
     var zoom_level: Int?
     var approximate: Bool?
 }
 
-struct MerchantMetadata {
+class MerchantMetadata: NSObject {
     var created_for_merchant: String?
     var created_for_transaction: String?
     var foursquare_category: String?

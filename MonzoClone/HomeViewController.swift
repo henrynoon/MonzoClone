@@ -32,6 +32,8 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         return [transaction1, transaction2]
     }()
     
+    var transactionsArrayTwo = [Transaction]() 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getMonzoData()
@@ -41,8 +43,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //MARK - Importing Monzo JSON Data
     
-    func getMonzoData() {
-        //N.B. For now, I have put a sample of some Monzo data into a JSON file. I will deserialise it here and use it to populate the rest of the app. After that, I'll change this method so you can get your own data from your Monzo account
+    fileprivate func getMonzoData() {
         
         guard let path = Bundle.main.path(forResource: "MonzoData", ofType: "json") else { return }
 
@@ -52,10 +53,58 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             let data = try Data(contentsOf: url)
             
             let json = try JSON(data: data)
-            print(json)
+            updateTransactionModel(with: json)
             
         } catch {
             print(error)
+        }
+    }
+    
+    fileprivate func updateTransactionModel(with json: JSON) {
+        
+        let createdArray = json["transactions"].arrayValue.map {$0["created"].stringValue}
+        
+        let descriptionArray = json["transactions"].arrayValue.map {$0["description"].stringValue}
+        
+        let amountArray = json["transactions"].arrayValue.map {$0["amount"].intValue}
+        
+        let nameArray = json["transactions"].arrayValue.map {$0["merchant"]["name"].stringValue}
+        
+        let logoArray = json["transactions"].arrayValue.map {$0["merchant"]["logo"].stringValue}
+        
+        let notesArray = json["transactions"].arrayValue.map {$0["notes"].stringValue}
+        
+        let categoryArray = json["transactions"].arrayValue.map {$0["category"].stringValue}
+        
+        let addressArray = json["transactions"].arrayValue.map {$0["merchant"]["address"]["short_formatted"].stringValue}
+        
+        let latitudeArray = json["transactions"].arrayValue.map {$0["merchant"]["address"]["latitude"].doubleValue}
+        
+        let longitudeArray = json["transactions"].arrayValue.map {$0["merchant"]["address"]["longitude"].doubleValue}
+        
+        
+        for index in 0...createdArray.count-1 {
+            let transactionObj = Transaction()
+            
+            transactionObj.created = createdArray[index]
+            transactionObj.transactionDescription = descriptionArray[index]
+            transactionObj.amount = amountArray[index]
+            transactionObj.merchant?.name = nameArray[index]
+            transactionObj.merchant?.logo = logoArray[index]
+            transactionObj.notes = notesArray[index]
+            transactionObj.category = categoryArray[index]
+
+            let merchantObj = Merchant()
+            transactionObj.merchant = merchantObj
+            
+            let addressObj = Address()
+            merchantObj.address = addressObj
+            
+            addressObj.short_formatted = addressArray[index]
+            addressObj.latitude = latitudeArray[index]
+            addressObj.longitude = longitudeArray[index]
+           
+            transactionsArrayTwo.append(transactionObj)
         }
     }
 
