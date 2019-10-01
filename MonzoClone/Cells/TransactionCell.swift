@@ -100,14 +100,21 @@ class TransactionCell: UICollectionViewCell {
             if let logo = transaction?.logo {
                 logoImageView.image = UIImage(named: logo)
             }
-            if let title = transaction?.title {
-                mainLabel.text = title
+            if let name = transaction?.merchant?.name {
+                mainLabel.text = name
             }
-            if let subtitle = transaction?.subtitle {
-                subLabel.text = subtitle
+            if let notes = transaction?.notes {
+                subLabel.text = notes
             }
-            if let price = transaction?.price {
-                rightLabel.text = price
+            if let amount = transaction?.amount {
+                
+                if amount < 0 {
+                    rightLabel.text = String(-amount) // -ve sign won't appear
+                } else {
+                    rightLabel.text = String(amount) //This will show as a +ve number
+                    
+                }
+                
             }
         }
     }
