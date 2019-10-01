@@ -113,16 +113,16 @@ class TransactionCell: UICollectionViewCell {
             
             if let amount = transaction?.amount {
                 
-                let amountInPounds = amount/100
+                let amountInHundredths = amount/100
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .currency
                 numberFormatter.currencyCode = currency
                 
-                if amountInPounds < 0 {
-                    rightLabel.text = numberFormatter.string(from: -amountInPounds as NSNumber)
+                if amountInHundredths < 0 {
+                    rightLabel.text = numberFormatter.string(from: -amountInHundredths as NSNumber)
                 } else {
-                    rightLabel.text = numberFormatter.string(from: amountInPounds as NSNumber)
+                    rightLabel.text = numberFormatter.string(from: amountInHundredths as NSNumber)
                 }
             }
         }
