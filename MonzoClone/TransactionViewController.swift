@@ -20,22 +20,6 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let labelFooterCellID = "labelFooterCellID"
     
     var selectedTransaction: Transaction?
-    
-    var transactionInfoHeaderArray: [LargeHeader] = {
-        var shop = LargeHeader()
-        shop.amount = "£5.45"
-        shop.created = "2019-03-15T20:26:18Z"
-        shop.address = "8-12 Worple Rd, Wimbledon"
-        shop.city = "London"
-        shop.country = "GB"
-        shop.latitude = 51.420713
-        shop.longitude = -0.209699
-        shop.postcode = "SW19 4DD"
-        shop.region = "Greater London"
-        shop.logo = "Sainsbury's Logo"
-        shop.name = "Sainsbury's"
-        return [shop]
-    }()
 
     var transactionInfoArray: [LabelWithIcon] = {
         var category = LabelWithIcon()
@@ -292,7 +276,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             
             if indexPath.section == 0 {
                 let transactionInfoHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: largeHeaderCellID, for: indexPath) as! LargeHeaderCell
-                transactionInfoHeaderCell.largeHeader = transactionInfoHeaderArray[indexPath.item]
+                transactionInfoHeaderCell.transaction = selectedTransaction
                 return transactionInfoHeaderCell
             }
             

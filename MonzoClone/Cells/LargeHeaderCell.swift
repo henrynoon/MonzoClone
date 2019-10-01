@@ -124,24 +124,38 @@ class LargeHeaderCell: UICollectionReusableView {
         mapView.isUserInteractionEnabled = false
     }
     
-    var largeHeader: LargeHeader? {
+    var transaction: Transaction? {
         didSet {
-            if let amount = largeHeader?.amount {
-                priceLabel.text = amount
+            guard let currency = transaction?.currency else {return}
+            
+            if let amount = transaction?.amount {
+                
+                let amountInHundredths = amount/100
+                
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .currency
+                numberFormatter.currencyCode = currency
+                
+                if amountInHundredths < 0 {
+                    priceLabel.text = numberFormatter.string(from: -amountInHundredths as NSNumber)
+                } else {
+                    priceLabel.text = numberFormatter.string(from: amountInHundredths as NSNumber)
+                }
             }
-            if let address = largeHeader?.address, let postcode = largeHeader?.postcode {
-                addressLabel.text = [address, postcode].compactMap{$0}.joined(separator: " ")
+
+            if let address = transaction?.merchant?.address?.short_formatted {
+                addressLabel.text = address
             }
-            if let latitude = largeHeader?.latitude {
+            if let latitude = transaction?.merchant?.address?.latitude {
                 mapLatitude = latitude
             }
-            if let longitude = largeHeader?.longitude {
+            if let longitude = transaction?.merchant?.address?.longitude {
                 mapLongitude = longitude
             }
-            if let logo = largeHeader?.logo {
-                shopLogo.image = UIImage(named: logo)
+            if let logo = transaction?.merchant?.logo {
+                shopLogo.loadImageUsingUrlString(urlString: logo)
             }
-            if let name = largeHeader?.name {
+            if let name = transaction?.merchant?.name {
                 shopNameLabel.text = name
             }
             setUpMap()
