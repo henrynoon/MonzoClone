@@ -59,7 +59,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         let notesArray = json["transactions"].arrayValue.map {$0["notes"].stringValue}
         
-        let categoryArray = json["transactions"].arrayValue.map {$0["category"].stringValue}
+        let categoryArray = json["transactions"].arrayValue.map {$0["merchant"]["category"].stringValue}
         
         let addressArray = json["transactions"].arrayValue.map {$0["merchant"]["address"]["short_formatted"].stringValue}
         
@@ -75,12 +75,12 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             transactionObj.amount = amountArray[index]
             transactionObj.currency = currencyArray[index]
             transactionObj.notes = notesArray[index]
-            transactionObj.category = categoryArray[index]
           
             let merchantObj = Merchant()
             transactionObj.merchant = merchantObj
             merchantObj.name = nameArray[index]
             merchantObj.logo = logoArray[index]
+            merchantObj.category = categoryArray[index]
             
             let addressObj = Address()
             merchantObj.address = addressObj

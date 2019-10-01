@@ -20,25 +20,37 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let labelFooterCellID = "labelFooterCellID"
     
     var selectedTransaction: Transaction?
-
-    var transactionInfoArray: [LabelWithIcon] = {
-        var category = LabelWithIcon()
-        category.title = "Groceries"
-        category.leftIcon = "Category Icon"
-        category.rightIcon = "Arrow"
+    var categoryNotesReceiptArray = [LabelWithIcon]()
+    
+    fileprivate func setUpCategoryNotesReceiptCells() {
+    
+        let categoryObj = LabelWithIcon()
+        categoryObj.title = selectedTransaction?.merchant?.category
+        categoryObj.leftIcon = selectedTransaction?.merchant?.category
+        categoryObj.rightIcon = "Arrow"
         
-        var notes = LabelWithIcon()
-        notes.title = "Add notes and #tags"
-        notes.leftIcon = "Notes Icon"
-        notes.rightIcon = "Arrow"
+        let notesObj = LabelWithIcon()
+        notesObj.leftIcon = "Notes Icon"
+        notesObj.rightIcon = "Arrow"
         
-        var receipt = LabelWithIcon()
-        receipt.title = "Add receipt"
-        receipt.leftIcon = "Receipt Icon"
-        receipt.rightIcon = "Arrow"
+        if let notes = selectedTransaction?.notes {
+            notesObj.title = notes
+        } else {
+            notesObj.title = "Add notes and #tags"
+        }
         
-        return [category, notes, receipt]
-    }()
+        let receiptObj = LabelWithIcon()
+        receiptObj.leftIcon = "Receipt Icon"
+        receiptObj.rightIcon = "Arrow"
+        
+        if let attachments = selectedTransaction?.attachments {
+            // add a thumbnail of attachment
+        } else {
+            receiptObj.title = "Add receipt"
+        }
+        
+        [categoryObj, notesObj, receiptObj].forEach {categoryNotesReceiptArray.append($0)}
+    }
     
     var shareCostHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
@@ -131,6 +143,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
+        setUpCategoryNotesReceiptCells()
         setUpCollectionView()
     }
     
@@ -172,14 +185,14 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let transactionInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
-            transactionInfoCell.labelWithIcon = transactionInfoArray[indexPath.item]
+            let categoryNotesReceiptCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
+            categoryNotesReceiptCell.labelWithIcon = categoryNotesReceiptArray[indexPath.item]
             
-            if indexPath.item == transactionInfoArray.count - 1 { // i.e. for the last cell
-                transactionInfoCell.separatorView.backgroundColor = .white
+            if indexPath.item == categoryNotesReceiptArray.count - 1 { // i.e. for the last cell
+                categoryNotesReceiptCell.separatorView.backgroundColor = .white
             }
             
-            return transactionInfoCell
+            return categoryNotesReceiptCell
         }
         if indexPath.section == 1 {
             let shareCostCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelWithIconCellID, for: indexPath) as! LabelWithIconCell
@@ -225,7 +238,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return transactionInfoArray.count
+            return categoryNotesReceiptArray.count
         }
         if section == 1 {
             return shareCostArray.count
