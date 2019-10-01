@@ -100,21 +100,30 @@ class TransactionCell: UICollectionViewCell {
             if let logo = transaction?.merchant?.logo {
                 logoImageView.loadImageUsingUrlString(urlString: logo)
             }
+            
             if let name = transaction?.merchant?.name {
                 mainLabel.text = name
+                
             }
             if let notes = transaction?.notes {
                 subLabel.text = notes
             }
+            
+            guard let currency = transaction?.currency else {return}
+            
             if let amount = transaction?.amount {
                 
-                if amount < 0 {
-                    rightLabel.text = String(-amount) // -ve sign won't appear
-                } else {
-                    rightLabel.text = String(amount) //This will show as a +ve number
-                    
-                }
+                let amountInPounds = amount/100
                 
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .currency
+                numberFormatter.currencyCode = currency
+                
+                if amountInPounds < 0 {
+                    rightLabel.text = numberFormatter.string(from: -amountInPounds as NSNumber)
+                } else {
+                    rightLabel.text = numberFormatter.string(from: amountInPounds as NSNumber)
+                }
             }
         }
     }

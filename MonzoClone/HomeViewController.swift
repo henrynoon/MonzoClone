@@ -49,7 +49,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         let descriptionArray = json["transactions"].arrayValue.map {$0["description"].stringValue}
         
-        let amountArray = json["transactions"].arrayValue.map {$0["amount"].intValue}
+        let amountArray = json["transactions"].arrayValue.map {$0["amount"].doubleValue}
         
         let currencyArray = json["transactions"].arrayValue.map {$0["currency"].stringValue}
         

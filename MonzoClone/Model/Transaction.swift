@@ -13,7 +13,7 @@ class Transaction: NSObject {
     var id: String?
     var created: String?
     var transactionDescription: String?
-    var amount: Int?
+    var amount: Double?
     var fees: Fees?
     var currency: String?
     var merchant: Merchant?
