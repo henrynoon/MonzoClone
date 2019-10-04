@@ -159,8 +159,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         if let dateRepresentation = dateFormatter.date(from: date) {
         
             let displayFormatter = DateFormatter()
-            displayFormatter.dateFormat = "EEEE, d MMM, yyy, HH:mm"
-            displayFormatter.locale = Locale(identifier: "en_GB")
+            displayFormatter.dateFormat = "EEEE, d MMM, y, HH:mm"
+            displayFormatter.locale = Locale(identifier: "en_GB_POSIX")
             
             self.navigationItem.title = displayFormatter.string(from: dateRepresentation)
         }
