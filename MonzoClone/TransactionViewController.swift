@@ -145,6 +145,25 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         collectionView.backgroundColor = .white
         setUpCategoryNotesReceiptCells()
         setUpCollectionView()
+        setUpTransactionDate()
+    }
+    
+    fileprivate func setUpTransactionDate() {
+       
+        guard let date = selectedTransaction?.created else {return}
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let dateRepresentation = dateFormatter.date(from: date) {
+        
+            let displayFormatter = DateFormatter()
+            displayFormatter.dateFormat = "EEEE, d MMM, yyy, HH:mm"
+            displayFormatter.locale = Locale(identifier: "en_GB")
+            
+            self.navigationItem.title = displayFormatter.string(from: dateRepresentation)
+        }
     }
     
     //MARK: - Layout
