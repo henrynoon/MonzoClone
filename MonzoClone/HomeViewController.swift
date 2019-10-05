@@ -15,7 +15,8 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
     
-    var transactionsArray = [Transaction]()
+    var oneDTransactionArray = [Transaction]()
+    var transactionsArray = [[Transaction]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    //MARK - Importing Monzo JSON Data
+    //MARK - Importing and Configuring Monzo JSON Data
     
     fileprivate func getMonzoData() {
         
@@ -89,7 +90,24 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             addressObj.latitude = latitudeArray[index]
             addressObj.longitude = longitudeArray[index]
            
-            transactionsArray.append(transactionObj)
+//            transactionsArray.append(transactionObj)
+            oneDTransactionArray.append(transactionObj)
+        }
+        setUpSections(array: oneDTransactionArray)
+    }
+    
+    fileprivate func setUpSections(array: [Transaction]) {
+        
+        let groupedTransactions = Dictionary(grouping: oneDTransactionArray) { (element) -> String.SubSequence in
+            
+            return element.created![..<10]
+        }
+        
+        groupedTransactions.keys.forEach { (key) in
+            print(key)
+            let values = groupedTransactions[key] // ie all objects that have that specific 'created' key
+            
+            transactionsArray.append(values ?? [])
         }
     }
 
@@ -118,7 +136,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     //MARK: - Registration
    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
+        return transactionsArray.count
     }
     
     fileprivate func setUpCollectionView() {
@@ -132,7 +150,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
-        transactionCell.transaction = transactionsArray[indexPath.item]
+        transactionCell.transaction = transactionsArray[indexPath.section][indexPath.row]
         
         if indexPath.item == transactionsArray.count - 1 {
             transactionCell.separatorView.backgroundColor = .white
@@ -142,11 +160,11 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 0
-        } else {
-            return transactionsArray.count
-        }
+//        if section == 0 {
+//            return 0
+//        } else {
+            return transactionsArray[section].count
+//        }
     }
     
     //MARK: - Setting size of Cells
@@ -186,7 +204,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         let transactionVC = TransactionViewController(collectionViewLayout: HeaderFlowLayout())
         
-        transactionVC.selectedTransaction = transactionAtIndex
+//        transactionVC.selectedTransaction = transactionAtIndex
         
         self.navigationController?.pushViewController(transactionVC, animated: true)
     }
