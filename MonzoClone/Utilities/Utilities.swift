@@ -51,6 +51,7 @@ extension UIView {
     }
 }
 
+
 let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
@@ -82,5 +83,24 @@ extension UIImageView {
             }
 
         }.resume()
+    }
+}
+
+
+extension UILabel {
+    
+    func formatCurrency(amount: Double, currency: String) {
+       
+        let amountInHundredths = amount/100
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.currencyCode = currency
+        
+        if amountInHundredths < 0 {
+            self.text = numberFormatter.string(from: -amountInHundredths as NSNumber)
+        } else {
+            self.text = numberFormatter.string(from: amountInHundredths as NSNumber)
+        }
     }
 }

@@ -129,20 +129,8 @@ class LargeHeaderCell: UICollectionReusableView {
             guard let currency = transaction?.currency else {return}
             
             if let amount = transaction?.amount {
-                
-                let amountInHundredths = amount/100
-                
-                let numberFormatter = NumberFormatter()
-                numberFormatter.numberStyle = .currency
-                numberFormatter.currencyCode = currency
-                
-                if amountInHundredths < 0 {
-                    priceLabel.text = numberFormatter.string(from: -amountInHundredths as NSNumber)
-                } else {
-                    priceLabel.text = numberFormatter.string(from: amountInHundredths as NSNumber)
-                }
+                priceLabel.formatCurrency(amount: amount, currency: currency)
             }
-
             if let address = transaction?.merchant?.address?.short_formatted {
                 addressLabel.text = address
             }
