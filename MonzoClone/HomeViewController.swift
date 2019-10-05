@@ -200,11 +200,11 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let transactionAtIndex = transactionsArray[indexPath.row]
+        let transactionAtIndex = transactionsArray[indexPath.section][indexPath.row]
         
         let transactionVC = TransactionViewController(collectionViewLayout: HeaderFlowLayout())
         
-//        transactionVC.selectedTransaction = transactionAtIndex
+        transactionVC.selectedTransaction = transactionAtIndex
         
         self.navigationController?.pushViewController(transactionVC, animated: true)
     }
