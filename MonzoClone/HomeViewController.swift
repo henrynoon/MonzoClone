@@ -97,7 +97,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     fileprivate func setUpSections(array: [Transaction]) {
         
-        let groupedTransactions = Dictionary(grouping: oneDTransactionArray) { (element) -> String.SubSequence in
+        let groupedTransactions = Dictionary(grouping: oneDTransactionArray.reversed()) { (element) -> String.SubSequence in
             return element.created![..<10] //Just looking at substrings 0 to 9
         }
         
