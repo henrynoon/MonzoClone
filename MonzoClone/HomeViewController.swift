@@ -101,10 +101,9 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             return element.created![..<10] //Just looking at substrings 0 to 9
         }
         
-        groupedTransactions.keys.forEach { (key) in
+        groupedTransactions.keys.sorted(by: >).forEach { (key) in
             print(key)
             let values = groupedTransactions[key] // ie all objects that have that specific 'created' key
-            
             transactionsArray.append(values ?? [])
         }
     }
@@ -176,16 +175,16 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if indexPath.section == 0 {
-            let topHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: topHeaderID, for: indexPath) as! TopHeaderCell
-            return topHeader
-        } else {
+//        if indexPath.section == 0 {
+//            let topHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: topHeaderID, for: indexPath) as! TopHeaderCell
+//            return topHeader
+//        } else {
             let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath) as! TransactionHeaderCell
             
             transactionHeader.transaction = transactionsArray[indexPath.section][indexPath.row]
         
             return transactionHeader
-        }
+//        }
     }
     
     //MARK: - Setting size of Headers
