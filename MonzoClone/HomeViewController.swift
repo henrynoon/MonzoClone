@@ -90,7 +90,6 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             addressObj.latitude = latitudeArray[index]
             addressObj.longitude = longitudeArray[index]
            
-//            transactionsArray.append(transactionObj)
             oneDTransactionArray.append(transactionObj)
         }
         setUpSections(array: oneDTransactionArray)
@@ -99,8 +98,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     fileprivate func setUpSections(array: [Transaction]) {
         
         let groupedTransactions = Dictionary(grouping: oneDTransactionArray) { (element) -> String.SubSequence in
-            
-            return element.created![..<10]
+            return element.created![..<10] //Just looking at substrings 0 to 9
         }
         
         groupedTransactions.keys.forEach { (key) in
@@ -183,6 +181,9 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             return topHeader
         } else {
             let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath) as! TransactionHeaderCell
+            
+            transactionHeader.transaction = transactionsArray[indexPath.section][indexPath.row]
+        
             return transactionHeader
         }
     }

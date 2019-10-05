@@ -103,6 +103,30 @@ extension UILabel {
             self.text = numberFormatter.string(from: amountInHundredths as NSNumber)
         }
     }
+    
+    func formatDateWithoutTime(date: String) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let dateRepresentation = dateFormatter.date(from: date) {
+            
+            let displayFormatter = DateFormatter()
+            
+            /* if year == current year { exclude year from dateFormat } else { include in dateFormat }
+             
+             
+             
+             */
+            
+            
+            displayFormatter.dateFormat = "EEEE, d MMM"
+            displayFormatter.locale = Locale(identifier: "en_GB_POSIX")
+            
+            self.text = displayFormatter.string(from: dateRepresentation)
+        }
+    }
 }
 
 

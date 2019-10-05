@@ -27,14 +27,13 @@ class TransactionHeaderCell: UICollectionReusableView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-        label.text = "SATURDAY, 15 APR"
         return label
     }()
     
     var transaction: Transaction? {
         didSet {
             if let date = transaction?.created {
-                dateLabel.text = date
+                dateLabel.formatDateWithoutTime(date: date)
             }
         }
     }
