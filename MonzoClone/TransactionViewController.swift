@@ -25,7 +25,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     fileprivate func setUpCategoryNotesReceiptCells() {
     
         let categoryObj = LabelWithIcon()
-        categoryObj.title = selectedTransaction?.merchant?.category?.capitalized
+        categoryObj.title = selectedTransaction?.merchant?.category?.capitalized.replacingOccurrences(of: "_", with: " ")
         categoryObj.leftIcon = selectedTransaction?.merchant?.category
         categoryObj.rightIcon = "Arrow"
         
