@@ -22,12 +22,11 @@ class HomeHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let priceLabel: UILabel = {
-        let price = UILabel()
-        price.text = "£18.04" //I will remove this hard-coded value later
-        price.font = .systemFont(ofSize: 30, weight: .regular)
-        price.textColor = .white
-        return price
+    let cardBalanceLabel: UILabel = {
+        let cardBalance = UILabel()
+        cardBalance.font = .systemFont(ofSize: 30, weight: .regular)
+        cardBalance.textColor = .white
+        return cardBalance
     }()
     
     let balanceLabel: UILabel = {
@@ -38,11 +37,10 @@ class HomeHeaderView: UIView {
         return balance
     }()
     
-    let amountSpentLabel: UILabel = {
+    let amountSpentTodayLabel: UILabel = {
         let amount = UILabel()
         amount.font = .systemFont(ofSize: 30, weight: .regular)
         amount.textColor = .white
-        amount.text = "£10.15" //I will remove this hard-coded value later
         return amount
     }()
     
@@ -56,12 +54,12 @@ class HomeHeaderView: UIView {
     
     fileprivate func setUpStackViews() {
         
-        let leftVerticalStackView = UIStackView(arrangedSubviews: [priceLabel, balanceLabel])
+        let leftVerticalStackView = UIStackView(arrangedSubviews: [cardBalanceLabel, balanceLabel])
         leftVerticalStackView.axis = .vertical
         leftVerticalStackView.alignment = .leading
         leftVerticalStackView.spacing = 3
         
-        let rightVerticalStackView = UIStackView(arrangedSubviews: [amountSpentLabel, spentTodayLabel])
+        let rightVerticalStackView = UIStackView(arrangedSubviews: [amountSpentTodayLabel, spentTodayLabel])
         rightVerticalStackView.axis = .vertical
         rightVerticalStackView.spacing = 3
         rightVerticalStackView.alignment = .trailing
@@ -72,5 +70,21 @@ class HomeHeaderView: UIView {
         
         addSubview(horizontalStackView)
         horizontalStackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 15, right: 15))
+    }
+    
+    
+    var balance: Balance? {
+        didSet {
+            
+            guard let currency = balance?.currency else {return}
+           
+            if let cardBalance = balance?.balance {
+                cardBalanceLabel.formatCurrency(amount: cardBalance, currency: currency)
+            }
+            
+            if let amountSpent = balance?.spend_today {
+                amountSpentTodayLabel.formatCurrency(amount: amountSpent, currency: currency)
+            }
+        }
     }
 }

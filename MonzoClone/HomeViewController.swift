@@ -18,7 +18,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyFlowLayout())
     var oneDTransactionArray = [Transaction]()
     var transactionsArray = [[Transaction]]()
-    var balanceArray = [Balance]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,14 +69,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             balanceObj.local_currency = json["local_currency"].stringValue
             balanceObj.local_exchange_rate = json["local_exchange_rate"].doubleValue
             
-            balanceArray.append(balanceObj)
-            
+            topView.balance = balanceObj
             
         } catch {
             print(error)
         }
     }
-    
     
     
     fileprivate func updateTransactionModel(with json: JSON) {

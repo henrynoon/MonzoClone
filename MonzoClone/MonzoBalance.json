@@ -3,7 +3,7 @@
     "total_balance": 102250,
     "balance_including_flexible_savings": 102250,
     "currency": "GBP",
-    "spend_today": 0,
+    "spend_today": 1000,
     "local_currency": "",
     "local_exchange_rate": 0,
     "local_spend": []
