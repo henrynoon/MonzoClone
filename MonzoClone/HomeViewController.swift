@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let transactionCellID = "transactionCellID"
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
+    var footerID = "footerID"
     let topView = TopHeaderCell()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyHeaderFlowLayout())
     var oneDTransactionArray = [Transaction]()
@@ -153,6 +154,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.register(TransactionCell.self, forCellWithReuseIdentifier: transactionCellID)
         collectionView.register(TopHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: topHeaderID)
         collectionView.register(TransactionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
+        collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
     }
     
     
@@ -184,17 +186,35 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
+        if kind == UICollectionView.elementKindSectionHeader {
             let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath) as! TransactionHeaderCell
-        
+            
             transactionHeader.transaction = transactionsArray[indexPath.section][indexPath.row]
+            
             return transactionHeader
+            
+        } else {
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
+            
+            footer.backgroundColor = .green
+            
+            return footer
+        }
     }
     
-    //MARK: - Setting size of Headers
+    //MARK: - Setting size of Headers and Footers
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
             return CGSize(width: view.frame.width, height: 45)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if section == transactionsArray.count-1 {
+            return CGSize(width: view.frame.width, height: 100)
+        } else {
+            return .zero
+        }
     }
     
     //MARK: - Segue
