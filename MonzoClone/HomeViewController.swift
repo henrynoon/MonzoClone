@@ -9,23 +9,25 @@
 import UIKit
 import SwiftyJSON
 
-class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let transactionCellID = "transactionCellID"
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
-    
+    let topView = TopHeaderCell()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     var oneDTransactionArray = [Transaction]()
     var transactionsArray = [[Transaction]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getMonzoData()
-        setUpCollectionView()
+        setUpViewController()
+        registerCollectionViewCells()
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    //MARK - Importing and Configuring Monzo JSON Data
+    //MARK: - Importing and Configuring Monzo JSON Data
     
     fileprivate func getMonzoData() {
         
@@ -92,10 +94,10 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
            
             oneDTransactionArray.append(transactionObj)
         }
-        setUpSections(array: oneDTransactionArray)
+        groupTransactions()
     }
     
-    fileprivate func setUpSections(array: [Transaction]) {
+    fileprivate func groupTransactions() {
         
         let groupedTransactions = Dictionary(grouping: oneDTransactionArray.reversed()) { (element) -> String.SubSequence in
             return element.created![..<10] //Just looking at substrings 0 to 9
@@ -110,6 +112,17 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
 
     //MARK: - Layout
     
+    fileprivate func setUpViewController() {
+        view.addSubview(topView)
+        view.addSubview(collectionView)
+        topView.anchor(top: view.topAnchor , leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: view.frame.width, height: 130))
+        
+        collectionView.anchor(top: topView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -118,7 +131,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         return .lightContent
     }
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         if elementKind == UICollectionView.elementKindSectionHeader {
             view.layer.zPosition = 0
         }
@@ -132,11 +145,11 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //MARK: - Registration
    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return transactionsArray.count
     }
     
-    fileprivate func setUpCollectionView() {
+    fileprivate func registerCollectionViewCells() {
         collectionView.register(TransactionCell.self, forCellWithReuseIdentifier: transactionCellID)
         collectionView.register(TopHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: topHeaderID)
         collectionView.register(TransactionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
@@ -145,23 +158,19 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //MARK: - Creating Cells
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
         transactionCell.transaction = transactionsArray[indexPath.section][indexPath.row]
         
         if indexPath.item == transactionsArray.count - 1 {
             transactionCell.separatorView.backgroundColor = .white
         }
-        
         return transactionCell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if section == 0 {
-//            return 0
-//        } else {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
             return transactionsArray[section].count
-//        }
     }
     
     //MARK: - Setting size of Cells
@@ -173,32 +182,24 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     //MARK: - Creating Headers
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-//        if indexPath.section == 0 {
-//            let topHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: topHeaderID, for: indexPath) as! TopHeaderCell
-//            return topHeader
-//        } else {
             let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath) as! TransactionHeaderCell
-            
-            transactionHeader.transaction = transactionsArray[indexPath.section][indexPath.row]
         
+            transactionHeader.transaction = transactionsArray[indexPath.section][indexPath.row]
             return transactionHeader
-//        }
     }
     
     //MARK: - Setting size of Headers
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if section == 0 {
-            return CGSize(width: view.frame.width, height: 90)
-        }
-        else {
+        
             return CGSize(width: view.frame.width, height: 45)
-        }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //MARK: - Segue
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let transactionAtIndex = transactionsArray[indexPath.section][indexPath.row]
         
