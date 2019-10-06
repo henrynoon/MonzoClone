@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderFlowLayout: UICollectionViewFlowLayout {
+class StretchyHeaderFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         

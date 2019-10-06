@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
     let topView = TopHeaderCell()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyHeaderFlowLayout())
     var oneDTransactionArray = [Transaction]()
     var transactionsArray = [[Transaction]]()
     
@@ -203,7 +203,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let transactionAtIndex = transactionsArray[indexPath.section][indexPath.row]
         
-        let transactionVC = TransactionViewController(collectionViewLayout: HeaderFlowLayout())
+        let transactionVC = TransactionViewController(collectionViewLayout: StretchyHeaderFlowLayout())
         
         transactionVC.selectedTransaction = transactionAtIndex
         

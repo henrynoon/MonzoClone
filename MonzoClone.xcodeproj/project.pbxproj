@@ -11,7 +11,7 @@
 		5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */; };
 		5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */; };
 		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
-		5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */; };
+		5E1350582326ACD400E84F8D /* StretchyHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* StretchyHeaderFlowLayout.swift */; };
 		5E1FC8E42338CCC8006C4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */; };
 		5E26A4EA234248AC004831BB /* MonzoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E26A4E9234248AB004831BB /* MonzoData.json */; };
 		5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */; };
@@ -34,13 +34,14 @@
 		5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */; };
 		5E8C293023314CD0004C8FAF /* LabelFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292F23314CD0004C8FAF /* LabelFooter.swift */; };
 		5EC2AA6B23297B2E00FE5EB5 /* LabelWithIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */; };
+		5EE224A5234A05F40062DB4A /* StickyHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE224A4234A05F40062DB4A /* StickyHeaderFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFlowLayout.swift; sourceTree = "<group>"; };
+		5E1350572326ACD400E84F8D /* StretchyHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderFlowLayout.swift; sourceTree = "<group>"; };
 		5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E26A4E9234248AB004831BB /* MonzoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooterCell.swift; sourceTree = "<group>"; };
 		5E8C292F23314CD0004C8FAF /* LabelFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooter.swift; sourceTree = "<group>"; };
 		5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIconCell.swift; sourceTree = "<group>"; };
+		5EE224A4234A05F40062DB4A /* StickyHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderFlowLayout.swift; sourceTree = "<group>"; };
 		A1D89991AC4C603B97D4D913 /* Pods-MonzoClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonzoClone.debug.xcconfig"; path = "Target Support Files/Pods-MonzoClone/Pods-MonzoClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C1CF1596693A3974D4195A2C /* Pods-MonzoClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonzoClone.release.xcconfig"; path = "Target Support Files/Pods-MonzoClone/Pods-MonzoClone.release.xcconfig"; sourceTree = "<group>"; };
 		F58F72730D97F57053F12284 /* Pods_MonzoClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonzoClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +149,8 @@
 		5E65B1C22320048B004A4293 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				5E1350572326ACD400E84F8D /* HeaderFlowLayout.swift */,
+				5E1350572326ACD400E84F8D /* StretchyHeaderFlowLayout.swift */,
+				5EE224A4234A05F40062DB4A /* StickyHeaderFlowLayout.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -314,10 +317,11 @@
 				5E8C292A2330E373004C8FAF /* LabelHeaderCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
 				5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */,
-				5E1350582326ACD400E84F8D /* HeaderFlowLayout.swift in Sources */,
+				5E1350582326ACD400E84F8D /* StretchyHeaderFlowLayout.swift in Sources */,
 				5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
 				5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */,
+				5EE224A5234A05F40062DB4A /* StickyHeaderFlowLayout.swift in Sources */,
 				5E4DE79A233A5A700056BD98 /* Transaction.swift in Sources */,
 				5E34E60F2334E5F900B03EDD /* CentreLabel.swift in Sources */,
 				5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */,
