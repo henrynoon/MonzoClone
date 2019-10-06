@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let transactionHeaderID = "transactionHeaderID"
     var footerID = "footerID"
     let topView = TopHeaderCell()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyHeaderFlowLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyFlowLayout())
     var oneDTransactionArray = [Transaction]()
     var transactionsArray = [[Transaction]]()
     
@@ -182,7 +182,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return CGSize(width: view.frame.width, height: 60)
     }
     
-    //MARK: - Creating Headers
+    //MARK: - Creating Headers and Footers
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -196,7 +196,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
             
-            footer.backgroundColor = .green
+            footer.backgroundColor = UIColor(displayP3Red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
             
             return footer
         }
