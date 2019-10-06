@@ -12,17 +12,17 @@ import SwiftyJSON
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let transactionCellID = "transactionCellID"
-    let topHeaderID = "topHeaderID"
     let transactionHeaderID = "transactionHeaderID"
     var footerID = "footerID"
-    let topView = TopHeaderCell()
+    let topView = HomeHeaderView()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyFlowLayout())
     var oneDTransactionArray = [Transaction]()
     var transactionsArray = [[Transaction]]()
+    var balanceArray = [Balance]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMonzoData()
+        getMonzoTransactions()
         setUpViewController()
         registerCollectionViewCells()
         self.navigationController?.isNavigationBarHidden = true
@@ -30,22 +30,55 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //MARK: - Importing and Configuring Monzo JSON Data
     
-    fileprivate func getMonzoData() {
+    fileprivate func getMonzoTransactions() {
+        // If you want to sync your own data, update this method with an API call
         
-        guard let path = Bundle.main.path(forResource: "MonzoData", ofType: "json") else { return }
+        guard let path = Bundle.main.path(forResource: "MonzoTransactions", ofType: "json") else { return }
 
         let url = URL(fileURLWithPath: path)
         
         do {
-            let data = try Data(contentsOf: url)
+            let transactionsData = try Data(contentsOf: url)
             
-            let json = try JSON(data: data)
+            let json = try JSON(data: transactionsData)
             updateTransactionModel(with: json)
             
         } catch {
             print(error)
         }
+        getMonzoBalance()
     }
+    
+    fileprivate func getMonzoBalance() {
+        // If you want to sync your own data, update this method with an API call
+        
+        guard let path = Bundle.main.path(forResource: "MonzoBalance", ofType: "json") else { return }
+        
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let balanceData = try Data(contentsOf: url)
+            
+            let json = try JSON(data: balanceData)
+            
+            let balanceObj = Balance()
+            balanceObj.balance = json["balance"].doubleValue
+            balanceObj.total_balance = json["total_balance"].doubleValue
+            balanceObj.balance_including_flexible_savings = json["balance_including_flexible_savings"].doubleValue
+            balanceObj.currency = json["currency"].stringValue
+            balanceObj.spend_today = json["spend_today"].doubleValue
+            balanceObj.local_currency = json["local_currency"].stringValue
+            balanceObj.local_exchange_rate = json["local_exchange_rate"].doubleValue
+            
+            balanceArray.append(balanceObj)
+            
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    
     
     fileprivate func updateTransactionModel(with json: JSON) {
         
@@ -152,7 +185,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     fileprivate func registerCollectionViewCells() {
         collectionView.register(TransactionCell.self, forCellWithReuseIdentifier: transactionCellID)
-        collectionView.register(TopHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: topHeaderID)
         collectionView.register(TransactionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
     }

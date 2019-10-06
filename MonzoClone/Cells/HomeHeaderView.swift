@@ -1,5 +1,7 @@
 //
-//  TopViewCell.swift
+//  HomeHeaderView.swift
+//  (Previously TopHeaderCell.swift)
+//  (PreviouslyTopViewCell.swift)
 //  MonzoClone
 //
 //  Created by Henry Noon on 27/09/2019.
@@ -8,7 +10,7 @@
 
 import UIKit
 
-class TopHeaderCell: UIView {
+class HomeHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

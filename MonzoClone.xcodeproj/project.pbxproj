@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		045CF5E20EBDBDBA5FAA0F64 /* Pods_MonzoClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58F72730D97F57053F12284 /* Pods_MonzoClone.framework */; };
-		5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */; };
+		5E0BDC70233E5F5600270963 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BDC6F233E5F5600270963 /* HomeHeaderView.swift */; };
 		5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */; };
 		5E1350562323CF9800E84F8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350552323CF9800E84F8D /* Utilities.swift */; };
 		5E1350582326ACD400E84F8D /* StretchyFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* StretchyFlowLayout.swift */; };
 		5E1FC8E42338CCC8006C4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */; };
-		5E26A4EA234248AC004831BB /* MonzoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E26A4E9234248AB004831BB /* MonzoData.json */; };
+		5E26A4EA234248AC004831BB /* MonzoTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E26A4E9234248AB004831BB /* MonzoTransactions.json */; };
 		5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */; };
 		5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */; };
 		5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */; };
@@ -35,15 +35,17 @@
 		5E8C293023314CD0004C8FAF /* LabelFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292F23314CD0004C8FAF /* LabelFooter.swift */; };
 		5EC2AA6B23297B2E00FE5EB5 /* LabelWithIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */; };
 		5EE224A5234A05F40062DB4A /* StickyFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE224A4234A05F40062DB4A /* StickyFlowLayout.swift */; };
+		5EE224A9234A5BB70062DB4A /* MonzoBalance.json in Resources */ = {isa = PBXBuildFile; fileRef = 5EE224A8234A5BB70062DB4A /* MonzoBalance.json */; };
+		5EE224AB234A6E0F0062DB4A /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE224AA234A6E0F0062DB4A /* Balance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderCell.swift; sourceTree = "<group>"; };
+		5E0BDC6F233E5F5600270963 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		5E1350522323CF5700E84F8D /* LargeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHeaderCell.swift; sourceTree = "<group>"; };
 		5E1350552323CF9800E84F8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E1350572326ACD400E84F8D /* StretchyFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyFlowLayout.swift; sourceTree = "<group>"; };
 		5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		5E26A4E9234248AB004831BB /* MonzoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		5E26A4E9234248AB004831BB /* MonzoTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoTransactions.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
 		5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitch.swift; sourceTree = "<group>"; };
 		5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabelCell.swift; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		5E8C292F23314CD0004C8FAF /* LabelFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooter.swift; sourceTree = "<group>"; };
 		5EC2AA6A23297B2E00FE5EB5 /* LabelWithIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIconCell.swift; sourceTree = "<group>"; };
 		5EE224A4234A05F40062DB4A /* StickyFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyFlowLayout.swift; sourceTree = "<group>"; };
+		5EE224A8234A5BB70062DB4A /* MonzoBalance.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MonzoBalance.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		5EE224AA234A6E0F0062DB4A /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		A1D89991AC4C603B97D4D913 /* Pods-MonzoClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonzoClone.debug.xcconfig"; path = "Target Support Files/Pods-MonzoClone/Pods-MonzoClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C1CF1596693A3974D4195A2C /* Pods-MonzoClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonzoClone.release.xcconfig"; path = "Target Support Files/Pods-MonzoClone/Pods-MonzoClone.release.xcconfig"; sourceTree = "<group>"; };
 		F58F72730D97F57053F12284 /* Pods_MonzoClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonzoClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +100,7 @@
 				5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */,
 				5E4DE797233A33640056BD98 /* TransactionCell.swift */,
 				5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */,
-				5E0BDC6F233E5F5600270963 /* TopHeaderCell.swift */,
+				5E0BDC6F233E5F5600270963 /* HomeHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -133,7 +137,8 @@
 				5E65B1AF232001A6004A4293 /* AppDelegate.swift */,
 				5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */,
 				5E65B1C3232004AD004A4293 /* TransactionViewController.swift */,
-				5E26A4E9234248AB004831BB /* MonzoData.json */,
+				5E26A4E9234248AB004831BB /* MonzoTransactions.json */,
+				5EE224A8234A5BB70062DB4A /* MonzoBalance.json */,
 				5E65B1C22320048B004A4293 /* Layouts */,
 				5E1350512323CF4300E84F8D /* Cells */,
 				5E65B376232E8C0700DA6C47 /* Model */,
@@ -165,6 +170,7 @@
 				5E8C292F23314CD0004C8FAF /* LabelFooter.swift */,
 				5E34E61223350E7800B03EDD /* LabelWithLabel.swift */,
 				5E4DE799233A5A700056BD98 /* Transaction.swift */,
+				5EE224AA234A6E0F0062DB4A /* Balance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,10 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE224A9234A5BB70062DB4A /* MonzoBalance.json in Resources */,
 				5E65B1BA232001A7004A4293 /* LaunchScreen.storyboard in Resources */,
 				5E65B1B7232001A7004A4293 /* Assets.xcassets in Resources */,
 				5E65B1B5232001A6004A4293 /* Main.storyboard in Resources */,
-				5E26A4EA234248AC004831BB /* MonzoData.json in Resources */,
+				5E26A4EA234248AC004831BB /* MonzoTransactions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +323,7 @@
 				5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */,
 				5E8C292A2330E373004C8FAF /* LabelHeaderCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
-				5E0BDC70233E5F5600270963 /* TopHeaderCell.swift in Sources */,
+				5E0BDC70233E5F5600270963 /* HomeHeaderView.swift in Sources */,
 				5E1350582326ACD400E84F8D /* StretchyFlowLayout.swift in Sources */,
 				5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
@@ -329,6 +336,7 @@
 				5E34E61323350E7800B03EDD /* LabelWithLabel.swift in Sources */,
 				5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */,
 				5E4DE798233A33640056BD98 /* TransactionCell.swift in Sources */,
+				5EE224AB234A6E0F0062DB4A /* Balance.swift in Sources */,
 				5E34E611233502E800B03EDD /* LabelWithLabelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
