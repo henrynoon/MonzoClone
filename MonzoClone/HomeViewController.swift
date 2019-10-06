@@ -223,7 +223,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let transactionAtIndex = transactionsArray[indexPath.section][indexPath.row]
         
-        let transactionVC = TransactionViewController(collectionViewLayout: StretchyHeaderFlowLayout())
+        let transactionVC = TransactionViewController(collectionViewLayout: StretchyFlowLayout())
         
         transactionVC.selectedTransaction = transactionAtIndex
         
