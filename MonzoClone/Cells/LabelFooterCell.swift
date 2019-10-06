@@ -15,9 +15,9 @@ class LabelFooterCell: UICollectionReusableView {
         super.init(frame: frame)
         self.backgroundColor = UIColor(displayP3Red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         addSubview(descriptionLabel)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
+        descriptionLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 30, left: 60, bottom: 0, right: 60))
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +28,8 @@ class LabelFooterCell: UICollectionReusableView {
        let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .light)
         label.textColor = UIColor(displayP3Red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     

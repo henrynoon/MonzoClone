@@ -11,6 +11,8 @@ import UIKit
 
 class TransactionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    //MARK: - Properties
+    
     let labelWithIconCellID = "labelWithIconCellID"
     let labelWithSwitchCellID = "labelWithSwitchCellID"
     let labelWithLabelCellID = "labelWithLabelCellID"
@@ -21,36 +23,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     var selectedTransaction: Transaction?
     var categoryNotesReceiptArray = [LabelWithIcon]()
-    
-    fileprivate func setUpCategoryNotesReceiptCells() {
-    
-        let categoryObj = LabelWithIcon()
-        categoryObj.title = selectedTransaction?.merchant?.category?.capitalized.replacingOccurrences(of: "_", with: " ")
-        categoryObj.leftIcon = selectedTransaction?.merchant?.category
-        categoryObj.rightIcon = "Arrow"
-        
-        let notesObj = LabelWithIcon()
-        notesObj.leftIcon = "Notes Icon"
-        notesObj.rightIcon = "Arrow"
-        
-        if let notes = selectedTransaction?.notes {
-            notesObj.title = notes
-        } else {
-            notesObj.title = "Add notes and #tags"
-        }
-        
-        let receiptObj = LabelWithIcon()
-        receiptObj.leftIcon = "Receipt Icon"
-        receiptObj.rightIcon = "Arrow"
-        
-        if let attachments = selectedTransaction?.attachments {
-            // add a thumbnail of attachment
-        } else {
-            receiptObj.title = "Add receipt"
-        }
-        
-        [categoryObj, notesObj, receiptObj].forEach {categoryNotesReceiptArray.append($0)}
-    }
+    var footerContentArray = [LabelFooter]()
     
     var shareCostHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
@@ -134,18 +107,52 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return [improveName, somethingWrong]
     }()
     
-    var footerArray: [LabelFooter] = {
-        let foot = LabelFooter()
-        foot.title = "SAINSBURYS SACAT 0016 WIMBLEDON GBR"
-        return [foot]
-    }()
+    
+    //MARK:- Set-up
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         setUpCategoryNotesReceiptCells()
+        setUpFooterLabel()
         setUpCollectionView()
         setUpTransactionDate()
+    }
+    
+    fileprivate func setUpCategoryNotesReceiptCells() {
+        
+        let categoryObj = LabelWithIcon()
+        categoryObj.title = selectedTransaction?.merchant?.category?.capitalized.replacingOccurrences(of: "_", with: " ")
+        categoryObj.leftIcon = selectedTransaction?.merchant?.category
+        categoryObj.rightIcon = "Arrow"
+        
+        let notesObj = LabelWithIcon()
+        notesObj.leftIcon = "Notes Icon"
+        notesObj.rightIcon = "Arrow"
+        
+        if let notes = selectedTransaction?.notes {
+            notesObj.title = notes
+        } else {
+            notesObj.title = "Add notes and #tags"
+        }
+        
+        let receiptObj = LabelWithIcon()
+        receiptObj.leftIcon = "Receipt Icon"
+        receiptObj.rightIcon = "Arrow"
+        
+        if let attachments = selectedTransaction?.attachments {
+            // add a thumbnail of attachment
+        } else {
+            receiptObj.title = "Add receipt"
+        }
+        
+        [categoryObj, notesObj, receiptObj].forEach {categoryNotesReceiptArray.append($0)}
+    }
+    
+    fileprivate func setUpFooterLabel() {
+        let footerObj = LabelFooter()
+        footerObj.title = selectedTransaction?.transactionDescription?.replacingOccurrences(of: "[\\s\n]+", with: " ", options: .regularExpression, range: nil)
+        footerContentArray.append(footerObj)
     }
     
     fileprivate func setUpTransactionDate() {
@@ -343,7 +350,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             
         } else { //It's a footer
             let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelFooterCellID, for: indexPath) as! LabelFooterCell
-            feedbackFooter.labelFooter = footerArray[indexPath.item]
+            feedbackFooter.labelFooter = footerContentArray[indexPath.item]
             return feedbackFooter
         }
     }
