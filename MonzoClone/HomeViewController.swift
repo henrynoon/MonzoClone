@@ -164,7 +164,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
         transactionCell.transaction = transactionsArray[indexPath.section][indexPath.row]
         
-        if indexPath.item == transactionsArray.count - 1 {
+        if indexPath.item == transactionsArray[indexPath.section].count - 1 {
             transactionCell.separatorView.backgroundColor = .white
         }
         return transactionCell
