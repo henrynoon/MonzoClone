@@ -183,7 +183,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     fileprivate func registerCollectionViewCells() {
         collectionView.register(TransactionCell.self, forCellWithReuseIdentifier: transactionCellID)
         collectionView.register(TransactionHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: transactionHeaderID)
-        collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
+        collectionView.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
     }
     
     
@@ -223,9 +223,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return transactionHeader
             
         } else {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
-            
-            footer.backgroundColor = UIColor(displayP3Red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath) as! LabelFooterCell
             
             return footer
         }
