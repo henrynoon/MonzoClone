@@ -22,7 +22,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let labelFooterCellID = "labelFooterCellID"
     
     var selectedTransaction: Transaction?
-    var allTransactions: [Transaction]?
+    var allTransactions = [Transaction]()
+    var transactionsGroupedByName = [[Transaction]]()
     var categoryNotesReceiptArray = [LabelWithIcon]()
     var footerContentArray = [LabelFooter]()
     var historyHeaderArray = [LabelHeader]()
@@ -161,6 +162,20 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             historyLabel.title = shopName + " HISTORY"
         }
         historyHeaderArray.append(historyLabel)
+        
+        
+        
+        
+        /////
+        let groupedTransactions = Dictionary(grouping: allTransactions) { (element) -> String? in
+            return element.merchant?.name
+        }
+        
+        groupedTransactions.keys.forEach { (key) in
+            let values = groupedTransactions[key]
+            transactionsGroupedByName.append(values ?? [])
+            
+        }
     }
     
     fileprivate func setUpTransactionDate() {
