@@ -131,9 +131,11 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         notesObj.rightIcon = "Arrow"
         
         if let notes = selectedTransaction?.notes {
-            notesObj.title = notes
-        } else {
-            notesObj.title = "Add notes and #tags"
+            if notes == " " {
+                notesObj.title = "Add notes and #tags"
+            } else {
+                notesObj.title = notes
+            }
         }
         
         let receiptObj = LabelWithIcon()
