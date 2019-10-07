@@ -24,6 +24,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     var selectedTransaction: Transaction?
     var categoryNotesReceiptArray = [LabelWithIcon]()
     var footerContentArray = [LabelFooter]()
+    var historyHeaderArray = [LabelHeader]()
     
     var shareCostHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
@@ -56,12 +57,6 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         repeatingPayment.title = "Repeating payment"
         repeatingPayment.subtitle = "We'll predict this for you in Summary"
         return [repeatingPayment]
-    }()
-
-    var historyHeaderArray: [LabelHeader] = {
-        var header = LabelHeader()
-        header.title = "SAINSBURY'S HISTORY"
-        return [header]
     }()
     
     var historyArray: [LabelWithLabel] = {
@@ -114,6 +109,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         setUpCategoryNotesReceiptCells()
+        setUpHistory()
         setUpFooterLabel()
         setUpCollectionView()
         setUpTransactionDate()
@@ -155,6 +151,15 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         let footerObj = LabelFooter()
         footerObj.title = selectedTransaction?.transactionDescription?.replacingOccurrences(of: "[\\s\n]+", with: " ", options: .regularExpression, range: nil)
         footerContentArray.append(footerObj)
+    }
+    
+    fileprivate func setUpHistory() {
+        let historyLabel = LabelHeader()
+        
+        if let shopName = selectedTransaction?.merchant?.name?.uppercased() {
+            historyLabel.title = shopName + " HISTORY"
+        }
+        historyHeaderArray.append(historyLabel)
     }
     
     fileprivate func setUpTransactionDate() {
