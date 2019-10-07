@@ -23,7 +23,6 @@ class LabelWithLabelCell: UICollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "Average spend"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
         return label
@@ -31,7 +30,6 @@ class LabelWithLabelCell: UICollectionViewCell {
     
     let subLabel: UILabel = {
         let label = UILabel()
-        label.text = "143 payments"
         label.font = .systemFont(ofSize: 9, weight: .light)
         label.textColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         return label
@@ -39,7 +37,6 @@ class LabelWithLabelCell: UICollectionViewCell {
     
     let infoLabel: UILabel = {
         let price = UILabel()
-        price.text = "£7.93"
         price.font = .systemFont(ofSize: 20, weight: .light)
         price.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
         return price

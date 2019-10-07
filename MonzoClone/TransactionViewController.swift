@@ -23,10 +23,10 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     
     var selectedTransaction: Transaction?
     var allTransactions = [Transaction]()
-    var transactionsGroupedByName = [[Transaction]]()
     var categoryNotesReceiptArray = [LabelWithIcon]()
-    var footerContentArray = [LabelFooter]()
     var historyHeaderArray = [LabelHeader]()
+    var historyArray = [LabelWithLabel]()
+    var footerContentArray = [LabelFooter]()
     
     var shareCostHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
@@ -61,24 +61,6 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return [repeatingPayment]
     }()
     
-    var historyArray: [LabelWithLabel] = {
-        var transactionsNum = LabelWithLabel()
-        transactionsNum.title = "Number of transactions"
-        transactionsNum.detail = "143"
-        
-        var averageSpend = LabelWithLabel()
-        averageSpend.title = "Average spend"
-        averageSpend.subtitle = "143 payments"
-        averageSpend.detail = "£7.93"
-        
-        var totalSpent = LabelWithLabel()
-        totalSpent.title = "Total spent"
-        totalSpent.subtitle = "143 payments"
-        totalSpent.detail = "£1,134.38"
-        
-        return [transactionsNum, averageSpend, totalSpent]
-    }()
-    
     var optionHeaderArray: [LabelHeader] = {
         var header = LabelHeader()
         header.title = "TRANSACTION OPTIONS"
@@ -111,7 +93,8 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         setUpCategoryNotesReceiptCells()
-        setUpHistory()
+        setUpHistoryHeader()
+        setUpHistoryCells()
         setUpFooterLabel()
         setUpCollectionView()
         setUpTransactionDate()
@@ -155,28 +138,52 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         footerContentArray.append(footerObj)
     }
     
-    fileprivate func setUpHistory() {
+    fileprivate func setUpHistoryHeader() {
+        
         let historyLabel = LabelHeader()
         
         if let shopName = selectedTransaction?.merchant?.name?.uppercased() {
             historyLabel.title = shopName + " HISTORY"
         }
         historyHeaderArray.append(historyLabel)
-        
-        
-        
-        
-        /////
-        let groupedTransactions = Dictionary(grouping: allTransactions) { (element) -> String? in
-            return element.merchant?.name
-        }
-        
-        groupedTransactions.keys.forEach { (key) in
-            let values = groupedTransactions[key]
-            transactionsGroupedByName.append(values ?? [])
-            
-        }
     }
+    
+    
+    fileprivate func setUpHistoryCells() {
+        
+        var groupedTransactions = Dictionary(grouping: allTransactions) { (element) -> String in
+            return element.merchant!.name!
+        }
+        
+        guard let name = selectedTransaction?.merchant?.name else {return}
+        guard let currency = selectedTransaction?.currency else {return}
+        
+        var amountSpentAtMerchant: Double = 0
+        let numOfTransactionsAtMerchant = groupedTransactions[name]!.count
+        
+        for i in 0...numOfTransactionsAtMerchant-1 {
+            amountSpentAtMerchant += groupedTransactions[name]![i].amount!
+        }
+        let average = Int(amountSpentAtMerchant) / numOfTransactionsAtMerchant
+        
+        
+        let transactionsNum = LabelWithLabel()
+        transactionsNum.title = "Number of transactions"
+        transactionsNum.detail = "\(numOfTransactionsAtMerchant)"
+        
+        let averageSpend = LabelWithLabel()
+        averageSpend.title = "Average spend"
+        averageSpend.subtitle = "\(groupedTransactions[name]!.count) payments"
+        averageSpend.formatCurrency(amount: Double(average), currency: currency)
+        
+        let totalSpent = LabelWithLabel()
+        totalSpent.title = "Total spent"
+        totalSpent.subtitle = "\(numOfTransactionsAtMerchant) payments"
+        totalSpent.formatCurrency(amount: amountSpentAtMerchant, currency: currency)
+        
+        [transactionsNum, averageSpend, totalSpent].forEach {historyArray.append($0)}
+    }
+    
     
     fileprivate func setUpTransactionDate() {
        
@@ -425,8 +432,6 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
             print("You have clicked on a shareCostCell")
         }
     }
-    
-   
 }
 
 

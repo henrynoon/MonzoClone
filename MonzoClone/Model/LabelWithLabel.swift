@@ -14,4 +14,18 @@ class LabelWithLabel: NSObject {
     var subtitle: String?
     var detail: String?
 
+    func formatCurrency(amount: Double, currency: String) {
+        
+        let amountInHundredths = amount/100
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.currencyCode = currency
+        
+        if amountInHundredths < 0 {
+            self.detail = numberFormatter.string(from: -amountInHundredths as NSNumber)
+        } else {
+            self.detail = numberFormatter.string(from: amountInHundredths as NSNumber)
+        }
+    }
 }
