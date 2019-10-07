@@ -20,6 +20,8 @@ The overall aim is to create new ways of visualising my spending.
 
 - [ ] In TransactionViewController, when collectionView.contentOffset.y reaches a certain value (when pulling content down), pop to a new ViewController that displays a full screen map of transaction location 
 
+- [ ] If only one transaction at a particular merchant, don't show history cells or header
+
 - [ ] Enable query of all transactions at a specific merchant
 
 - [ ] Enable user to change category and add/edit notes
