@@ -22,6 +22,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     let labelFooterCellID = "labelFooterCellID"
     
     var selectedTransaction: Transaction?
+    var allTransactions: [Transaction]?
     var categoryNotesReceiptArray = [LabelWithIcon]()
     var footerContentArray = [LabelFooter]()
     var historyHeaderArray = [LabelHeader]()

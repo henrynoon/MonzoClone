@@ -16,8 +16,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var footerID = "footerID"
     let topView = HomeHeaderView()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: StickyFlowLayout())
-    var oneDTransactionArray = [Transaction]()
-    var transactionsArray = [[Transaction]]()
+    var upgroupedTransactions = [Transaction]()
+    var transactionsGroupedByDate = [[Transaction]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,21 +123,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             addressObj.latitude = latitudeArray[index]
             addressObj.longitude = longitudeArray[index]
            
-            oneDTransactionArray.append(transactionObj)
+            upgroupedTransactions.append(transactionObj)
         }
         groupTransactions()
     }
     
     fileprivate func groupTransactions() {
         
-        let groupedTransactions = Dictionary(grouping: oneDTransactionArray.reversed()) { (element) -> String.SubSequence in
+        let groupedTransactions = Dictionary(grouping: upgroupedTransactions.reversed()) { (element) -> String.SubSequence in
             return element.created![..<10] //Just looking at substrings 0 to 9
         }
         
         groupedTransactions.keys.sorted(by: >).forEach { (key) in
             print(key)
             let values = groupedTransactions[key] // ie all objects that have that specific 'created' key
-            transactionsArray.append(values ?? [])
+            transactionsGroupedByDate.append(values ?? [])
         }
     }
 
@@ -177,7 +177,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK: - Registration
    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return transactionsArray.count
+        return transactionsGroupedByDate.count
     }
     
     fileprivate func registerCollectionViewCells() {
@@ -191,9 +191,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: transactionCellID, for: indexPath) as! TransactionCell
-        transactionCell.transaction = transactionsArray[indexPath.section][indexPath.row]
+        transactionCell.transaction = transactionsGroupedByDate[indexPath.section][indexPath.row]
         
-        if indexPath.item == transactionsArray[indexPath.section].count - 1 {
+        if indexPath.item == transactionsGroupedByDate[indexPath.section].count - 1 {
             transactionCell.separatorView.backgroundColor = .white
         }
         return transactionCell
@@ -201,7 +201,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-            return transactionsArray[section].count
+            return transactionsGroupedByDate[section].count
     }
     
     //MARK: - Setting size of Cells
@@ -218,7 +218,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if kind == UICollectionView.elementKindSectionHeader {
             let transactionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: transactionHeaderID, for: indexPath) as! TransactionHeaderCell
             
-            transactionHeader.transaction = transactionsArray[indexPath.section][indexPath.row]
+            transactionHeader.transaction = transactionsGroupedByDate[indexPath.section][indexPath.row]
             
             return transactionHeader
             
@@ -237,7 +237,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if section == transactionsArray.count-1 {
+        if section == transactionsGroupedByDate.count-1 {
             return CGSize(width: view.frame.width, height: 100)
         } else {
             return .zero
@@ -248,11 +248,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let transactionAtIndex = transactionsArray[indexPath.section][indexPath.row]
+        let transactionAtIndex = transactionsGroupedByDate[indexPath.section][indexPath.row]
         
         let transactionVC = TransactionViewController(collectionViewLayout: StretchyFlowLayout())
         
         transactionVC.selectedTransaction = transactionAtIndex
+        
+        transactionVC.allTransactions = upgroupedTransactions
         
         self.navigationController?.pushViewController(transactionVC, animated: true)
     }
