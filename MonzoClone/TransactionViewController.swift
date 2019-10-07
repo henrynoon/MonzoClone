@@ -158,13 +158,13 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         guard let name = selectedTransaction?.merchant?.name else {return}
         guard let currency = selectedTransaction?.currency else {return}
         
-        var amountSpentAtMerchant: Double = 0
+        var totalAmountSpentAtMerchant: Double = 0
         let numOfTransactionsAtMerchant = groupedTransactions[name]!.count
         
         for i in 0...numOfTransactionsAtMerchant-1 {
-            amountSpentAtMerchant += groupedTransactions[name]![i].amount!
+            totalAmountSpentAtMerchant += groupedTransactions[name]![i].amount!
         }
-        let average = Int(amountSpentAtMerchant) / numOfTransactionsAtMerchant
+        let average = Int(totalAmountSpentAtMerchant) / numOfTransactionsAtMerchant
         
         
         let transactionsNum = LabelWithLabel()
@@ -180,7 +180,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         let totalSpent = LabelWithLabel()
         totalSpent.title = "Total spent"
         totalSpent.subtitle = "\(numOfTransactionsAtMerchant) payments"
-        totalSpent.formatCurrency(amount: amountSpentAtMerchant, currency: currency)
+        totalSpent.formatCurrency(amount: totalAmountSpentAtMerchant, currency: currency)
         
         [transactionsNum, averageSpend, totalSpent].forEach {historyArray.append($0)}
     }
