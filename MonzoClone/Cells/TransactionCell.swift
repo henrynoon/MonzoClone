@@ -106,7 +106,12 @@ class TransactionCell: UICollectionViewCell {
                 
             }
             if let notes = transaction?.notes {
-                subLabel.text = notes
+                
+                if notes == " " {
+                    //do nothing...this will centre the title label in the stack view
+                } else {
+                    subLabel.text = notes
+                }
             }
             
             guard let currency = transaction?.currency else {return}

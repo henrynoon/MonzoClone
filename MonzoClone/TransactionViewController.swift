@@ -169,11 +169,12 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         
         let transactionsNum = LabelWithLabel()
         transactionsNum.title = "Number of transactions"
+        transactionsNum.subtitle = " "
         transactionsNum.detail = "\(numOfTransactionsAtMerchant)"
         
         let averageSpend = LabelWithLabel()
         averageSpend.title = "Average spend"
-        averageSpend.subtitle = "\(groupedTransactions[name]!.count) payments"
+        averageSpend.subtitle = "\(numOfTransactionsAtMerchant) payments"
         averageSpend.formatCurrency(amount: Double(average), currency: currency)
         
         let totalSpent = LabelWithLabel()
