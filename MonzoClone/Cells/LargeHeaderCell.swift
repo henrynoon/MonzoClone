@@ -84,7 +84,7 @@ class LargeHeaderCell: UICollectionReusableView {
         
         let middleHorizontalStackView = UIStackView(arrangedSubviews: [shopNameLabel, priceLabel])
         middleHorizontalStackView.axis = .horizontal
-        middleHorizontalStackView.spacing = 100
+        middleHorizontalStackView.distribution = .equalCentering
         
         let verticalStackView = UIStackView(arrangedSubviews: [topHorizontalStackView, middleHorizontalStackView, addressLabel])
         verticalStackView.axis = .vertical
