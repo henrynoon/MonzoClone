@@ -392,7 +392,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
         if section == 0 {
-            return CGSize(width: view.frame.width, height: 250)
+            return CGSize(width: view.frame.width, height: 210)
         }
         if section == 1 {
             return CGSize(width: view.frame.width, height: 56.5)

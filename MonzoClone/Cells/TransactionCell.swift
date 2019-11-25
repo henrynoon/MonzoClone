@@ -79,6 +79,7 @@ class TransactionCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         mainLabel.text = nil
         subLabel.text = nil
         logoImageView.image = nil
