@@ -41,6 +41,8 @@ class TransactionCell: UICollectionViewCell {
         logo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         logo.layer.cornerRadius = 8
         logo.clipsToBounds = true
+        logo.layer.borderColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1).cgColor
+        logo.layer.borderWidth = 0.2
         return logo
     }()
     
