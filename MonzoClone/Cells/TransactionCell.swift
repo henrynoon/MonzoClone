@@ -76,6 +76,17 @@ class TransactionCell: UICollectionViewCell {
         separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
     }
     
+    override func prepareForReuse() {
+        mainLabel.text = nil
+        subLabel.text = nil
+        logoImageView.image = nil
+        rightLabel.text = nil
+        separatorView.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
+        isHidden = false
+        isSelected = false
+        isHighlighted = false
+    }
+    
     override var isHighlighted: Bool {
         didSet {
             let duration = isHighlighted ? 0.00001 : 3
