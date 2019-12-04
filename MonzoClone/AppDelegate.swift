@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let homeViewController = HomeViewController()
-        window?.rootViewController = UINavigationController(rootViewController: homeViewController)
+        window?.rootViewController = CustomTabBarController()
         
         return true
     }

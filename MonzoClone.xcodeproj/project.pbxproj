@@ -14,6 +14,7 @@
 		5E1350582326ACD400E84F8D /* StretchyFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1350572326ACD400E84F8D /* StretchyFlowLayout.swift */; };
 		5E1FC8E42338CCC8006C4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */; };
 		5E26A4EA234248AC004831BB /* MonzoTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E26A4E9234248AB004831BB /* MonzoTransactions.json */; };
+		5E33C77D239808770025F612 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E33C77C239808770025F612 /* CustomTabBarController.swift */; };
 		5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */; };
 		5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */; };
 		5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */; };
@@ -46,6 +47,7 @@
 		5E1350572326ACD400E84F8D /* StretchyFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyFlowLayout.swift; sourceTree = "<group>"; };
 		5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E26A4E9234248AB004831BB /* MonzoTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoTransactions.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		5E33C77C239808770025F612 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
 		5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitch.swift; sourceTree = "<group>"; };
 		5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabelCell.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				5E65B1AF232001A6004A4293 /* AppDelegate.swift */,
+				5E33C77C239808770025F612 /* CustomTabBarController.swift */,
 				5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */,
 				5E65B1C3232004AD004A4293 /* TransactionViewController.swift */,
 				5E26A4E9234248AB004831BB /* MonzoTransactions.json */,
@@ -326,6 +329,7 @@
 				5E0BDC70233E5F5600270963 /* HomeHeaderView.swift in Sources */,
 				5E1350582326ACD400E84F8D /* StretchyFlowLayout.swift in Sources */,
 				5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */,
+				5E33C77D239808770025F612 /* CustomTabBarController.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
 				5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */,
 				5EE224A5234A05F40062DB4A /* StickyFlowLayout.swift in Sources */,
