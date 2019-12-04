@@ -14,10 +14,15 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let homeViewController = HomeViewController()
-        
         let homeNavController = UINavigationController(rootViewController: homeViewController)
         homeNavController.tabBarItem.title = "Home"
+        homeNavController.tabBarItem.image = UIImage(named: "Home-1")?.withRenderingMode(.alwaysOriginal)
         
-        viewControllers = [homeNavController]
+        let summaryViewController = SummaryViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let summaryNavController = UINavigationController(rootViewController: summaryViewController)
+        summaryNavController.tabBarItem.title = "Summary"
+        summaryNavController.tabBarItem.image = UIImage(named: "Summary")?.withRenderingMode(.alwaysOriginal)
+        
+        viewControllers = [homeNavController, summaryNavController]
     }
 }

@@ -15,6 +15,7 @@
 		5E1FC8E42338CCC8006C4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */; };
 		5E26A4EA234248AC004831BB /* MonzoTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E26A4E9234248AB004831BB /* MonzoTransactions.json */; };
 		5E33C77D239808770025F612 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E33C77C239808770025F612 /* CustomTabBarController.swift */; };
+		5E33C77F23980E340025F612 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E33C77E23980E340025F612 /* SummaryViewController.swift */; };
 		5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */; };
 		5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */; };
 		5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */; };
@@ -48,6 +49,7 @@
 		5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E26A4E9234248AB004831BB /* MonzoTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MonzoTransactions.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		5E33C77C239808770025F612 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		5E33C77E23980E340025F612 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		5E34E6082334CFC200B03EDD /* LabelWithSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitchCell.swift; sourceTree = "<group>"; };
 		5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitch.swift; sourceTree = "<group>"; };
 		5E34E60C2334DDB100B03EDD /* CentreLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabelCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				5E33C77C239808770025F612 /* CustomTabBarController.swift */,
 				5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */,
 				5E65B1C3232004AD004A4293 /* TransactionViewController.swift */,
+				5E33C77E23980E340025F612 /* SummaryViewController.swift */,
 				5E26A4E9234248AB004831BB /* MonzoTransactions.json */,
 				5EE224A8234A5BB70062DB4A /* MonzoBalance.json */,
 				5E65B1C22320048B004A4293 /* Layouts */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC2AA6B23297B2E00FE5EB5 /* LabelWithIconCell.swift in Sources */,
+				5E33C77F23980E340025F612 /* SummaryViewController.swift in Sources */,
 				5E1FC8E42338CCC8006C4397 /* HomeViewController.swift in Sources */,
 				5E65B1C4232004AD004A4293 /* TransactionViewController.swift in Sources */,
 				5E8C293023314CD0004C8FAF /* LabelFooter.swift in Sources */,
