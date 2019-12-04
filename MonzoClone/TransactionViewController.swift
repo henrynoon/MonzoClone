@@ -96,7 +96,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         setUpHistoryHeader()
         setUpHistoryCells()
         setUpFooterLabel()
-        setUpCollectionView()
+        registerCells()
         setUpTransactionDate()
     }
     
@@ -228,7 +228,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
         return 6
     }
     
-    fileprivate func setUpCollectionView() {
+    fileprivate func registerCells() {
         collectionView?.register(LabelWithIconCell.self, forCellWithReuseIdentifier: labelWithIconCellID)
         collectionView?.register(LabelWithSwitchCell.self, forCellWithReuseIdentifier: labelWithSwitchCellID)
         collectionView?.register(LabelWithLabelCell.self, forCellWithReuseIdentifier: labelWithLabelCellID)
@@ -379,7 +379,7 @@ class TransactionViewController: UICollectionViewController, UICollectionViewDel
                 return feedbackHeader
             }
             
-        } else { //It's a footer
+        } else { // It's a footer
             let feedbackFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: labelFooterCellID, for: indexPath) as! LabelFooterCell
             feedbackFooter.labelFooter = footerContentArray[indexPath.item]
             return feedbackFooter

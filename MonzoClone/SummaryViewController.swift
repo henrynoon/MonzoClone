@@ -8,82 +8,124 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
-class SummaryViewController: UICollectionViewController {
-
+class SummaryViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    //MARK: - Properties
+    
+    let cellID = "cellID"
+    let headerZeroID = "headerID"
+    let headerOneID = "headerOneID"
+    let footerID = "footerID"
+    
+    
+    //MARK:- Set-up
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        collectionView.backgroundColor = .white
+        registerCells()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - Layout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
-    */
-
-    // MARK: UICollectionViewDataSource
-
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionHeader {
+            view.layer.zPosition = 0
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    
+    //MARK: - Registration
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        2
     }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
+    
+    fileprivate func registerCells() {
+          collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerZeroID)
+        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerOneID)
+        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
+      }
+    
+    //MARK: - Creating Cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        cell.backgroundColor = .green
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        } else {
+            return 10
+        }
     }
-    */
-
+    
+    
+    //MARK: - Setting size of Cells
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
+    //MARK: - Creating Headers and Footers
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            
+            if indexPath.section == 0 {
+                let headerZero = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerZeroID, for: indexPath)
+                headerZero.backgroundColor = .red
+                return headerZero
+            } else {
+                let headerOne = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerOneID, for: indexPath)
+                headerOne.backgroundColor = .blue
+                return headerOne
+            }
+            
+            
+        } else { // It's a footer
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
+            footer.backgroundColor = .yellow
+            return footer
+        }
+    }
+    
+    //MARK: - Setting size of Headers
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: view.frame.width, height: 200)
+        } else {
+            return CGSize(width: view.frame.width, height: 20)
+        }
+    }
+    
+    
+    //MARK: - Setting size of Footers
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if section == 1 {
+            return CGSize(width: view.frame.width, height: 50)
+        } else {
+            return .zero
+        }
+    }
+    
 }
