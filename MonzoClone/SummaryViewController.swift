@@ -129,3 +129,15 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
 }
+
+
+/*
+ 
+ 
+ When do I pass all the transactions through to this VC
+ And are they grouped?
+ it's surely once I've got all the data
+ 
+ 
+ 
+ */
