@@ -125,9 +125,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
            
             upgroupedTransactions.append(transactionObj)
         }
+        sendTransactionsToSummary()
         groupTransactions()
     }
     
+    
+    fileprivate func sendTransactionsToSummary() {
+        
+        let navController = self.tabBarController?.viewControllers?[1] as! UINavigationController
+        let secondTab = navController.topViewController as! SummaryViewController
+        secondTab.allTransactions = upgroupedTransactions
+    }
+    
+
     fileprivate func groupTransactions() {
         
         let groupedTransactions = Dictionary(grouping: upgroupedTransactions.reversed()) { (element) -> String.SubSequence in
@@ -135,7 +145,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         groupedTransactions.keys.sorted(by: >).forEach { (key) in
-            print(key)
+//            print(key)
             let values = groupedTransactions[key] // ie all objects that have that specific 'created' key
             transactionsGroupedByDate.append(values ?? [])
         }

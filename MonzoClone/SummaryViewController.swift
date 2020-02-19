@@ -17,6 +17,11 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     let headerOneID = "headerOneID"
     let footerID = "footerID"
     
+    var allTransactions = [Transaction]() {
+        didSet {
+            print("We have received the transaction array")
+        }
+    }
     
     //MARK:- Set-up
     

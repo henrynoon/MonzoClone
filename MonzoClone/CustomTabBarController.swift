@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,5 +24,12 @@ class CustomTabBarController: UITabBarController {
         summaryNavController.tabBarItem.image = UIImage(named: "Summary")?.withRenderingMode(.alwaysOriginal)
         
         viewControllers = [homeNavController, summaryNavController]
+        selectedViewController = homeNavController
+        
+        self.delegate = self
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("You have selected a view controller")
     }
 }
