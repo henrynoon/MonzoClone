@@ -12,7 +12,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     
     //MARK: - Properties
     
-    let cellID = "cellID"
+    let categoryCellID = "categoryCellID"
     let headerZeroID = "headerID"
     let summaryHeaderID = "summaryHeaderID"
     let footerID = "footerID"
@@ -63,7 +63,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     fileprivate func registerCells() {
-          collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+          collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: categoryCellID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerZeroID)
         collectionView.register(LabelWithLabelCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: summaryHeaderID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
@@ -71,11 +71,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     
     //MARK: - Creating Cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-        cell.backgroundColor = .green
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellID, for: indexPath) as! CategoryCell
         return cell
     }
     

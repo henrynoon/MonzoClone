@@ -22,6 +22,7 @@
 		5E34E60F2334E5F900B03EDD /* CentreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E60E2334E5F900B03EDD /* CentreLabel.swift */; };
 		5E34E611233502E800B03EDD /* LabelWithLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E610233502E800B03EDD /* LabelWithLabelCell.swift */; };
 		5E34E61323350E7800B03EDD /* LabelWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34E61223350E7800B03EDD /* LabelWithLabel.swift */; };
+		5E3A145B24000CDB00FDD4A8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A145A24000CDB00FDD4A8 /* CategoryCell.swift */; };
 		5E4DE798233A33640056BD98 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4DE797233A33640056BD98 /* TransactionCell.swift */; };
 		5E4DE79A233A5A700056BD98 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4DE799233A5A700056BD98 /* Transaction.swift */; };
 		5E4DE79E233A607F0056BD98 /* TransactionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */; };
@@ -56,6 +57,7 @@
 		5E34E60E2334E5F900B03EDD /* CentreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentreLabel.swift; sourceTree = "<group>"; };
 		5E34E610233502E800B03EDD /* LabelWithLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithLabelCell.swift; sourceTree = "<group>"; };
 		5E34E61223350E7800B03EDD /* LabelWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithLabel.swift; sourceTree = "<group>"; };
+		5E3A145A24000CDB00FDD4A8 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5E4DE797233A33640056BD98 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		5E4DE799233A5A700056BD98 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				5E4DE797233A33640056BD98 /* TransactionCell.swift */,
 				5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */,
 				5E0BDC6F233E5F5600270963 /* HomeHeaderView.swift */,
+				5E3A145A24000CDB00FDD4A8 /* CategoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				5E4DE79E233A607F0056BD98 /* TransactionHeaderCell.swift in Sources */,
 				5E34E61323350E7800B03EDD /* LabelWithLabel.swift in Sources */,
 				5E34E6092334CFC200B03EDD /* LabelWithSwitchCell.swift in Sources */,
+				5E3A145B24000CDB00FDD4A8 /* CategoryCell.swift in Sources */,
 				5E4DE798233A33640056BD98 /* TransactionCell.swift in Sources */,
 				5EE224AB234A6E0F0062DB4A /* Balance.swift in Sources */,
 				5E34E611233502E800B03EDD /* LabelWithLabelCell.swift in Sources */,
