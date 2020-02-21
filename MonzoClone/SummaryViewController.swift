@@ -14,7 +14,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     
     let cellID = "cellID"
     let headerZeroID = "headerID"
-    let headerOneID = "headerOneID"
+    let summaryHeaderID = "summaryHeaderID"
     let footerID = "footerID"
     
     var allTransactions = [Transaction]() {
@@ -30,6 +30,12 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView.backgroundColor = .white
         registerCells()
     }
+    
+    lazy var summaryHeaderArray: [LabelWithLabel] = {
+        let summaryHeader = LabelWithLabel()
+        summaryHeader.title = "SUMMARY"
+        return [summaryHeader]
+    }()
     
     //MARK: - Layout
     
@@ -59,7 +65,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     fileprivate func registerCells() {
           collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerZeroID)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerOneID)
+        collectionView.register(LabelWithLabelCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: summaryHeaderID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
       }
     
@@ -99,8 +105,8 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
                 headerZero.backgroundColor = .red
                 return headerZero
             } else {
-                let headerOne = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerOneID, for: indexPath)
-                headerOne.backgroundColor = .blue
+                let headerOne = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: summaryHeaderID, for: indexPath) as! LabelWithLabelCell
+                headerOne.labelWithLabel = summaryHeaderArray[indexPath.item]
                 return headerOne
             }
             
@@ -118,7 +124,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         if section == 0 {
             return CGSize(width: view.frame.width, height: 200)
         } else {
-            return CGSize(width: view.frame.width, height: 20)
+            return CGSize(width: view.frame.width, height: 45)
         }
     }
     
@@ -134,15 +140,3 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
 }
-
-
-/*
- 
- 
- When do I pass all the transactions through to this VC
- And are they grouped?
- it's surely once I've got all the data
- 
- 
- 
- */

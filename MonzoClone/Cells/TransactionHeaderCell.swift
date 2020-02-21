@@ -40,3 +40,8 @@ class TransactionHeaderCell: UICollectionReusableView {
 }
 
 
+/*
+ I think I need to re-engineer this class
+ 
+ It shouldn't be specific to Transaction...it need to be generic
+ */
