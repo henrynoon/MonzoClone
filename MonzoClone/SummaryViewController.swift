@@ -87,7 +87,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Setting size of Cells
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        return CGSize(width: view.frame.width, height: 60)
     }
     
     //MARK: - Creating Headers and Footers

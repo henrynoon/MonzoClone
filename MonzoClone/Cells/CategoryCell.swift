@@ -13,6 +13,7 @@ class CategoryCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
+        setUpStackView()
     }
     
     required init?(coder: NSCoder) {
@@ -23,7 +24,7 @@ class CategoryCell: UICollectionViewCell {
         let categoryIcon = UIImageView()
         categoryIcon.widthAnchor.constraint(equalToConstant: 30).isActive = true
         categoryIcon.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        categoryIcon.layer.cornerRadius = 15
+        categoryIcon.layer.cornerRadius = 8
         categoryIcon.clipsToBounds = true
         categoryIcon.layer.borderWidth = 0.5
         categoryIcon.layer.borderColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1).cgColor
@@ -35,6 +36,7 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
+        label.text = "Transport"
         return label
     }()
     
@@ -42,6 +44,7 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 9, weight: .light)
         label.textColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1)
+        label.text = "£119 left of £180"
         return label
     }()
     
@@ -49,6 +52,7 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
+        label.text = "£61"
         return label
     }()
     
@@ -79,4 +83,19 @@ class CategoryCell: UICollectionViewCell {
         view.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
         return view
     }()
+    
+    fileprivate func setUpStackView() {
+        
+        let middleVerticalStackView = UIStackView(arrangedSubviews: [mainLabel, subLabel])
+        middleVerticalStackView.axis = .vertical
+        middleVerticalStackView.spacing = 3
+        middleVerticalStackView.alignment = .leading
+        
+        let horizontalStackView = UIStackView(arrangedSubviews: [categoryImageView, middleVerticalStackView, priceLabel])
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.spacing = 15
+        addSubview(horizontalStackView)
+    
+        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 14.75, left: 15, bottom: 14.75, right: 15))
+    }
 }
