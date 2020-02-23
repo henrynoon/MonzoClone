@@ -13,7 +13,7 @@ class CategoryCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        setUpStackView()
+        setUpLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +59,8 @@ class CategoryCell: UICollectionViewCell {
     let backgroundSlider: UIView = {
         let backgroundSlider = UIView()
         backgroundSlider.backgroundColor = UIColor(red: 0.82, green: 0.83, blue: 0.85, alpha: 1)
-        backgroundSlider.layer.cornerRadius = 8
+        backgroundSlider.layer.cornerRadius = 5
+        backgroundSlider.heightAnchor.constraint(equalToConstant: 4).isActive = true
         return backgroundSlider
     }()
     
@@ -81,10 +82,11 @@ class CategoryCell: UICollectionViewCell {
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
+        view.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         return view
     }()
     
-    fileprivate func setUpStackView() {
+    fileprivate func setUpLayout() {
         
         let middleVerticalStackView = UIStackView(arrangedSubviews: [mainLabel, subLabel])
         middleVerticalStackView.axis = .vertical
@@ -94,8 +96,15 @@ class CategoryCell: UICollectionViewCell {
         let horizontalStackView = UIStackView(arrangedSubviews: [categoryImageView, middleVerticalStackView, priceLabel])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 15
+        
         addSubview(horizontalStackView)
+        addSubview(backgroundSlider)
+        addSubview(separatorView)
     
-        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 14.75, left: 15, bottom: 14.75, right: 15))
+        horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 15, bottom: 7.5, right: 15))
+        
+        backgroundSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 15))
+               
+        separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
     }
 }
