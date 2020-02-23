@@ -72,14 +72,6 @@ class CategoryCell: UICollectionViewCell {
         return boldSlider
     }()
     
-    let movingTicker: UIView = {
-        let movingTicker = UIView()
-        movingTicker.backgroundColor = UIColor(red: 0.82, green: 0.83, blue: 0.85, alpha: 1)
-        movingTicker.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        movingTicker.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        return movingTicker
-    }()
-    
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
@@ -107,7 +99,7 @@ class CategoryCell: UICollectionViewCell {
         
         backgroundSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 15))
         
-         boldSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 60))
+        boldSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 60))
         
         separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
     }
