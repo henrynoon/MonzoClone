@@ -68,6 +68,7 @@ class CategoryCell: UICollectionViewCell {
         let boldSlider = UIView()
         boldSlider.backgroundColor = UIColor(red: 0.09, green: 0.14, blue: 0.23, alpha: 1)
         boldSlider.layer.cornerRadius = 8
+        boldSlider.heightAnchor.constraint(equalToConstant: 4).isActive = true
         return boldSlider
     }()
     
@@ -100,11 +101,14 @@ class CategoryCell: UICollectionViewCell {
         addSubview(horizontalStackView)
         addSubview(backgroundSlider)
         addSubview(separatorView)
+        addSubview(boldSlider)
     
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 15, bottom: 7.5, right: 15))
         
         backgroundSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 15))
-               
+        
+         boldSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 60))
+        
         separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
     }
 }
