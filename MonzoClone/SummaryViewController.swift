@@ -20,8 +20,10 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     var allTransactions = [Transaction]() {
         didSet {
             print("We have received the transaction array")
+            groupTransactionsByCategory()
         }
     }
+    var transactionsGroupedByCategory = [[Transaction]]()
     
     //MARK:- Set-up
     
@@ -37,6 +39,21 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         return [summaryHeader]
     }()
     
+    fileprivate func groupTransactionsByCategory() {
+        
+        let groupedTransactions = Dictionary(grouping: allTransactions.reversed()) { (element) -> String in
+            guard let category = element.merchant?.category else { return "There is no category element" }
+            return category
+        }
+        
+        groupedTransactions.keys.sorted(by: >).forEach { (key) in
+            let values = groupedTransactions[key] // ie all objects that have that specific 'category' key
+            transactionsGroupedByCategory.append(values ?? [])
+        }
+        
+        print(transactionsGroupedByCategory)
+    }
+  
     //MARK: - Layout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -172,10 +172,10 @@
 		5E65B376232E8C0700DA6C47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5E34E60E2334E5F900B03EDD /* CentreLabel.swift */,
 				5E65B377232E8C2900DA6C47 /* LabelWithIcon.swift */,
 				5E8C292B2330FB5F004C8FAF /* LabelHeader.swift */,
 				5E34E60A2334D77100B03EDD /* LabelWithSwitch.swift */,
-				5E34E60E2334E5F900B03EDD /* CentreLabel.swift */,
 				5E8C292F23314CD0004C8FAF /* LabelFooter.swift */,
 				5E34E61223350E7800B03EDD /* LabelWithLabel.swift */,
 				5E4DE799233A5A700056BD98 /* Transaction.swift */,
