@@ -43,66 +43,75 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         transportCategory.categoryName = "Transport"
         transportCategory.icon = "transport"
         transportCategory.totalSpent = calculateTotalSpent(category: "transport")
+        transportCategory.transactions = groupTransactionsByCategory(category: "transport")
         
         let groceriesCategory = Category()
         groceriesCategory.categoryName = "Groceries"
         groceriesCategory.icon = "groceries"
         groceriesCategory.totalSpent = calculateTotalSpent(category: "groceries")
+        groceriesCategory.transactions = groupTransactionsByCategory(category: "groceries")
         
         let eatingOutCategory = Category()
         eatingOutCategory.categoryName = "Eating Out"
         eatingOutCategory.icon = "eating_out"
         eatingOutCategory.totalSpent = calculateTotalSpent(category: "eating_out")
+        eatingOutCategory.transactions = groupTransactionsByCategory(category: "eating_out")
         
         let financesCategory = Category()
         financesCategory.categoryName = "Finances"
         financesCategory.icon = "finances"
         financesCategory.totalSpent = calculateTotalSpent(category: "finances")
+        financesCategory.transactions = groupTransactionsByCategory(category: "finances")
         
         let billsCategory = Category()
         billsCategory.categoryName = "Bills"
         billsCategory.icon = "bills"
         billsCategory.totalSpent = calculateTotalSpent(category: "bills")
+        billsCategory.transactions = groupTransactionsByCategory(category: "bills")
         
         let entertainmentCategory = Category()
         entertainmentCategory.categoryName = "Entertainment"
         entertainmentCategory.icon = "entertainment"
         entertainmentCategory.totalSpent = calculateTotalSpent(category: "entertainment")
+        entertainmentCategory.transactions = groupTransactionsByCategory(category: "entertainment")
         
         let holidaysCategory = Category()
         holidaysCategory.categoryName = "Holidays"
         holidaysCategory.icon = "holidays"
         holidaysCategory.totalSpent = calculateTotalSpent(category: "holidays")
+        holidaysCategory.transactions = groupTransactionsByCategory(category: "holidays")
         
         let shoppingCategory = Category()
         shoppingCategory.categoryName = "Shopping"
         shoppingCategory.icon = "shopping"
         shoppingCategory.totalSpent = calculateTotalSpent(category: "shopping")
+        shoppingCategory.transactions = groupTransactionsByCategory(category: "shopping")
         
         let generalCategory = Category()
         generalCategory.categoryName = "General"
         generalCategory.icon = "general"
         generalCategory.totalSpent = calculateTotalSpent(category: "general")
+        generalCategory.transactions = groupTransactionsByCategory(category: "general")
         
         let expensesCategory = Category()
         expensesCategory.categoryName = "Expenses"
         expensesCategory.icon = "expenses"
         expensesCategory.totalSpent = calculateTotalSpent(category: "expenses")
+        expensesCategory.transactions = groupTransactionsByCategory(category: "expenses")
         
         let familyCategory = Category()
         familyCategory.categoryName = "Family"
         familyCategory.icon = "family"
         familyCategory.totalSpent = calculateTotalSpent(category: "family")
+        familyCategory.transactions = groupTransactionsByCategory(category: "family")
         
         let personalCareCategory = Category()
         personalCareCategory.categoryName = "Personal Care"
         personalCareCategory.icon = "personal_care"
         personalCareCategory.totalSpent = calculateTotalSpent(category: "personal_care")
+        personalCareCategory.transactions = groupTransactionsByCategory(category: "personal_care")
         
         return [transportCategory, groceriesCategory, eatingOutCategory, financesCategory, billsCategory, entertainmentCategory, holidaysCategory, shoppingCategory, generalCategory, expensesCategory, familyCategory, personalCareCategory]
-        
-        
-        
     }()
     
     fileprivate func groupTransactionsByCategory(category: String) -> [Transaction]  {

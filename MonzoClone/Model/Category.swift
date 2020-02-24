@@ -15,4 +15,5 @@ class Category: NSObject {
     var totalSpent: Double?
     var spendingBudget: String?
     var amountLeftToSpend: String?
+    var transactions: [Transaction]?
 }
