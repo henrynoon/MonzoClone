@@ -28,7 +28,6 @@ class CategoryCell: UICollectionViewCell {
         categoryIcon.clipsToBounds = true
         categoryIcon.layer.borderWidth = 0.5
         categoryIcon.layer.borderColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1).cgColor
-//        categoryIcon.image = UIImage(named: "groceries")
         return categoryIcon
     }()
     
@@ -36,7 +35,6 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-//        label.text = "Transport"
         return label
     }()
     
@@ -44,7 +42,6 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 9, weight: .light)
         label.textColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1)
-//        label.text = "£119 left of £180"
         return label
     }()
     
@@ -52,7 +49,6 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-//        label.text = "£61"
         return label
     }()
     
@@ -116,7 +112,15 @@ class CategoryCell: UICollectionViewCell {
             }
             
             if let amount = category?.totalSpent {
-                spentLabel.text = "\(amount)"
+                spentLabel.formatCurrency(amount: amount, currency: "GBP")
+                
+                if amount.isZero {
+                    categoryImageView.alpha = 0.42
+                    mainLabel.alpha = 0.42
+                    subLabel.alpha = 0.42
+                    subLabel.text = "No transactions"
+                    spentLabel.alpha = 0
+                }
             }
         }
     }
