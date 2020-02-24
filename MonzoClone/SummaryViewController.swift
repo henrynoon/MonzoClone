@@ -39,94 +39,96 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         return [summaryHeader]
     }()
     
-    var categoryArray: [Category] = {
+    lazy var categoryArray: [Category] = {
        
         let transportCategory = Category()
         transportCategory.categoryName = "Transport"
         transportCategory.icon = "transport"
+        transportCategory.totalSpent = calculateTotalSpent(category: "transport")
         
         let groceriesCategory = Category()
         groceriesCategory.categoryName = "Groceries"
         groceriesCategory.icon = "groceries"
+        groceriesCategory.totalSpent = calculateTotalSpent(category: "groceries")
         
         let eatingOutCategory = Category()
         eatingOutCategory.categoryName = "Eating Out"
         eatingOutCategory.icon = "eating_out"
+        eatingOutCategory.totalSpent = calculateTotalSpent(category: "eating_out")
         
         let financesCategory = Category()
         financesCategory.categoryName = "Finances"
         financesCategory.icon = "finances"
+        financesCategory.totalSpent = calculateTotalSpent(category: "finances")
         
         let billsCategory = Category()
         billsCategory.categoryName = "Bills"
         billsCategory.icon = "bills"
+        billsCategory.totalSpent = calculateTotalSpent(category: "bills")
         
         let entertainmentCategory = Category()
         entertainmentCategory.categoryName = "Entertainment"
         entertainmentCategory.icon = "entertainment"
+        entertainmentCategory.totalSpent = calculateTotalSpent(category: "entertainment")
         
         let holidaysCategory = Category()
         holidaysCategory.categoryName = "Holidays"
         holidaysCategory.icon = "holidays"
+        holidaysCategory.totalSpent = calculateTotalSpent(category: "holidays")
         
         let shoppingCategory = Category()
         shoppingCategory.categoryName = "Shopping"
         shoppingCategory.icon = "shopping"
+        shoppingCategory.totalSpent = calculateTotalSpent(category: "shopping")
         
         let generalCategory = Category()
         generalCategory.categoryName = "General"
         generalCategory.icon = "general"
+        generalCategory.totalSpent = calculateTotalSpent(category: "general")
         
         let expensesCategory = Category()
         expensesCategory.categoryName = "Expenses"
         expensesCategory.icon = "expenses"
+        expensesCategory.totalSpent = calculateTotalSpent(category: "expenses")
         
         let familyCategory = Category()
         familyCategory.categoryName = "Family"
         familyCategory.icon = "family"
+        familyCategory.totalSpent = calculateTotalSpent(category: "family")
         
         let personalCareCategory = Category()
         personalCareCategory.categoryName = "Personal Care"
         personalCareCategory.icon = "personal_care"
+        personalCareCategory.totalSpent = calculateTotalSpent(category: "personal_care")
         
         return [transportCategory, groceriesCategory, eatingOutCategory, financesCategory, billsCategory, entertainmentCategory, holidaysCategory, shoppingCategory, generalCategory, expensesCategory, familyCategory, personalCareCategory]
+        
+        
+        
     }()
     
-    fileprivate func groupTransactionsByCategory() {
+    fileprivate func calculateTotalSpent(category: String?) -> Double {
         
-        let groupedTransactions = Dictionary(grouping: allTransactions.reversed()) { (element) -> String in
+        let groupedTransactions = Dictionary(grouping: allTransactions) { (element) -> String in
             guard let category = element.merchant?.category else { return "There is no category element" }
             return category
         }
         
-        groupedTransactions.keys.sorted(by: >).forEach { (key) in
-            let transactionsForCategory = groupedTransactions[key]
-            
-            let categoryObject = Category()
-            categoryObject.categoryName = key
-            categoryObject.icon = key
-            
-            var totalSpentInCategory: Double = 0
-            
-            for i in 0...transactionsForCategory!.count-1 {
+        var totalSpentInCategory: Double = 0
+        
+        let transactionsInCategory = groupedTransactions[category!] //category always has a value...because I've hard coded it
+        
+        if let numOfTransactionsInCategory = transactionsInCategory?.count {
+            for i in 0...numOfTransactionsInCategory-1 {
                 
-                if let amount = transactionsForCategory?[i].amount {
+                if let amount = transactionsInCategory?[i].amount {
                     totalSpentInCategory += amount
                 }
             }
-         
-            categoryObject.totalSpent = totalSpentInCategory
-//            categoryObject.spendingBudget
-//            categoryObject.amountLeftToSpend
-            
-            categoryArray.append(categoryObject)
-            
-//            transactionsGroupedByCategory.append(transactionsForCategory ?? [])
         }
-        
-//        print(transactionsGroupedByCategory)
+        return totalSpentInCategory
     }
-  
+    
     //MARK: - Layout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
