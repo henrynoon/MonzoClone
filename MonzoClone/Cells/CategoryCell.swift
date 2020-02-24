@@ -103,4 +103,25 @@ class CategoryCell: UICollectionViewCell {
         
         separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
     }
+    
+    var category: Category? {
+        didSet {
+            
+            
+            
+        }
+    }
+    
+    
+    
 }
+
+
+
+/*
+ 
+ I don't want to pass each transaction through to CategoryCell because I would then have to do logic in this class to pull out the total spend of across each category. This logic should go in the View Controller, not in the View. 
+ 
+ 
+ 
+ */

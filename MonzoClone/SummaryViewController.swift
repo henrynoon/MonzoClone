@@ -23,7 +23,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
             groupTransactionsByCategory()
         }
     }
-    var transactionsGroupedByCategory = [[Transaction]]()
+//    var transactionsGroupedByCategory = [[Transaction]]()
     
     //MARK:- Set-up
     
@@ -39,6 +39,8 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         return [summaryHeader]
     }()
     
+    var categoryArray: [Category]()
+    
     fileprivate func groupTransactionsByCategory() {
         
         let groupedTransactions = Dictionary(grouping: allTransactions.reversed()) { (element) -> String in
@@ -47,11 +49,31 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         }
         
         groupedTransactions.keys.sorted(by: >).forEach { (key) in
-            let values = groupedTransactions[key] // ie all objects that have that specific 'category' key
-            transactionsGroupedByCategory.append(values ?? [])
+            let transactionsForCategory = groupedTransactions[key]
+            
+            let categoryObject = Category()
+            categoryObject.categoryName = key
+            categoryObject.icon = key
+            
+            var totalSpentInCategory: Double = 0
+            
+            for i in 0...transactionsForCategory!.count-1 {
+                
+                if let amount = transactionsForCategory?[i].amount {
+                    totalSpentInCategory += amount
+                }
+            }
+         
+            categoryObject.totalSpent = totalSpentInCategory
+//            categoryObject.spendingBudget
+//            categoryObject.amountLeftToSpend
+            
+            categoryArray.append(categoryObject)
+            
+//            transactionsGroupedByCategory.append(transactionsForCategory ?? [])
         }
         
-        print(transactionsGroupedByCategory)
+//        print(transactionsGroupedByCategory)
     }
   
     //MARK: - Layout
