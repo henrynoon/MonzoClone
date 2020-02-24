@@ -20,7 +20,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     var allTransactions = [Transaction]() {
         didSet {
             print("We have received the transaction array")
-            groupTransactionsByCategory()
+//            groupTransactionsByCategory()
         }
     }
 //    var transactionsGroupedByCategory = [[Transaction]]()
@@ -39,7 +39,58 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         return [summaryHeader]
     }()
     
-    var categoryArray = [Category]()
+    var categoryArray: [Category] = {
+       
+        let transportCategory = Category()
+        transportCategory.categoryName = "Transport"
+        transportCategory.icon = "transport"
+        
+        let groceriesCategory = Category()
+        groceriesCategory.categoryName = "Groceries"
+        groceriesCategory.icon = "groceries"
+        
+        let eatingOutCategory = Category()
+        eatingOutCategory.categoryName = "Eating Out"
+        eatingOutCategory.icon = "eating_out"
+        
+        let financesCategory = Category()
+        financesCategory.categoryName = "Finances"
+        financesCategory.icon = "finances"
+        
+        let billsCategory = Category()
+        billsCategory.categoryName = "Bills"
+        billsCategory.icon = "bills"
+        
+        let entertainmentCategory = Category()
+        entertainmentCategory.categoryName = "Entertainment"
+        entertainmentCategory.icon = "entertainment"
+        
+        let holidaysCategory = Category()
+        holidaysCategory.categoryName = "Holidays"
+        holidaysCategory.icon = "holidays"
+        
+        let shoppingCategory = Category()
+        shoppingCategory.categoryName = "Shopping"
+        shoppingCategory.icon = "shopping"
+        
+        let generalCategory = Category()
+        generalCategory.categoryName = "General"
+        generalCategory.icon = "general"
+        
+        let expensesCategory = Category()
+        expensesCategory.categoryName = "Expenses"
+        expensesCategory.icon = "expenses"
+        
+        let familyCategory = Category()
+        familyCategory.categoryName = "Family"
+        familyCategory.icon = "family"
+        
+        let personalCareCategory = Category()
+        personalCareCategory.categoryName = "Personal Care"
+        personalCareCategory.icon = "personal_care"
+        
+        return [transportCategory, groceriesCategory, eatingOutCategory, financesCategory, billsCategory, entertainmentCategory, holidaysCategory, shoppingCategory, generalCategory, expensesCategory, familyCategory, personalCareCategory]
+    }()
     
     fileprivate func groupTransactionsByCategory() {
         
