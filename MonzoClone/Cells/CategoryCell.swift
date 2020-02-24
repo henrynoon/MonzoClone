@@ -28,7 +28,7 @@ class CategoryCell: UICollectionViewCell {
         categoryIcon.clipsToBounds = true
         categoryIcon.layer.borderWidth = 0.5
         categoryIcon.layer.borderColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1).cgColor
-        categoryIcon.image = UIImage(named: "groceries")
+//        categoryIcon.image = UIImage(named: "groceries")
         return categoryIcon
     }()
     
@@ -36,7 +36,7 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-        label.text = "Transport"
+//        label.text = "Transport"
         return label
     }()
     
@@ -44,15 +44,15 @@ class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 9, weight: .light)
         label.textColor = UIColor(red: 0.44, green: 0.48, blue: 0.55, alpha: 1)
-        label.text = "£119 left of £180"
+//        label.text = "£119 left of £180"
         return label
     }()
     
-    let priceLabel: UILabel = {
+    let spentLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(red: 0.08, green: 0.14, blue: 0.24, alpha: 1)
-        label.text = "£61"
+//        label.text = "£61"
         return label
     }()
     
@@ -86,7 +86,7 @@ class CategoryCell: UICollectionViewCell {
         middleVerticalStackView.spacing = 3
         middleVerticalStackView.alignment = .leading
         
-        let horizontalStackView = UIStackView(arrangedSubviews: [categoryImageView, middleVerticalStackView, priceLabel])
+        let horizontalStackView = UIStackView(arrangedSubviews: [categoryImageView, middleVerticalStackView, spentLabel])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 15
         
@@ -107,21 +107,17 @@ class CategoryCell: UICollectionViewCell {
     var category: Category? {
         didSet {
             
+            if let name = category?.categoryName {
+                mainLabel.text = name
+            }
             
+            if let icon = category?.icon {
+                categoryImageView.image = UIImage(named: icon)
+            }
             
+            if let amount = category?.totalSpent {
+                spentLabel.text = "\(amount)"
+            }
         }
     }
-    
-    
-    
 }
-
-
-
-/*
- 
- I don't want to pass each transaction through to CategoryCell because I would then have to do logic in this class to pull out the total spend of across each category. This logic should go in the View Controller, not in the View. 
- 
- 
- 
- */

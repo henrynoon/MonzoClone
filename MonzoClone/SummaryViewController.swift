@@ -39,7 +39,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         return [summaryHeader]
     }()
     
-    var categoryArray: [Category]()
+    var categoryArray = [Category]()
     
     fileprivate func groupTransactionsByCategory() {
         
@@ -111,6 +111,8 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Creating Cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellID, for: indexPath) as! CategoryCell
+        cell.category = categoryArray[indexPath.item]
+        
         return cell
     }
     
@@ -118,7 +120,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         if section == 0 {
             return 0
         } else {
-            return 10
+            return categoryArray.count
         }
     }
     
