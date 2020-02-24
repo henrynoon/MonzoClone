@@ -20,10 +20,8 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     var allTransactions = [Transaction]() {
         didSet {
             print("We have received the transaction array")
-//            groupTransactionsByCategory()
         }
     }
-//    var transactionsGroupedByCategory = [[Transaction]]()
     
     //MARK:- Set-up
     
@@ -107,21 +105,30 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         
     }()
     
-    fileprivate func calculateTotalSpent(category: String?) -> Double {
+    fileprivate func groupTransactionsByCategory(category: String) -> [Transaction]  {
         
         let groupedTransactions = Dictionary(grouping: allTransactions) { (element) -> String in
             guard let category = element.merchant?.category else { return "There is no category element" }
             return category
         }
         
+        let arrayofTransactions = groupedTransactions[category]
+        return arrayofTransactions ?? []
+    }
+    
+    fileprivate func calculateTotalSpent(category: String) -> Double {
+        
+        let transactionsInCategory = groupTransactionsByCategory(category: category)
+        
         var totalSpentInCategory: Double = 0
         
-        let transactionsInCategory = groupedTransactions[category!] //category always has a value...because I've hard coded it
-        
-        if let numOfTransactionsInCategory = transactionsInCategory?.count {
+        if transactionsInCategory.isEmpty {
+            print("No transactions in \(category)")
+        } else {
+            let numOfTransactionsInCategory = transactionsInCategory.count
             for i in 0...numOfTransactionsInCategory-1 {
                 
-                if let amount = transactionsInCategory?[i].amount {
+                if let amount = transactionsInCategory[i].amount {
                     totalSpentInCategory += amount
                 }
             }
