@@ -18,7 +18,7 @@ class CategoryCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     let categoryImageView: UIImageView = {
         let categoryIcon = UIImageView()
         categoryIcon.widthAnchor.constraint(equalToConstant: 30).isActive = true
@@ -89,7 +89,7 @@ class CategoryCell: UICollectionViewCell {
         addSubview(backgroundSlider)
         addSubview(separatorView)
         addSubview(boldSlider)
-    
+        
         horizontalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 15, bottom: 7.5, right: 15))
         
         backgroundSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 15))
@@ -115,14 +115,6 @@ class CategoryCell: UICollectionViewCell {
                 let roundedAmount = Int((-amount/100).rounded(.up))
                 spentLabel.text = "£\(roundedAmount)"
                 
-                if amount.isZero {
-                    categoryImageView.alpha = 0.42
-                    mainLabel.alpha = 0.42
-                    subLabel.alpha = 0.42
-                    subLabel.text = "No transactions"
-                    spentLabel.alpha = 0
-                }
-                
                 if let budget = category?.spendingBudget {
                     let amountInHundredths = -amount/100
                     
@@ -141,8 +133,16 @@ class CategoryCell: UICollectionViewCell {
                     let newPadding = startingSliderWidth - newSliderWidth // padding needs to increase by this amount
                     
                     setUpLayout(rightPadding: newPadding)
-            
+                    
                     subLabel.text =  "£\(calculateAmountLeft(amountSpent: amountInHundredths, budget: budget)) left of £\(Int(budget))"
+                    
+                    if amount.isZero {
+                        categoryImageView.alpha = 0.42
+                        mainLabel.alpha = 0.42
+                        subLabel.alpha = 0.42
+                        subLabel.text = "No transactions"
+                        spentLabel.alpha = 0
+                    }
                 }
             }
         }
