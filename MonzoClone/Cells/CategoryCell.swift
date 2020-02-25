@@ -111,7 +111,9 @@ class CategoryCell: UICollectionViewCell {
             }
             
             if let amount = category?.totalSpent {
-                spentLabel.formatCurrency(amount: amount, currency: "GBP")
+                
+                let roundedAmount = Int((-amount/100).rounded(.up))
+                spentLabel.text = "£\(roundedAmount)"
                 
                 if amount.isZero {
                     categoryImageView.alpha = 0.42
@@ -139,8 +141,21 @@ class CategoryCell: UICollectionViewCell {
                     let newPadding = startingSliderWidth - newSliderWidth // padding needs to increase by this amount
                     
                     setUpLayout(rightPadding: newPadding)
+            
+                    subLabel.text =  "£\(calculateAmountLeft(amountSpent: amountInHundredths, budget: budget)) left of £\(Int(budget))"
                 }
             }
+        }
+    }
+    
+    func calculateAmountLeft(amountSpent: Double, budget: Double) -> Int {
+        
+        let amountLeftOver = budget-amountSpent
+        
+        if amountLeftOver < 0 {
+            return 0
+        } else {
+            return Int(amountLeftOver)
         }
     }
 }
