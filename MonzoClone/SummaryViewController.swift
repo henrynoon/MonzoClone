@@ -23,6 +23,20 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         }
     }
     
+    //N.B. - Hard coding these values for now. Will later make a screen for user to set them
+    let transportBudget: Double = 100
+    let groceriesBudget: Double = 30
+    let eatingOutBudget: Double = 100
+    let financesBudget: Double = 100
+    let billsBudget: Double = 100
+    let entertainmentBudget: Double = 100
+    let holidaysBudget: Double = 100
+    let shoppingBudget: Double = 60
+    let generalBudget: Double = 20
+    let expensesBudget: Double = 12
+    let familyBudget: Double = 100
+    let personalCareBudget: Double = 15
+    
     //MARK:- Set-up
     
     override func viewDidLoad() {
@@ -43,72 +57,84 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         transportCategory.categoryName = "Transport"
         transportCategory.icon = "transport"
         transportCategory.totalSpent = calculateTotalSpent(category: "transport")
+        transportCategory.spendingBudget = transportBudget
         transportCategory.transactions = groupTransactionsByCategory(category: "transport")
         
         let groceriesCategory = Category()
         groceriesCategory.categoryName = "Groceries"
         groceriesCategory.icon = "groceries"
         groceriesCategory.totalSpent = calculateTotalSpent(category: "groceries")
+        groceriesCategory.spendingBudget = groceriesBudget
         groceriesCategory.transactions = groupTransactionsByCategory(category: "groceries")
         
         let eatingOutCategory = Category()
         eatingOutCategory.categoryName = "Eating Out"
         eatingOutCategory.icon = "eating_out"
         eatingOutCategory.totalSpent = calculateTotalSpent(category: "eating_out")
+        eatingOutCategory.spendingBudget = eatingOutBudget
         eatingOutCategory.transactions = groupTransactionsByCategory(category: "eating_out")
         
         let financesCategory = Category()
         financesCategory.categoryName = "Finances"
         financesCategory.icon = "finances"
         financesCategory.totalSpent = calculateTotalSpent(category: "finances")
+        financesCategory.spendingBudget = financesBudget
         financesCategory.transactions = groupTransactionsByCategory(category: "finances")
         
         let billsCategory = Category()
         billsCategory.categoryName = "Bills"
         billsCategory.icon = "bills"
         billsCategory.totalSpent = calculateTotalSpent(category: "bills")
+        billsCategory.spendingBudget = billsBudget
         billsCategory.transactions = groupTransactionsByCategory(category: "bills")
         
         let entertainmentCategory = Category()
         entertainmentCategory.categoryName = "Entertainment"
         entertainmentCategory.icon = "entertainment"
         entertainmentCategory.totalSpent = calculateTotalSpent(category: "entertainment")
+        entertainmentCategory.spendingBudget = entertainmentBudget
         entertainmentCategory.transactions = groupTransactionsByCategory(category: "entertainment")
         
         let holidaysCategory = Category()
         holidaysCategory.categoryName = "Holidays"
         holidaysCategory.icon = "holidays"
         holidaysCategory.totalSpent = calculateTotalSpent(category: "holidays")
+        holidaysCategory.spendingBudget = holidaysBudget
         holidaysCategory.transactions = groupTransactionsByCategory(category: "holidays")
         
         let shoppingCategory = Category()
         shoppingCategory.categoryName = "Shopping"
         shoppingCategory.icon = "shopping"
         shoppingCategory.totalSpent = calculateTotalSpent(category: "shopping")
+        shoppingCategory.spendingBudget = shoppingBudget
         shoppingCategory.transactions = groupTransactionsByCategory(category: "shopping")
         
         let generalCategory = Category()
         generalCategory.categoryName = "General"
         generalCategory.icon = "general"
         generalCategory.totalSpent = calculateTotalSpent(category: "general")
+        generalCategory.spendingBudget = generalBudget
         generalCategory.transactions = groupTransactionsByCategory(category: "general")
         
         let expensesCategory = Category()
         expensesCategory.categoryName = "Expenses"
         expensesCategory.icon = "expenses"
         expensesCategory.totalSpent = calculateTotalSpent(category: "expenses")
+        expensesCategory.spendingBudget = expensesBudget
         expensesCategory.transactions = groupTransactionsByCategory(category: "expenses")
         
         let familyCategory = Category()
         familyCategory.categoryName = "Family"
         familyCategory.icon = "family"
         familyCategory.totalSpent = calculateTotalSpent(category: "family")
+        familyCategory.spendingBudget = familyBudget
         familyCategory.transactions = groupTransactionsByCategory(category: "family")
         
         let personalCareCategory = Category()
         personalCareCategory.categoryName = "Personal Care"
         personalCareCategory.icon = "personal_care"
         personalCareCategory.totalSpent = calculateTotalSpent(category: "personal_care")
+        personalCareCategory.spendingBudget = personalCareBudget
         personalCareCategory.transactions = groupTransactionsByCategory(category: "personal_care")
         
         return [transportCategory, groceriesCategory, eatingOutCategory, financesCategory, billsCategory, entertainmentCategory, holidaysCategory, shoppingCategory, generalCategory, expensesCategory, familyCategory, personalCareCategory]

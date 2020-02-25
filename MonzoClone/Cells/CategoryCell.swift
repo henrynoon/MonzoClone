@@ -121,25 +121,25 @@ class CategoryCell: UICollectionViewCell {
                     spentLabel.alpha = 0
                 }
                 
-                let budget: Double = 100
-                
-                let amountInHundredths = -amount/100
-                
-                let fractionSpent = CGFloat(amountInHundredths/budget)
-                
-                let fractionLeftToSpend = 1-fractionSpent
-                
-                let screenWidth = self.bounds.width
-                let leftHandPadding = CGFloat(60)
-                let rightHandPadding = CGFloat(15)
-                
-                let startingSliderWidth = screenWidth - leftHandPadding - rightHandPadding
-                
-                let newSliderWidth = startingSliderWidth * fractionLeftToSpend
-                
-                let newPadding = startingSliderWidth - newSliderWidth // padding needs to increase by this amount
-                
-                setUpLayout(rightPadding: newPadding)
+                if let budget = category?.spendingBudget {
+                    let amountInHundredths = -amount/100
+                    
+                    let fractionSpent = CGFloat(amountInHundredths/budget)
+                    
+                    let fractionLeftToSpend = 1-fractionSpent
+                    
+                    let screenWidth = self.bounds.width
+                    let leftHandPadding = CGFloat(60)
+                    let rightHandPadding = CGFloat(15)
+                    
+                    let startingSliderWidth = screenWidth - leftHandPadding - rightHandPadding
+                    
+                    let newSliderWidth = startingSliderWidth * fractionLeftToSpend
+                    
+                    let newPadding = startingSliderWidth - newSliderWidth // padding needs to increase by this amount
+                    
+                    setUpLayout(rightPadding: newPadding)
+                }
             }
         }
     }

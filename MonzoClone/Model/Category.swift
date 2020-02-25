@@ -13,7 +13,7 @@ class Category: NSObject {
     var categoryName: String?
     var icon: String?
     var totalSpent: Double?
-    var spendingBudget: String?
+    var spendingBudget: Double?
     var amountLeftToSpend: String?
     var transactions: [Transaction]?
 }
