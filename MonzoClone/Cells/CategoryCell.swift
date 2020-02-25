@@ -147,6 +147,8 @@ class CategoryCell: UICollectionViewCell {
                         subLabel.alpha = 0.42
                         subLabel.text = "No transactions"
                         spentLabel.alpha = 0
+                        boldSlider.isHidden = true
+                        backgroundSlider.isHidden = true
                     }
                 }
             }

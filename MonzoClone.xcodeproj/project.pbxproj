@@ -32,6 +32,7 @@
 		5E65B1BA232001A7004A4293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B8232001A7004A4293 /* LaunchScreen.storyboard */; };
 		5E65B1C4232004AD004A4293 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1C3232004AD004A4293 /* TransactionViewController.swift */; };
 		5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B377232E8C2900DA6C47 /* LabelWithIcon.swift */; };
+		5E8A580A24058DEB00D1B328 /* SegmentedControlHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A580924058DEB00D1B328 /* SegmentedControlHeaderCell.swift */; };
 		5E8C292A2330E373004C8FAF /* LabelHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C29292330E373004C8FAF /* LabelHeaderCell.swift */; };
 		5E8C292C2330FB5F004C8FAF /* LabelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292B2330FB5F004C8FAF /* LabelHeader.swift */; };
 		5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */; };
@@ -70,6 +71,7 @@
 		5E65B1BB232001A7004A4293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E65B1C3232004AD004A4293 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		5E65B377232E8C2900DA6C47 /* LabelWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIcon.swift; sourceTree = "<group>"; };
+		5E8A580924058DEB00D1B328 /* SegmentedControlHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlHeaderCell.swift; sourceTree = "<group>"; };
 		5E8C29292330E373004C8FAF /* LabelHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeaderCell.swift; sourceTree = "<group>"; };
 		5E8C292B2330FB5F004C8FAF /* LabelHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeader.swift; sourceTree = "<group>"; };
 		5E8C292D23313EAB004C8FAF /* LabelFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFooterCell.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */,
 				5E0BDC6F233E5F5600270963 /* HomeHeaderView.swift */,
 				5E3A145A24000CDB00FDD4A8 /* CategoryCell.swift */,
+				5E8A580924058DEB00D1B328 /* SegmentedControlHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				5EE224A5234A05F40062DB4A /* StickyFlowLayout.swift in Sources */,
 				5E4DE79A233A5A700056BD98 /* Transaction.swift in Sources */,
 				5E34E60F2334E5F900B03EDD /* CentreLabel.swift in Sources */,
+				5E8A580A24058DEB00D1B328 /* SegmentedControlHeaderCell.swift in Sources */,
 				5E8C292E23313EAB004C8FAF /* LabelFooterCell.swift in Sources */,
 				5E4DE79E233A607F0056BD98 /* TransactionHeaderCell.swift in Sources */,
 				5E34E61323350E7800B03EDD /* LabelWithLabel.swift in Sources */,

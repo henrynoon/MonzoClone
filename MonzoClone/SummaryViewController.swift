@@ -13,7 +13,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Properties
     
     let categoryCellID = "categoryCellID"
-    let headerZeroID = "headerID"
+    let segmentedControlHeaderID = "segmentedControlHeaderID"
     let summaryHeaderID = "summaryHeaderID"
     let footerID = "footerID"
     
@@ -223,7 +223,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     
     fileprivate func registerCells() {
           collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: categoryCellID)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerZeroID)
+        collectionView.register(SegmentedControlHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: segmentedControlHeaderID)
         collectionView.register(LabelWithLabelCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: summaryHeaderID)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
       }
@@ -258,8 +258,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         if kind == UICollectionView.elementKindSectionHeader {
             
             if indexPath.section == 0 {
-                let headerZero = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerZeroID, for: indexPath)
-                headerZero.backgroundColor = .red
+                let headerZero = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: segmentedControlHeaderID, for: indexPath) as! SegmentedControlHeaderCell
                 return headerZero
             } else {
                 let headerOne = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: summaryHeaderID, for: indexPath) as! LabelWithLabelCell
@@ -279,7 +278,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            return CGSize(width: view.frame.width, height: 200)
+            return CGSize(width: view.frame.width, height: 60)
         } else {
             return CGSize(width: view.frame.width, height: 45)
         }
