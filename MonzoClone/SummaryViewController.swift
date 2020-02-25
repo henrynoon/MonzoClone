@@ -43,7 +43,10 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         registerCells()
+        sortByAmount()
     }
+    
+    var sortedCategoryArray = [Category]()
     
     lazy var summaryHeaderArray: [LabelWithLabel] = {
         let summaryHeader = LabelWithLabel()
@@ -140,6 +143,28 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         return [transportCategory, groceriesCategory, eatingOutCategory, financesCategory, billsCategory, entertainmentCategory, holidaysCategory, shoppingCategory, generalCategory, expensesCategory, familyCategory, personalCareCategory]
     }()
     
+    
+    fileprivate func sortByAmount() {
+        
+        let groupedCategoryObjects = Dictionary(grouping: categoryArray) { (element) -> Double in
+            return element.totalSpent! //grouping by totalSpent
+        }
+        
+        groupedCategoryObjects.keys.sorted(by: <).forEach { (key) in
+            let values = groupedCategoryObjects[key]
+            
+            if key == 0 { //if totalSpent == 0, add all those Category objects to the array
+                for i in 0...values!.count-1 {
+                    sortedCategoryArray.append(values![i])
+                }
+            } else {
+                let firstAndOnlyValue = values![0]
+                sortedCategoryArray.append(firstAndOnlyValue)
+            }
+        }
+    }
+
+    
     fileprivate func groupTransactionsByCategory(category: String) -> [Transaction]  {
         
         let groupedTransactions = Dictionary(grouping: allTransactions) { (element) -> String in
@@ -206,7 +231,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Creating Cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellID, for: indexPath) as! CategoryCell
-        cell.category = categoryArray[indexPath.item]
+        cell.category = sortedCategoryArray[indexPath.item]
         
         return cell
     }
@@ -215,7 +240,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
         if section == 0 {
             return 0
         } else {
-            return categoryArray.count
+            return sortedCategoryArray.count
         }
     }
     
