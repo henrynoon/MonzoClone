@@ -122,6 +122,11 @@ class CategoryCell: UICollectionViewCell {
                     
                     let fractionLeftToSpend = 1-fractionSpent
                     
+                    if fractionLeftToSpend < 0.2 {
+                        backgroundSlider.backgroundColor = UIColor(red: 0.97, green: 0.85, blue: 0.86, alpha: 1)
+                        boldSlider.backgroundColor = UIColor(red: 0.88, green: 0.29, blue: 0.34, alpha: 1)
+                    }
+                    
                     let screenWidth = self.bounds.width
                     let leftHandPadding = CGFloat(60)
                     let rightHandPadding = CGFloat(15)

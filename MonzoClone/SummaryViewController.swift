@@ -31,7 +31,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     let billsBudget: Double = 100
     let entertainmentBudget: Double = 100
     let holidaysBudget: Double = 100
-    let shoppingBudget: Double = 60
+    let shoppingBudget: Double = 65
     let generalBudget: Double = 20
     let expensesBudget: Double = 12
     let familyBudget: Double = 100
