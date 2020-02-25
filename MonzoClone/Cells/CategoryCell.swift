@@ -13,7 +13,6 @@ class CategoryCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        setUpLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -75,7 +74,7 @@ class CategoryCell: UICollectionViewCell {
         return view
     }()
     
-    fileprivate func setUpLayout() {
+    fileprivate func setUpLayout(rightPadding: CGFloat) {
         
         let middleVerticalStackView = UIStackView(arrangedSubviews: [mainLabel, subLabel])
         middleVerticalStackView.axis = .vertical
@@ -95,7 +94,7 @@ class CategoryCell: UICollectionViewCell {
         
         backgroundSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 15))
         
-        boldSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 60))
+        boldSlider.anchor(top: horizontalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 7.5, left: 60, bottom: 11, right: 15+rightPadding))
         
         separatorView.anchor(top: nil , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 0))
     }
@@ -121,6 +120,26 @@ class CategoryCell: UICollectionViewCell {
                     subLabel.text = "No transactions"
                     spentLabel.alpha = 0
                 }
+                
+                let budget: Double = 100
+                
+                let amountInHundredths = -amount/100
+                
+                let fractionSpent = CGFloat(amountInHundredths/budget)
+                
+                let fractionLeftToSpend = 1-fractionSpent
+                
+                let screenWidth = self.bounds.width
+                let leftHandPadding = CGFloat(60)
+                let rightHandPadding = CGFloat(15)
+                
+                let startingSliderWidth = screenWidth - leftHandPadding - rightHandPadding
+                
+                let newSliderWidth = startingSliderWidth * fractionLeftToSpend
+                
+                let newPadding = startingSliderWidth - newSliderWidth // padding needs to increase by this amount
+                
+                setUpLayout(rightPadding: newPadding)
             }
         }
     }
