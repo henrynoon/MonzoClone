@@ -111,6 +111,27 @@ class CategoryCell: UICollectionViewCell {
         isHighlighted = false
     }
     
+    
+    override var isHighlighted: Bool {
+        didSet {
+            let duration = isHighlighted ? 0.00001 : 3
+            let highlightColor = isHighlighted ?
+                UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            let animations = {
+                self.backgroundColor = highlightColor
+            }
+            
+            UIView.animate(withDuration: duration,
+                           delay: 0,
+                           usingSpringWithDamping: 1.0,
+                           initialSpringVelocity: 0.0,
+                           options: [.allowUserInteraction, .beginFromCurrentState],
+                           animations: animations,
+                           completion: nil)
+        }
+    }
+    
+    
     var category: Category? {
         didSet {
             
@@ -161,6 +182,7 @@ class CategoryCell: UICollectionViewCell {
                         spentLabel.alpha = 0
                         boldSlider.isHidden = true
                         backgroundSlider.isHidden = true
+                        self.isUserInteractionEnabled = false
                     }
                 }
             }
