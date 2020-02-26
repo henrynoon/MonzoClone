@@ -13,7 +13,6 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Properties
     
     let categoryCellID = "categoryCellID"
-    let segmentedControlHeaderID = "segmentedControlHeaderID"
     let summaryHeaderID = "summaryHeaderID"
     let footerID = "footerID"
     
@@ -42,6 +41,7 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
+        navigationItem.title = "Summary"
         registerCells()
         sortByAmount()
     }
@@ -218,30 +218,24 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Registration
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        1
     }
     
     fileprivate func registerCells() {
-          collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: categoryCellID)
-        collectionView.register(SegmentedControlHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: segmentedControlHeaderID)
         collectionView.register(LabelWithLabelCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: summaryHeaderID)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
-      }
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: categoryCellID)
+        collectionView.register(LabelFooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerID)
+    }
     
     //MARK: - Creating Cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellID, for: indexPath) as! CategoryCell
         cell.category = sortedCategoryArray[indexPath.item]
-        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 0
-        } else {
             return sortedCategoryArray.count
-        }
     }
     
     
@@ -257,19 +251,12 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             
-            if indexPath.section == 0 {
-                let headerZero = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: segmentedControlHeaderID, for: indexPath) as! SegmentedControlHeaderCell
-                return headerZero
-            } else {
-                let headerOne = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: summaryHeaderID, for: indexPath) as! LabelWithLabelCell
-                headerOne.labelWithLabel = summaryHeaderArray[indexPath.item]
-                return headerOne
-            }
-            
-            
+            let summaryHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: summaryHeaderID, for: indexPath) as! LabelWithLabelCell
+            summaryHeader.labelWithLabel = summaryHeaderArray[indexPath.item]
+            return summaryHeader
+
         } else { // It's a footer
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
-            footer.backgroundColor = .yellow
             return footer
         }
     }
@@ -277,22 +264,13 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     //MARK: - Setting size of Headers
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if section == 0 {
-            return CGSize(width: view.frame.width, height: 60)
-        } else {
-            return CGSize(width: view.frame.width, height: 45)
-        }
+        return CGSize(width: view.frame.width, height: 45)
     }
     
     
     //MARK: - Setting size of Footers
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if section == 1 {
-            return CGSize(width: view.frame.width, height: 50)
-        } else {
-            return .zero
-        }
+        return CGSize(width: view.frame.width, height: 100)
     }
-    
 }
