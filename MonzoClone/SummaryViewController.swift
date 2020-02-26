@@ -280,11 +280,11 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
-        let selectedCategory = sortedCategoryArray[indexPath.item]
+        let categoryAtIndex = sortedCategoryArray[indexPath.item]
         
         let categoryTransactionVC = CategoryTransactionsViewController()
         
-        //need to pass selectedCategory through to categoryTransactionVC here
+        categoryTransactionVC.selectedCategory = categoryAtIndex
         
         self.navigationController?.pushViewController(categoryTransactionVC, animated: true)
     }
