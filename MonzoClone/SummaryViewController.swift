@@ -273,4 +273,19 @@ class SummaryViewController: UICollectionViewController, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
     }
+    
+    
+    //MARK: - Segue
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      
+        let selectedCategory = sortedCategoryArray[indexPath.item]
+        
+        let categoryTransactionVC = CategoryTransactionsViewController()
+        
+        //need to pass selectedCategory through to categoryTransactionVC here
+        
+        self.navigationController?.pushViewController(categoryTransactionVC, animated: true)
+    }
 }

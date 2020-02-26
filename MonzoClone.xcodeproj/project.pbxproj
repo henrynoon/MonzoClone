@@ -26,6 +26,8 @@
 		5E4DE798233A33640056BD98 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4DE797233A33640056BD98 /* TransactionCell.swift */; };
 		5E4DE79A233A5A700056BD98 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4DE799233A5A700056BD98 /* Transaction.swift */; };
 		5E4DE79E233A607F0056BD98 /* TransactionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */; };
+		5E5682E02406C0A000CC7008 /* CategoryTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5682DF2406C0A000CC7008 /* CategoryTransactionsViewController.swift */; };
+		5E5682E22406C21700CC7008 /* CategorySummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5682E12406C21700CC7008 /* CategorySummaryHeaderView.swift */; };
 		5E65B1B0232001A6004A4293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65B1AF232001A6004A4293 /* AppDelegate.swift */; };
 		5E65B1B5232001A6004A4293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B3232001A6004A4293 /* Main.storyboard */; };
 		5E65B1B7232001A7004A4293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E65B1B6232001A7004A4293 /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		5E4DE797233A33640056BD98 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		5E4DE799233A5A700056BD98 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderCell.swift; sourceTree = "<group>"; };
+		5E5682DF2406C0A000CC7008 /* CategoryTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTransactionsViewController.swift; sourceTree = "<group>"; };
+		5E5682E12406C21700CC7008 /* CategorySummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySummaryHeaderView.swift; sourceTree = "<group>"; };
 		5E65B1AC232001A6004A4293 /* MonzoClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonzoClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E65B1AF232001A6004A4293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E65B1B4232001A6004A4293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				5E4DE79D233A607F0056BD98 /* TransactionHeaderCell.swift */,
 				5E0BDC6F233E5F5600270963 /* HomeHeaderView.swift */,
 				5E3A145A24000CDB00FDD4A8 /* CategoryCell.swift */,
+				5E5682E12406C21700CC7008 /* CategorySummaryHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				5E1FC8E32338CCC8006C4397 /* HomeViewController.swift */,
 				5E65B1C3232004AD004A4293 /* TransactionViewController.swift */,
 				5E33C77E23980E340025F612 /* SummaryViewController.swift */,
+				5E5682DF2406C0A000CC7008 /* CategoryTransactionsViewController.swift */,
 				5E33C77C239808770025F612 /* CustomTabBarController.swift */,
 				5E26A4E9234248AB004831BB /* MonzoTransactions.json */,
 				5EE224A8234A5BB70062DB4A /* MonzoBalance.json */,
@@ -336,11 +342,13 @@
 				5E1350532323CF5700E84F8D /* LargeHeaderCell.swift in Sources */,
 				5E8C292A2330E373004C8FAF /* LabelHeaderCell.swift in Sources */,
 				5E1350562323CF9800E84F8D /* Utilities.swift in Sources */,
+				5E5682E22406C21700CC7008 /* CategorySummaryHeaderView.swift in Sources */,
 				5E0BDC70233E5F5600270963 /* HomeHeaderView.swift in Sources */,
 				5E1350582326ACD400E84F8D /* StretchyFlowLayout.swift in Sources */,
 				5E34E60B2334D77100B03EDD /* LabelWithSwitch.swift in Sources */,
 				5E33C77D239808770025F612 /* CustomTabBarController.swift in Sources */,
 				5E65B378232E8C2900DA6C47 /* LabelWithIcon.swift in Sources */,
+				5E5682E02406C0A000CC7008 /* CategoryTransactionsViewController.swift in Sources */,
 				5E34E60D2334DDB100B03EDD /* CentreLabelCell.swift in Sources */,
 				5EE224A5234A05F40062DB4A /* StickyFlowLayout.swift in Sources */,
 				5E4DE79A233A5A700056BD98 /* Transaction.swift in Sources */,
