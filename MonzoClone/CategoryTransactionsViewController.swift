@@ -140,4 +140,22 @@ class CategoryTransactionsViewController: UIViewController, UICollectionViewDele
             return .zero
         }
     }
+    
+    
+    //MARK: - Segue
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let transactionAtIndex = transactionsGroupedByDate[indexPath.section][indexPath.row]
+        
+        let transactionVC = TransactionViewController(collectionViewLayout: StretchyFlowLayout())
+        
+        transactionVC.selectedTransaction = transactionAtIndex
+        
+        guard let upgroupedTransactions = selectedCategory?.transactions else {return}
+        
+        transactionVC.allTransactions = upgroupedTransactions
+        
+        self.navigationController?.pushViewController(transactionVC, animated: true)
+    }
 }
