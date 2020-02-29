@@ -28,7 +28,7 @@ The overall aim is to create new ways of visualising my spending.
 
 - [ ] For TfL transactions, remove map showing location
 
-- [ ] Create the 'Summary' screen that places transactions into categories
+- [x] Create the 'Summary' screen that places transactions into categories
 
 - [ ] Create a new screen that displays amount spent per merchant since payday...this is where the real fun begins!
 
